@@ -1,0 +1,11 @@
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<GridPane fx:controller="main.MainController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
+          stylesheets="/main/main_menu.css">
+    <Label text="Lookup Tool"/>
+    <Button text="Go Back"
+            onAction="#openMainMenu"/>
+</GridPane>
