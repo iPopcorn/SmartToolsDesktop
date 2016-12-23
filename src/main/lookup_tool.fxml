@@ -6,6 +6,7 @@
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
           stylesheets="/main/main_menu.css">
     <Label text="Lookup Tool"/>
-    <Button text="Go Back"
+    <Button fx:id="btnLookupBack"
+            text="Go Back"
             onAction="#openMainMenu"/>
 </GridPane>
