@@ -1,12 +1,39 @@
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<GridPane fx:controller="main.MainController"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
-          stylesheets="/main/main_menu.css">
-    <Button text="Generate Report"
-            onAction="#openGenerateReportScene"/>
-    <Button text="Lookup Tool"
-            onAction="#openLookupScene"
-            fx:id="btnOpenLookup"/>
-</GridPane>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:controller="main.MainController"
+            maxHeight="-Infinity"
+            maxWidth="-Infinity"
+            minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="400.0"
+            prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="btnOpenLookup"
+              layoutX="248.0"
+              layoutY="175.0"
+              mnemonicParsing="false"
+              prefHeight="25.0"
+              prefWidth="104.0"
+              text="Lookup Tool"
+              onAction="#changeScene" />
+      <Button fx:id="btnOpenAddTool"
+              layoutX="248.0"
+              layoutY="200.0"
+              mnemonicParsing="false"
+              prefHeight="25.0"
+              prefWidth="104.0"
+              text="Add Tool"
+              onAction="#changeScene" />
+      <Button fx:id="btnOpenReport"
+              layoutX="248.0"
+              layoutY="150.0"
+              mnemonicParsing="false"
+              text="Generate Report"
+              onAction="#changeScene" />
+   </children>
+</AnchorPane>
