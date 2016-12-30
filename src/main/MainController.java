@@ -3,6 +3,7 @@
  *
  * TODO: Keep description of MainController.java updated
  * **/
+
 package main;
 
 import javafx.event.ActionEvent;
@@ -50,7 +51,7 @@ public class MainController {
 
         // create new scene with stage and root
         if(stage != null && root != null){
-            Scene scene = new Scene(root, 500, 500);
+            Scene scene = new Scene(root, 640, 480);
             stage.setScene(scene);
             stage.show();
         }else{
@@ -79,7 +80,7 @@ public class MainController {
 
         // create new scene with stage and root
         if(stage != null && root != null){
-            Scene scene = new Scene(root, 500, 500);
+            Scene scene = new Scene(root, 640, 480);
             stage.setScene(scene);
             stage.show();
         }else{

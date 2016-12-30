@@ -14,13 +14,14 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        System.out.println("Hello, World!");
         // set stage
         myStage = primaryStage;
 
         // create root objects for scene, connecting them to fxml files
         Parent mainMenuRoot = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
         //Parent lookupToolRoot = FXMLLoader.load(getClass().getResource("lookup_tool.fxml"));
-        mainMenu = new Scene(mainMenuRoot, 500, 500);
+        mainMenu = new Scene(mainMenuRoot, 640, 480);
         myStage.setTitle("Desktop App");
         myStage.setScene(mainMenu);
         myStage.show();
