@@ -3,37 +3,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane fx:controller="main.MainController"
-            maxHeight="-Infinity"
-            maxWidth="-Infinity"
-            minHeight="-Infinity"
-            minWidth="-Infinity"
-            prefHeight="400.0"
-            prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
    <children>
-      <Button fx:id="btnOpenLookup"
-              layoutX="248.0"
-              layoutY="175.0"
-              mnemonicParsing="false"
-              prefHeight="25.0"
-              prefWidth="104.0"
-              text="Lookup Tool"
-              onAction="#changeScene" />
-      <Button fx:id="btnOpenAddTool"
-              layoutX="248.0"
-              layoutY="200.0"
-              mnemonicParsing="false"
-              prefHeight="25.0"
-              prefWidth="104.0"
-              text="Add Tool"
-              onAction="#changeScene" />
-      <Button fx:id="btnOpenReport"
-              layoutX="248.0"
-              layoutY="150.0"
-              mnemonicParsing="false"
-              text="Generate Report"
-              onAction="#changeScene" />
+      <Button fx:id="btnOpenLookup" layoutX="248.0" layoutY="175.0" mnemonicParsing="false" onAction="#changeScene" prefHeight="27.0" prefWidth="120.0" text="Lookup Tool" />
+      <Button fx:id="btnOpenAddTool" layoutX="248.0" layoutY="200.0" mnemonicParsing="false" onAction="#changeScene" prefHeight="27.0" prefWidth="120.0" text="Add Tool" />
+      <Button fx:id="btnOpenReport" layoutX="248.0" layoutY="150.0" mnemonicParsing="false" onAction="#changeScene" prefHeight="27.0" prefWidth="120.0" text="Generate Report" />
    </children>
 </AnchorPane>
