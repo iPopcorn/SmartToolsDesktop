@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,6 +25,9 @@ public class MainController {
     public Button btnLookupBack;
     public Button btnGenReportBack;
     public Button btnAddToolBack;
+    public Button btnAddToolSubmit;
+    public MenuButton btnAddToolAddress;
+    public MenuButton btnAddToolName;
 
     /**
      * changeScene() is the function that is called when a button on the main menu is pressed.
@@ -67,13 +71,17 @@ public class MainController {
             // get reference to button's stage
             stage = (Stage) btnLookupBack.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
-        }else if(actionEvent.getSource() == btnAddToolBack){
+        }else if(actionEvent.getSource() == btnAddToolBack){ //TODO: btnAddToolBack is not being read from add_tool.fxml
             stage = (Stage) btnAddToolBack.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
+            System.out.println("Back Button Pressed in Add Tool");
         }else if(actionEvent.getSource() == btnGenReportBack){
             stage = (Stage) btnGenReportBack.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
-        }else{
+        }/*else if(actionEvent.getSource() == btnAddToolBack){
+            stage = (Stage) btnAddToolBack.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
+        }*/else{
             stage = null;
             root = null;
         }
