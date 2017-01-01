@@ -6,13 +6,16 @@
 
 package main;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -95,5 +98,18 @@ public class MainController {
             System.out.println("Stage or root is null!");
         }
 
+    }
+
+    public void addToolSubmit(){
+        System.out.println("addToolSubmit()");
+        ObservableList<MenuItem> toolList = btnAddToolName.getItems();
+        CheckMenuItem temp;
+        for(int i = 0; i < toolList.size(); i++){
+            temp = (CheckMenuItem) toolList.get(i);
+            if(temp.isSelected()){
+                System.out.printf("%s is selected\n",temp.getId());
+            }
+            //System.out.print(toolList.get(i).toString());
+        }
     }
 }
