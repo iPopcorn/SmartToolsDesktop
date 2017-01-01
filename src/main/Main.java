@@ -12,8 +12,22 @@ public class Main extends Application {
     public Scene lookupTool;
     public Scene generateReport;
 
+    /*
+     * TEST CLASS
+     */
+
+    ServerResponse serverResponse;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
+        /*
+         * TEST
+         */
+
+        serverResponse = new ServerResponse();
+        String response = serverResponse.getResponse("cse-4322/invitations/invitations.php");
+        System.out.println(response);
+
         // set stage
         myStage = primaryStage;
 
