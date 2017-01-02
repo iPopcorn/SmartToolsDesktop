@@ -24,9 +24,9 @@ public class Main extends Application {
          * TEST
          */
 
-        serverResponse = new ServerResponse();
+        /*serverResponse = new ServerResponse();
         String response = serverResponse.getResponse("cse-4322/invitations/invitations.php");
-        System.out.println(response);
+        System.out.println(response);*/
 
         // set stage
         myStage = primaryStage;
