@@ -10,9 +10,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,10 +24,14 @@ public class MainController {
     public Button btnOpenLookup;
     public Button btnOpenAddTool;
     public Button btnOpenReport;
+    public Button btnOpenAdmin;
     public Button btnLookupBack;
     public Button btnGenReportBack;
     public Button btnAddToolBack;
+    public Button btnAdminBack;
     public Button btnAddToolSubmit;
+    public Button btnSwitchAddTool;
+
     public MenuButton btnAddToolAddress;
     public MenuButton btnAddToolName;
     public TextField txtTagID;
@@ -49,6 +55,9 @@ public class MainController {
         }else if(actionEvent.getSource() == btnOpenReport){
             stage = (Stage) btnOpenReport.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("generate_report.fxml"));
+        }else if(actionEvent.getSource() == btnOpenAdmin) {
+            stage = (Stage) btnOpenAdmin.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("admin.fxml"));
         }else{
             stage = null;
             root = null;
@@ -78,6 +87,9 @@ public class MainController {
             System.out.println("Back Button Pressed in Add Tool");
         }else if(actionEvent.getSource() == btnGenReportBack){
             stage = (Stage) btnGenReportBack.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
+        }else if(actionEvent.getSource() == btnAdminBack) {
+            stage = (Stage) btnAdminBack.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
         }/*else if(actionEvent.getSource() == btnAddToolBack){
             stage = (Stage) btnAddToolBack.getScene().getWindow();
@@ -150,5 +162,27 @@ public class MainController {
         }
 
         return queryValues;
+    }
+
+    public void switchToAddTool(ActionEvent actionEvent) throws IOException {
+
+
+        if( actionEvent.getSource() == btnSwitchAddTool)
+        {
+            System.out.println("btnSwitchAddTool");
+            System.out.println(btnSwitchAddTool.getScene().getRoot().getId().toString());
+            for(Node node: btnSwitchAddTool.getScene().getRoot().getChildrenUnmodifiable())
+            {
+                if(node.getId() != null) {
+                    System.out.println(node.getId());
+                    if(node.getId().matches("adminPane")) {
+                        System.out.println("adminPane");
+                        Parent root = FXMLLoader.load(getClass().getResource("add_tool.fxml"));
+                        ((Pane) node).getChildren().add(root);
+                    }
+                }
+            }
+        }
+
     }
 }
