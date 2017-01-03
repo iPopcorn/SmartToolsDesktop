@@ -18,6 +18,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 public class MainController {
 
@@ -112,17 +113,16 @@ public class MainController {
 
     /**
      * addToolSubmit() is the function that is called when the submit button of the add tool screen is pressed.
-     * This function grabs the data from the GUI and returns it as an array of strings, ready to be entered into
-     * a DB query
+     * This function grabs the data from the GUI and places it in a HashMap.
      * **/
-    public String[] addToolSubmit(){
+    public void addToolSubmit(){
         System.out.println("addToolSubmit()");
 
         // read string from text field
         String tagID = txtTagID.getText();
 
-        // store all values in an array, ready to be inserted into a query
-        String[] queryValues = new String[3];
+        // create HashMap to store values
+        HashMap<String,String> queryValues = new HashMap(3);
 
         // get list of items for the tools and the addresses
         // TODO: address list should be generated based on tool list selection
@@ -152,16 +152,16 @@ public class MainController {
         }
 
         if(lastSelectedAddress != null && lastSelectedTool != null){
-            queryValues[0] = tagID;
-            queryValues[1] = lastSelectedTool.getText();
-            queryValues[2] = lastSelectedAddress.getText();
-            System.out.printf("tag ID: %s\nTool Name: %s\nAddress: %s\n", queryValues[0], queryValues[1], queryValues[2]);
+            queryValues.put("tagID", tagID);
+            queryValues.put("toolName", lastSelectedTool.getText());
+            queryValues.put("toolAddress", lastSelectedAddress.getText());
+            System.out.printf("tag ID: %s\nTool Name: %s\nAddress: %s\n", queryValues.get("tagID"), queryValues.get("toolName"), queryValues.get("toolAddress"));
         }else{
             // TODO: add error label for non-selection
             System.out.printf("Either address or tool name not selected.");
         }
 
-        return queryValues;
+        //return queryValues;
     }
 
     public void switchToAddTool(ActionEvent actionEvent) throws IOException {
