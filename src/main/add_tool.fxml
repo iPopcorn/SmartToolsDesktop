@@ -11,11 +11,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
    <children>
-      <TextField layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="444.0" />
+      <TextField fx:id="txtTagID" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="444.0" />
       <MenuButton fx:id="btnAddToolAddress" layoutX="15.0" layoutY="111.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="444.0" text="Address">
          <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
+            <CheckMenuItem fx:id="address1" mnemonicParsing="false" text="Address1" />
+            <CheckMenuItem fx:id="address2" mnemonicParsing="false" text="Address2" />
          </items>
       </MenuButton>
       <Label layoutX="473.0" layoutY="60.0" prefHeight="36.0" prefWidth="117.0" text="Tool Name">
@@ -42,8 +42,8 @@
       </Label>
       <MenuButton fx:id="btnAddToolName" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="444.0" text="Name">
         <items>
-          <CheckMenuItem fx:id="item1" mnemonicParsing="false" text="CheckMenuItem1" />
-          <CheckMenuItem fx:id="item2" mnemonicParsing="false" text="CheckMenuItem2" />
+          <CheckMenuItem fx:id="toolName1" mnemonicParsing="false" text="CheckMenuItem1" />
+          <CheckMenuItem fx:id="toolName2" mnemonicParsing="false" text="CheckMenuItem2" />
         </items>
       </MenuButton>
    </children>
