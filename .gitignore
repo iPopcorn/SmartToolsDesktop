@@ -4,6 +4,7 @@ ehthumbs.db
 
 # Folder config file
 Desktop.ini
+.idea
 .idea/misc.xml
 .idea/modules.xml
 .idea/vcs.xml
