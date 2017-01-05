@@ -1,12 +1,12 @@
 package main;
 
-import javax.net.ssl.HttpsURLConnection;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
 
 
 /**
@@ -30,11 +30,15 @@ public class ServerRequest {
      * and POST data sent.
      * An example path parameter input would be "tools/get-tools.php".
      */
-    public void getResponseFromRequest(String serverPath) {
+    public void getResponseFromRequest(String serverPath, HashMap<String, String> POSTdata) {
+
         String myURL = serverIP + serverPath;
         StringBuilder sb = new StringBuilder();
         System.out.println("Requested URL: " + myURL);
         HttpURLConnection urlConn = null;
+        String urlParameters = "";
+        String tempVal = "";
+
 
         try {
             URL url = new URL(myURL);
@@ -42,9 +46,16 @@ public class ServerRequest {
 
             // adding request header
             urlConn.setRequestMethod("POST"); // setting the request method
-//            urlConn.setRequestProperty("User-Agent", "TEST-USER-AGENT");
 
-            String urlParameters = "var=post_worked";
+            if (POSTdata != null) {
+
+                for (String key : POSTdata.keySet()) {
+                    tempVal = POSTdata.get(key);
+                    urlParameters += key + "=" + tempVal + "&";
+                }
+            }
+            urlParameters = urlParameters.substring(0, urlParameters.length() - 1); // removing the final '&'
+            System.out.println(urlParameters);
 
             // Send post request
             urlConn.setDoOutput(true);
