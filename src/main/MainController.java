@@ -2,6 +2,7 @@
  * MainController.java is the class that holds all the logic connected to the GUIs.
  *
  * TODO: Keep description of MainController.java updated
+ * TODO: addTool needs to handle when a duplicate tagID is used, confirm overwrite from user
  * **/
 
 package main;
@@ -121,6 +122,8 @@ public class MainController {
         // read string from text field
         String tagID = txtTagID.getText();
 
+        String path = "/test/test.php";
+
         // create HashMap to store values
         HashMap<String,String> queryValues = new HashMap(3);
 
@@ -161,6 +164,8 @@ public class MainController {
             System.out.printf("Either address or tool name not selected.");
         }
 
+        ServerRequest request = new ServerRequest();
+        request.getResponseFromRequest(path);
         //return queryValues;
     }
 
