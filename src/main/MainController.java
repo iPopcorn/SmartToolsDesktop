@@ -18,11 +18,13 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import javax.xml.ws.Action;
 import java.io.IOException;
 import java.util.HashMap;
 
 public class MainController {
 
+    public Button btnAddToolRefresh;
     public Button btnOpenLookup;
     public Button btnOpenAddTool;
     public Button btnOpenReport;
@@ -165,8 +167,13 @@ public class MainController {
         }
 
         ServerRequest request = new ServerRequest();
-        request.getResponseFromRequest(path);
+        request.getResponseFromRequest(path, queryValues);
         //return queryValues;
+    }
+
+    public void addToolRefresh(ActionEvent actionEvent) throws IOException {
+        ReaderThread myReaderThread = new ReaderThread("169.254.126.52");
+        myReaderThread.run();
     }
 
     public void switchToAddTool(ActionEvent actionEvent) throws IOException {

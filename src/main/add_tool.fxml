@@ -4,12 +4,11 @@
 <?import javafx.scene.control.CheckMenuItem?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
    <children>
       <TextField fx:id="txtTagID" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="444.0" />
       <MenuButton fx:id="btnAddToolAddress" layoutX="15.0" layoutY="111.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="444.0" text="Address">
@@ -29,11 +28,9 @@
          </font>
       </Label>
 
-      <Button fx:id="btnAddToolBack" layoutX="14.0" layoutY="326.0" mnemonicParsing="false"
-              onAction="#openMainMenu" prefHeight="60.0" prefWidth="170.0" text="Go Back" />
+      <Button fx:id="btnAddToolBack" layoutX="14.0" layoutY="326.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="60.0" prefWidth="170.0" text="Go Back" />
 
-      <Button fx:id="btnAddToolSubmit" layoutX="414.0" layoutY="325.0" mnemonicParsing="false"
-              onAction="#addToolSubmit" prefHeight="60.0" prefWidth="170.0" text="Submit" />
+      <Button fx:id="btnAddToolSubmit" layoutX="414.0" layoutY="325.0" mnemonicParsing="false" onAction="#addToolSubmit" prefHeight="60.0" prefWidth="170.0" text="Submit" />
 
       <Label layoutX="514.0" layoutY="13.0" prefHeight="36.0" prefWidth="68.0" text="Tag ID">
          <font>
@@ -46,5 +43,6 @@
           <CheckMenuItem fx:id="toolName2" mnemonicParsing="false" text="CheckMenuItem2" />
         </items>
       </MenuButton>
+      <Button fx:id="btnAddToolRefresh" onAction="#addToolRefresh" layoutX="274.0" layoutY="343.0" mnemonicParsing="false" text="Refresh" />
    </children>
 </AnchorPane>

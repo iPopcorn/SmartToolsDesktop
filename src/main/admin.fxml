@@ -9,7 +9,7 @@
    <children>
       <Button fx:id="btnAdminBack" layoutX="14.0" layoutY="441.0" mnemonicParsing="false" onAction="#openMainMenu" text="Go Back" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
       <Pane fx:id="adminPane" layoutY="40.0" prefHeight="398.0" prefWidth="640.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
-      <ToolBar layoutY="1.0" prefHeight="40.0" prefWidth="640.0">
+      <ToolBar prefHeight="40.0" prefWidth="640.0">
         <items>
           <Button fx:id="btnSwitchAddTool" mnemonicParsing="false" onAction="#switchToAddTool" text="Add Tool" />
         </items>

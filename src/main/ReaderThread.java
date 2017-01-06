@@ -4,6 +4,9 @@ import com.impinj.octane.ImpinjReader;
 import com.impinj.octane.OctaneSdkException;
 import com.impinj.octane.Settings;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  * Created by Taylor on 1/3/2017.
  */
@@ -41,6 +44,13 @@ public class ReaderThread extends Thread {
 
             // start reader
             this.reader.start();
+            long start = System.currentTimeMillis();
+            long end = start + 1000; // 60 seconds * 1000 ms/sec
+            while (System.currentTimeMillis() < end)
+            {
+                // run
+            }
+            this.reader.stop();
 
 
         }catch(OctaneSdkException e){
