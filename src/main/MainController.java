@@ -24,6 +24,9 @@ import java.util.HashMap;
 
 public class MainController {
 
+    private ReaderThread currentReader;
+    private String hostname = "169.254.126.52";
+
     public Button btnAddToolRefresh;
     public Button btnOpenLookup;
     public Button btnOpenAddTool;
@@ -39,6 +42,15 @@ public class MainController {
     public MenuButton btnAddToolAddress;
     public MenuButton btnAddToolName;
     public TextField txtTagID;
+
+    public void genReportStartScanning(){
+        System.out.printf("genReportStartScanning()");
+        this.currentReader = new ReaderThread(this.hostname);
+    }
+
+    public void genReportStopScanning(){
+        System.out.printf("genReportStopScanning()");
+    }
 
     /**
      * changeScene() is the function that is called when a button on the main menu is pressed.
@@ -172,8 +184,13 @@ public class MainController {
     }
 
     public void addToolRefresh(ActionEvent actionEvent) throws IOException {
-        ReaderThread myReaderThread = new ReaderThread("169.254.126.52");
+        ReaderThread myReaderThread = new ReaderThread(this.hostname);
         myReaderThread.run();
+        while(myReaderThread.isAlive()){}
+        HashMap<String, Integer> tagValues = myReaderThread.getTagValues();
+        for(String key : tagValues.keySet()){
+            System.out.printf("Tag ID: %s\nCount: %d\n", key, tagValues.get(key));
+        }
     }
 
     public void switchToAddTool(ActionEvent actionEvent) throws IOException {

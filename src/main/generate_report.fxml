@@ -13,9 +13,11 @@
       <Button fx:id="btnGenReportBack" layoutY="374.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="25.0" prefWidth="95.0" text="Go Back" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
       <ToolBar prefHeight="35.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <items>
-          <Button mnemonicParsing="false" text="Pull Report" />
+            <Button mnemonicParsing="false" text="Pull Report" />
             <Button mnemonicParsing="false" text="Export to CSV" />
             <Button mnemonicParsing="false" text="Email" />
+            <Button fx:id="btnGenReportStart" onAction="#genReportStartScanning" mnemonicParsing="false" text="Start Scanning"/>
+            <Button fx:id="btnGenReportStop" onAction="#genReportStopScanning" mnemonicParsing="false" text="Stop Scanning"/>
         </items>
       </ToolBar>
    </children>
