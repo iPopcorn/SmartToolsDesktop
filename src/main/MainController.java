@@ -20,12 +20,16 @@ import javafx.stage.Stage;
 
 import javax.xml.ws.Action;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainController {
 
     private ReaderThread currentReader;
     private String hostname = "169.254.126.52";
+    private ArrayList<String> genReportTagList;
+    private HashMap<String, String> addressMap;
+    private ArrayList<Triplet<String, String, Boolean>> comparisonMap;
 
     public Button btnAddToolRefresh;
     public Button btnOpenLookup;
@@ -45,11 +49,49 @@ public class MainController {
 
     public void genReportStartScanning(){
         System.out.printf("genReportStartScanning()");
-        this.currentReader = new ReaderThread(this.hostname);
+        this.currentReader = new ReaderThread(this.hostname, "generate_report");
     }
 
+    // TODO: optimize comparison algorith in genReportStopScanning()
     public void genReportStopScanning(){
         System.out.printf("genReportStopScanning()");
+        this.currentReader.stopReader();
+
+        // grab tag list from reader
+        this.genReportTagList = this.currentReader.getGenReportTagValues();
+
+        // compare tag list with address map
+        this.addressMap = this.getAddressMapFromDB();
+        this.comparisonMap = new ArrayList<>();
+        Triplet<String, String, Boolean> temp;
+
+        // populate comparisonMap, setting every triplet to false
+        for (String key:this.addressMap.keySet()) { // for each tagID in the tagList
+            temp = new Triplet(key, this.addressMap.get(key), false);
+            comparisonMap.add(temp);
+        }
+        // for each id in the tag list find id in comparisonMap and mark True
+        // todo: this is O(n^2), we need to optimize it.
+        for(String tagId : this.genReportTagList){
+            for(Triplet item : comparisonMap){
+                if(tagId.equals(item.getFirst())){
+                    item.setThird(true);
+                }
+            }
+        }
+    }
+
+    /**
+     * getAddressMapFromDB() grabs the address map from the database
+     * TODO: implement logic for the getAddressMapFromDB() method.
+     * **/
+    private HashMap<String, String> getAddressMapFromDB() {
+        // temporary logic for the sake of finishing generate report logic.
+        HashMap<String, String> tempMap = new HashMap<>();
+        tempMap.put("EPC1", "1A1");
+        tempMap.put("EPC2", "1A2");
+
+        return tempMap;
     }
 
     /**
@@ -184,7 +226,7 @@ public class MainController {
     }
 
     public void addToolRefresh(ActionEvent actionEvent) throws IOException {
-        ReaderThread myReaderThread = new ReaderThread(this.hostname);
+        ReaderThread myReaderThread = new ReaderThread(this.hostname, "add_tool");
         myReaderThread.run();
         while(myReaderThread.isAlive()){}
         HashMap<String, Integer> tagValues = myReaderThread.getTagValues();
@@ -213,5 +255,14 @@ public class MainController {
             }
         }
 
+    }
+
+    public void genReportDisplay(ActionEvent actionEvent) {
+    }
+
+    public void genReportCSV(ActionEvent actionEvent) {
+    }
+
+    public void genReportEmail(ActionEvent actionEvent) {
     }
 }
