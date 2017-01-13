@@ -72,6 +72,7 @@ public class MainController {
         }
         // for each id in the tag list find id in comparisonMap and mark True
         // todo: this is O(n^2), we need to optimize it.
+        // todo: this doesn't handle extra tools
         for(String tagId : this.genReportTagList){
             for(Triplet item : comparisonMap){
                 if(tagId.equals(item.getFirst())){
@@ -230,9 +231,14 @@ public class MainController {
         myReaderThread.run();
         while(myReaderThread.isAlive()){}
         HashMap<String, Integer> tagValues = myReaderThread.getTagValues();
+        int curMax = 0;
+        String resultEpc = "Didn't read anything...";
         for(String key : tagValues.keySet()){
             System.out.printf("Tag ID: %s\nCount: %d\n", key, tagValues.get(key));
+            if(tagValues.get(key) > curMax)
+                resultEpc = key;
         }
+        this.txtTagID.setText(resultEpc);
     }
 
     public void switchToAddTool(ActionEvent actionEvent) throws IOException {

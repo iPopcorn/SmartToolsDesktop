@@ -28,7 +28,9 @@ public class ReaderThread extends Thread {
             this.runCondition = 2;
         } else if(task.equalsIgnoreCase("add_tool")){
             this.runCondition = 3;
-        } else{
+        } else if(task.equalsIgnoreCase("test_case")) {
+            this.runCondition = 4;
+        }else{
             this.runCondition = 0;
         }
     }
@@ -64,6 +66,10 @@ public class ReaderThread extends Thread {
             }
             case 3:{ // lookup tool
                 System.out.println("lookup tool processing...");
+                break;
+            }
+            case 4:{
+                System.out.println("test case processing...");
                 break;
             }
         }
@@ -109,6 +115,10 @@ public class ReaderThread extends Thread {
 
                     break;
                 }case 2:{ // add tool
+                    break;
+                }case 3:{ // lookup tool
+                    break;
+                }case 4:{ // test case
                     // connect a listener
                     this.reader.setTagReportListener(new ReaderListener());
 
@@ -118,7 +128,7 @@ public class ReaderThread extends Thread {
 
                     long start = System.currentTimeMillis();
                     // fail safe timer set to 5 minutes
-                    long end = start + (1000 * 300); // 60 seconds * 1000 ms/sec
+                    long end = start + (1000 * 1); // 60 seconds * 1000 ms/sec
                     while (System.currentTimeMillis() < end)
                     {
                         // run
@@ -128,8 +138,6 @@ public class ReaderThread extends Thread {
                     ReaderListener myListener = (ReaderListener) reader.getTagReportListener();
 
                     this.setTagValues(myListener.getTagValues());
-                    break;
-                }case 3:{ // lookup tool
                     break;
                 }
             }

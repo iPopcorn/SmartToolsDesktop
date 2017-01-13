@@ -19,6 +19,7 @@ public class ReportListener implements TagReportListener {
     public ReportListener(){
         this.tagList = new ArrayList<>();
     }
+    // todo: handle duplicate tags
     public void onTagReported(ImpinjReader reader, TagReport report){
         List tagList = report.getTags();
         Tag tempTag;
