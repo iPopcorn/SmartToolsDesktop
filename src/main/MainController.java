@@ -178,7 +178,7 @@ public class MainController {
         // read string from text field
         String tagID = txtTagID.getText();
 
-        String path = "/test/test.php";
+        String path = "tool-handling/insert-tool.php";
 
         // create HashMap to store values
         HashMap<String,String> queryValues = new HashMap(3);
