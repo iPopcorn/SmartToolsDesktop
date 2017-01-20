@@ -8,7 +8,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -90,6 +93,41 @@ public class ReportController {
     }
 
     public void genReportCSV(ActionEvent actionEvent) {
+        System.out.println("genReportCSV()");
+        try{
+            FileWriter fw = new FileWriter("InventoryReport.csv");
+            CSVPrinter myPrinter = new CSVPrinter(fw, CSVFormat.EXCEL);
+
+            //todo: remove this test case
+            this.toolList = getAddressMapFromDB(this.toolboxNum);
+
+            if(this.toolList == null){ // check if toolList is null
+                System.out.println("Error: toolList not initialized");
+            }else{// if we have a tool list
+
+                // ArrayList to hold missing tools
+                ArrayList<Tool> missingTools = new ArrayList<>();
+                for(Tool tool: this.toolList){
+                    if(!tool.getIsHome())
+                        missingTools.add(tool);
+                }
+
+                // Write ArrayList of missing tools
+                String record;
+                for(Tool tool: missingTools){
+                    record = String.format("%s,%s,%s", tool.getName(), tool.getAddress(), tool.getId());
+                    System.out.println(record);
+                    myPrinter.printRecord(record);
+                }
+
+                myPrinter.close();
+            }
+        } catch(Exception e){
+            System.out.println(e);
+        }
+
+
+        System.out.println("genReportCSV() end.");
     }
 
     public void genReportEmail(ActionEvent actionEvent) {
