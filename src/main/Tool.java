@@ -8,6 +8,7 @@ public class Tool {
     private String name;
     private String id;
     private String address;
+    private boolean isHome;
 
     public String getName() {
         return name;
@@ -37,6 +38,14 @@ public class Tool {
         this.name = name;
         this.id = id;
         this.address = address;
+        this.isHome = false;
+    }
+
+    public Tool(String name, String id, String address, boolean isHome) {
+        this.name = name;
+        this.id = id;
+        this.address = address;
+        this.isHome = isHome;
     }
 
     @Override
@@ -46,5 +55,13 @@ public class Tool {
                 ", id='" + id + '\'' +
                 ", address='" + address + '\'' +
                 '}';
+    }
+
+    public void setIsHome(boolean isHome) {
+        this.isHome = isHome;
+    }
+
+    public boolean getIsHome() {
+        return isHome;
     }
 }

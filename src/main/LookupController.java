@@ -30,6 +30,7 @@ public class LookupController {
     private ArrayList<Tool> toolList;
 
     @FXML
+    //todo: where is initialize() called?
     private void initialize() {
         toolList = new ArrayList<>();
         createToolList();
