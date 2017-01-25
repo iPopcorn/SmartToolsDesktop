@@ -163,7 +163,8 @@ public class MainController {
         if(lastSelectedAddress != null && lastSelectedTool != null){
             queryValues.put("tagID", tagID);
             queryValues.put("toolName", lastSelectedTool.getText());
-            queryValues.put("toolAddress", lastSelectedAddress.getText());
+//            queryValues.put("toolAddress", lastSelectedAddress.getText());
+            queryValues.put("toolAddress", "03b11");
             System.out.printf("tag ID: %s\nTool Name: %s\nAddress: %s\n", queryValues.get("tagID"), queryValues.get("toolName"), queryValues.get("toolAddress"));
         }else{
             // TODO: add error label for non-selection
