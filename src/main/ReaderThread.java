@@ -24,9 +24,9 @@ public class ReaderThread extends Thread {
 
         if(task.equalsIgnoreCase("generate_report")){
             this.runCondition = 1;
-        } else if(task.equalsIgnoreCase("lookup_tool")){
-            this.runCondition = 2;
         } else if(task.equalsIgnoreCase("add_tool")){
+            this.runCondition = 2;
+        } else if(task.equalsIgnoreCase("lookup_tool")){
             this.runCondition = 3;
         } else if(task.equalsIgnoreCase("test_case")) {
             this.runCondition = 4;
@@ -100,6 +100,7 @@ public class ReaderThread extends Thread {
                 e.printStackTrace();
             }
         try{
+            System.out.print(runCondition);
             switch(runCondition){
                 case 0:{ // default case
                     System.out.printf("incorrect task string used.");
@@ -115,6 +116,25 @@ public class ReaderThread extends Thread {
 
                     break;
                 }case 2:{ // add tool
+                    // connect a listener
+                    this.reader.setTagReportListener(new ReaderListener());
+
+                    // start reader
+                    this.reader.start();
+                    System.out.println("add_tool reader started!");
+
+                    long start = System.currentTimeMillis();
+                    // fail safe timer set to 5 minutes
+                    long end = start + (1000 * 1); // 60 seconds * 1000 ms/sec
+                    while (System.currentTimeMillis() < end)
+                    {
+                        // run
+                    }
+                    this.reader.stop();
+
+                    ReaderListener myListener = (ReaderListener) reader.getTagReportListener();
+
+                    this.setTagValues(myListener.getTagValues());
                     break;
                 }case 3:{ // lookup tool
                     break;

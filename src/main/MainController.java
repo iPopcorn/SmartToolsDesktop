@@ -18,6 +18,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import javax.sound.midi.SysexMessage;
 import javax.xml.ws.Action;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -180,15 +181,23 @@ public class MainController {
         ReaderThread myReaderThread = new ReaderThread(this.hostname, "add_tool");
         myReaderThread.run();
         while(myReaderThread.isAlive()){}
+        myReaderThread.stopReader();
         HashMap<String, Integer> tagValues = myReaderThread.getTagValues();
         int curMax = 0;
         String resultEpc = "Didn't read anything...";
-        for(String key : tagValues.keySet()){
-            System.out.printf("Tag ID: %s\nCount: %d\n", key, tagValues.get(key));
-            if(tagValues.get(key) > curMax)
-                resultEpc = key;
+
+        try {
+            for (String key : tagValues.keySet()) {
+                System.out.printf("Tag ID: %s\nCount: %d\n", key, tagValues.get(key));
+                if (tagValues.get(key) > curMax)
+                    resultEpc = key;
+            }
+            this.txtTagID.setText(resultEpc);
         }
-        this.txtTagID.setText(resultEpc);
+        catch (NullPointerException e)
+        {
+            System.out.print(e);
+        }
     }
 
     public void switchToAddTool(ActionEvent actionEvent) throws IOException {
