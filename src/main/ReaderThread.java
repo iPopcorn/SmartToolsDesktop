@@ -41,14 +41,14 @@ public class ReaderThread extends Thread {
      * so that they can be accessed by MainController.
      * **/
     public void stopReader(){
-        System.out.printf("stopReader()");
+        System.out.printf("stopReader()\n");
         try{
             if(this.reader.isConnected()){
                 this.reader.stop();
                 this.reader.disconnect();
             }
         }catch(Exception e){e.printStackTrace();}
-        System.out.printf("Reader Stopped.");
+        System.out.printf("Reader Stopped.\n");
         switch(runCondition){
             case 0:{ // default case
                 System.out.println("This should never be reached");
@@ -57,7 +57,7 @@ public class ReaderThread extends Thread {
             case 1:{ // generate report
                 System.out.println("generate_report processing...");
                 ReportListener myListener = (ReportListener) this.reader.getTagReportListener();
-                this.setGenReportTagValues(myListener.getTagList());
+                this.setGenReportTagValues(myListener.getReportList());
                 break;
             }
             case 2:{ // add tool
@@ -73,6 +73,8 @@ public class ReaderThread extends Thread {
                 break;
             }
         }
+
+        System.out.println("stopReader() end!");
     }
 
     /**
@@ -100,7 +102,7 @@ public class ReaderThread extends Thread {
                 e.printStackTrace();
             }
         try{
-            System.out.print(runCondition);
+            System.out.printf("ReaderThread.runCondition = %d\n", runCondition);
             switch(runCondition){
                 case 0:{ // default case
                     System.out.printf("incorrect task string used.");

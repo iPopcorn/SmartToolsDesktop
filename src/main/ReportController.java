@@ -28,6 +28,7 @@ public class ReportController {
     private ReaderThread currentReader;
     private String hostname = "169.254.126.52";
     private ArrayList<Tool> toolList;
+    private ArrayList<Tool> missingTools;
     private int toolboxNum;
 
     public Button btnGenReportBack;
@@ -67,8 +68,9 @@ public class ReportController {
     }
 
     public void genReportDisplay(ActionEvent actionEvent) {
+        System.out.println("Begin ReportController.genReportDisplay()");
         //todo: remove this test case
-        this.toolList = getAddressMapFromDB(this.toolboxNum);
+        //this.toolList = getAddressMapFromDB(this.toolboxNum);
 
         if(this.toolList == null){ // check if toolList is null
             System.out.println("Error: toolList not initialized");
@@ -80,20 +82,27 @@ public class ReportController {
             // ArrayList to hold missing tools
             ArrayList<Tool> missingTools = new ArrayList<>();
             for(Tool tool: this.toolList){
-                if(!tool.getIsHome())
+                if(tool.getIsHome() != true){
+                    System.out.printf("Found Missing Tool: %s\n",tool.toString());
                     missingTools.add(tool);
+                }
             }
 
+            System.out.println("Missing Tools:");
+            for(Tool tool : missingTools)
+                System.out.printf("%s\n", tool);
+
             // Display ArrayList of missing tools
+            // todo: figure out why correct missingTools array isnt showing
             this.genReportList.getItems().clear();
             this.genReportList.refresh();
             this.genReportList.getItems().addAll(missingTools);
         }
-
+        System.out.println("End ReportController.genReportDisplay()");
     }
 
     public void genReportCSV(ActionEvent actionEvent) {
-        System.out.println("genReportCSV()");
+        System.out.println("ReportController.genReportCSV()");
         try{
             FileWriter fw = new FileWriter("InventoryReport.csv");
             CSVPrinter myPrinter = new CSVPrinter(fw, CSVFormat.EXCEL);
@@ -134,7 +143,7 @@ public class ReportController {
     }
 
     public void genReportStartScanning(){
-        System.out.printf("genReportStartScanning()\n");
+        System.out.printf("ReportController.genReportStartScanning()\n");
         if(this.txtToolboxNum.getText() != null){
             try{
                 String myToolboxNum = this.txtToolboxNum.getText();
@@ -146,25 +155,36 @@ public class ReportController {
             }
             if(this.toolboxNum > 0 && this.toolboxNum < 6){
                 System.out.println("Correct toolbox number!");
-                //this.currentReader = new ReaderThread(this.hostname, "generate_report");
+                ReaderThread tempReader = new ReaderThread(this.hostname, "generate_report");
+                tempReader.run();
+                this.currentReader = tempReader;
+                System.out.println(tempReader.toString());
             } else {
                 System.out.println("Invalid toolbox number!");
             }
         }else{
             System.out.println("textbox is empty.");
         }
-
-
     }
 
     // TODO: optimize comparison algorith in genReportStopScanning()
     public void genReportStopScanning(){
         if(this.currentReader != null){
-            System.out.printf("genReportStopScanning()");
+            System.out.println("ReportController.genReportStopScanning()");
             this.currentReader.stopReader();
 
             // grab tag list from reader
             this.genReportTagList = this.currentReader.getGenReportTagValues();
+
+            if(this.genReportTagList != null) {
+                System.out.println("tagList set successfully.");
+            }else{
+                System.out.println("There is no genReportTagValues inside of this.currentReader.");
+            }
+
+            // print tag values
+            for(String tagID : this.genReportTagList)
+                    System.out.println("Tag ID: " + tagID);
 
             // compare tag list with tool list
             this.toolList = this.getAddressMapFromDB(this.toolboxNum);
@@ -172,17 +192,23 @@ public class ReportController {
             // for each id in the tag list find id in comparisonMap and mark True
             // todo: this is O(n^2), we need to optimize it.
             // todo: this doesn't handle extra tools
+            Tool tool;
+            ArrayList<Tool> updatedToolList = new ArrayList<>();
             for(String tagId : this.genReportTagList){
-                for(Tool tool : this.toolList){
+                for(int i = 0; i < this.toolList.size(); i++){
+                    tool = this.toolList.get(i);
                     if(tagId.equals(tool.getId())){
-                        tool.setIsHome(true);
+                        System.out.printf("Found Tool: %s\n", tool.toString());
+                        this.toolList.get(i).setIsHome(true);
+                        System.out.printf("Tool is now: %s\n", this.toolList.get(i));
+                        updatedToolList.add(tool);
                     }
                 }
             }
         }else{
             System.out.println("Reader never started!");
         }
-
+        System.out.println("ReportController.genReportStopScanning() end!");
     }
 
     /**
@@ -194,7 +220,7 @@ public class ReportController {
     private ArrayList<Tool> getAddressMapFromDB(int toolboxNumber) {
         // temporary logic for the sake of finishing generate report logic.
         ArrayList<Tool> tempList = new ArrayList<>();
-        for (int i = 0; i < 25; i++) {
+        /*for (int i = 0; i < 25; i++) {
             if(i < 5) {
                 Tool newTool = new Tool("Hammer", Integer.toString(i*236), Integer.toString(i));
                 tempList.add(newTool);
@@ -208,7 +234,15 @@ public class ReportController {
                 tempList.add(newTool);
             }
 
-        }
+        }*/
+        Tool t1 = new Tool("Hammer", "3A1F", "05A01");
+        Tool t2 = new Tool("Screw Driver", "3BA0 1F7E 463B", "05A02");
+        Tool t3 = new Tool("Ruler", "036F 1358 7584 66A0 07F5", "05A03");
+        Tool t4 = new Tool("Drill", "01E9 1109", "05A04");
+        tempList.add(t1);
+        tempList.add(t2);
+        tempList.add(t3);
+        tempList.add(t4);
 
         return tempList;
     }

@@ -10,6 +10,20 @@ public class Tool {
     private String address;
     private boolean isHome;
 
+    public Tool(String name, String id, String address) {
+        this.name = name;
+        this.id = id;
+        this.address = address;
+        this.isHome = false;
+    }
+
+    public Tool(String name, String id, String address, boolean isHome) {
+        this.name = name;
+        this.id = id;
+        this.address = address;
+        this.isHome = isHome;
+    }
+
     public String getName() {
         return name;
     }
@@ -34,19 +48,7 @@ public class Tool {
         this.address = address;
     }
 
-    public Tool(String name, String id, String address) {
-        this.name = name;
-        this.id = id;
-        this.address = address;
-        this.isHome = false;
-    }
 
-    public Tool(String name, String id, String address, boolean isHome) {
-        this.name = name;
-        this.id = id;
-        this.address = address;
-        this.isHome = isHome;
-    }
 
     @Override
     public String toString() {
@@ -54,6 +56,7 @@ public class Tool {
                 "name='" + name + '\'' +
                 ", id='" + id + '\'' +
                 ", address='" + address + '\'' +
+                ", isHome='" + isHome + '\'' +
                 '}';
     }
 

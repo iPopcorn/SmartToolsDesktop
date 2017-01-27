@@ -15,11 +15,11 @@ import java.util.List;
  * The ReportListener is a TagReportListener implementation meant to be used with the Generate Report use case.
  */
 public class ReportListener implements TagReportListener {
-    private ArrayList<String> tagList;
+    private ArrayList<String> reportList;
     public ReportListener(){
-        this.tagList = new ArrayList<>();
+        this.reportList = new ArrayList<>();
     }
-    // todo: handle duplicate tags
+    // todo: optimize handling duplicates
     public void onTagReported(ImpinjReader reader, TagReport report){
         List tagList = report.getTags();
         Tag tempTag;
@@ -30,15 +30,28 @@ public class ReportListener implements TagReportListener {
             tempTag = (Tag) tagList.get(i);
             curEPC = tempTag.getEpc().toString();
 
-            tagList.add(curEPC);
+            if(!this.containsEPC(curEPC)){ // if we haven't read this EPC before
+                System.out.println("Read New Tag: " + curEPC);
+                this.reportList.add(curEPC);
+            }
         }
     }
 
-    public ArrayList<String> getTagList() {
-        return tagList;
+    public ArrayList<String> getReportList() {
+        return reportList;
     }
 
-    public void setTagList(ArrayList<String> tagList) {
-        this.tagList = tagList;
+    public void setReportList(ArrayList<String> tagList) {
+        this.reportList = tagList;
+    }
+
+    private boolean containsEPC(String mEPC){
+        boolean flag = false;
+        for(String cur: this.reportList){
+            if(cur.equalsIgnoreCase(mEPC)){
+                flag = true;
+            }
+        }
+        return flag;
     }
 }
