@@ -13,8 +13,11 @@
       <TextField fx:id="txtTagID" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="444.0" />
       <MenuButton fx:id="btnAddToolAddress" layoutX="15.0" layoutY="111.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="444.0" text="Address">
          <items>
-            <CheckMenuItem fx:id="address1" mnemonicParsing="false" text="Address1" />
-            <CheckMenuItem fx:id="address2" mnemonicParsing="false" text="Address2" />
+            <CheckMenuItem fx:id="address1" mnemonicParsing="false" text="05A01" />
+            <CheckMenuItem fx:id="address2" mnemonicParsing="false" text="05A02" />
+            <CheckMenuItem fx:id="address3" mnemonicParsing="false" text="05A03" />
+            <CheckMenuItem fx:id="address4" mnemonicParsing="false" text="05A04" />
+            <CheckMenuItem fx:id="address5" mnemonicParsing="false" text="05A05" />
          </items>
       </MenuButton>
       <Label layoutX="473.0" layoutY="60.0" prefHeight="36.0" prefWidth="117.0" text="Tool Name">
@@ -39,8 +42,11 @@
       </Label>
       <MenuButton fx:id="btnAddToolName" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="444.0" text="Name">
         <items>
-          <CheckMenuItem fx:id="toolName1" mnemonicParsing="false" text="CheckMenuItem1" />
-          <CheckMenuItem fx:id="toolName2" mnemonicParsing="false" text="CheckMenuItem2" />
+           <CheckMenuItem fx:id="toolName1" mnemonicParsing="false" text="Hammer" />
+           <CheckMenuItem fx:id="toolName2" mnemonicParsing="false" text="Drill" />
+           <CheckMenuItem fx:id="toolName3" mnemonicParsing="false" text="Screwdriver" />
+           <CheckMenuItem fx:id="toolName4" mnemonicParsing="false" text="Ruler" />
+           <CheckMenuItem fx:id="toolName5" mnemonicParsing="false" text="Knife" />
         </items>
       </MenuButton>
       <Button fx:id="btnAddToolRefresh" onAction="#addToolRefresh" layoutX="274.0" layoutY="343.0" mnemonicParsing="false" text="Refresh" />

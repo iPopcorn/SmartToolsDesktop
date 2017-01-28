@@ -80,7 +80,7 @@ public class ReportController {
             this.genReportList.setCellFactory(new ToolCellFactory());
 
             // ArrayList to hold missing tools
-            ArrayList<Tool> missingTools = new ArrayList<>();
+            //ArrayList<Tool> missingTools = new ArrayList<>();
             for(Tool tool: this.toolList){
                 if(tool.getIsHome() != true){
                     System.out.printf("Found Missing Tool: %s\n",tool.toString());
