@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.HashMap;
+
 public class Main extends Application {
     public Stage myStage;
     public Scene mainMenu;
@@ -16,7 +18,8 @@ public class Main extends Application {
      * TEST CLASS
      */
 
-    ServerResponse serverResponse;
+    ServerRequest serverRequest;
+    JSONdecoder responseDecoder;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -24,9 +27,15 @@ public class Main extends Application {
          * TEST
          */
 
-        /*serverResponse = new ServerResponse();
-        String response = serverResponse.getResponse("cse-4322/invitations/invitations.php");
-        System.out.println(response);*/
+        serverRequest = new ServerRequest();
+        responseDecoder = new JSONdecoder();
+        HashMap<String, String> POSTdata = new HashMap<>();
+        POSTdata.put("searchField", "name");
+        POSTdata.put("searchValue", "hammer");
+
+        String response = serverRequest.getResponseFromRequest("tool-handling/lookup-tool.php", POSTdata);
+        responseDecoder.decodeJSONToolResponse(response);
+
 
         // set stage
         myStage = primaryStage;
