@@ -7,7 +7,7 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ReportController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ReportController">
    <children>
       <Button fx:id="btnGenReportBack" layoutY="374.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="25.0" prefWidth="95.0" text="Go Back" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
       <ToolBar prefHeight="35.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -15,7 +15,7 @@
             <Button fx:id="btnGenReportPull" onAction="#genReportDisplay" text="Pull Report" />
             <Button fx:id="btnGenReportCSV" mnemonicParsing="false" onAction="#genReportCSV" text="Export to CSV" />
             <Button fx:id="btnGenReportEmail" mnemonicParsing="false" onAction="#genReportEmail" text="Email" />
-            <Button fx:id="btnGenReportStart" mnemonicParsing="false" onAction="#genReportStartScanning" text="Start Scanning" />
+            <Button fx:id="btnGenReportStart" mnemonicParsing="false" onAction="#scan" styleClass="startScanning" stylesheets="@generate_report.css" text="Start Scanning" />
             <Button fx:id="btnGenReportStop" mnemonicParsing="false" onAction="#genReportStopScanning" text="Stop Scanning" />
         </items>
       </ToolBar>

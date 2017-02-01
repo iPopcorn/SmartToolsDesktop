@@ -29,7 +29,8 @@ public class ReportController {
     private String hostname = "169.254.126.52";
     private ArrayList<Tool> toolList;
     private ArrayList<Tool> missingTools;
-    private int toolboxNum = -1;
+    private int toolboxNum;
+    private boolean scanning = false;
 
     public Button btnGenReportBack;
     public Button btnGenReportPull;
@@ -103,47 +104,35 @@ public class ReportController {
 
     public void genReportCSV(ActionEvent actionEvent) {
         System.out.println("ReportController.genReportCSV()");
-        try {
+        try{
             FileWriter fw = new FileWriter("InventoryReport.csv");
             CSVPrinter myPrinter = new CSVPrinter(fw, CSVFormat.EXCEL);
-
-            if(this.toolboxNum == -1)
-                this.toolboxNum = Integer.valueOf(txtToolboxNum.getText());
 
             //todo: remove this test case
             this.toolList = getAddressMapFromDB(this.toolboxNum);
 
-            if (this.toolList == null) { // check if toolList is null
+            if(this.toolList == null){ // check if toolList is null
                 System.out.println("Error: toolList not initialized");
-            } else {// if we have a tool list
-                // flag for if we are testing this with or without the rfid.
-                boolean rfidTest = false;
-                if(!rfidTest){
-                    String record;
-                    for(Tool tool: this.toolList){
-                        record = String.format("%s,%s,%s", tool.getName(), tool.getAddress(), tool.getId());
-                        System.out.println(record);
-                        myPrinter.printRecord(record);
-                    }
-                }else{
-                    // ArrayList to hold missing tools
-                    ArrayList<Tool> missingTools = new ArrayList<>();
-                    for (Tool tool : this.toolList) {
-                        if (!tool.getIsHome())
-                            missingTools.add(tool);
-                    }
+            }else{// if we have a tool list
 
-                    // Write ArrayList of missing tools
-                    String record;
-                    for (Tool tool : missingTools) {
-                        record = String.format("%s,%s,%s", tool.getName(), tool.getAddress(), tool.getId());
-                        System.out.println(record);
-                        myPrinter.printRecord(record);
-                    }
+                // ArrayList to hold missing tools
+                ArrayList<Tool> missingTools = new ArrayList<>();
+                for(Tool tool: this.toolList){
+                    if(!tool.getIsHome())
+                        missingTools.add(tool);
                 }
+
+                // Write ArrayList of missing tools
+                String record;
+                for(Tool tool: missingTools){
+                    record = String.format("%s,%s,%s", tool.getName(), tool.getAddress(), tool.getId());
+                    System.out.println(record);
+                    myPrinter.printRecord(record);
+                }
+
                 myPrinter.close();
             }
-        } catch (Exception e) {
+        } catch(Exception e){
             System.out.println(e);
         }
 
@@ -179,7 +168,7 @@ public class ReportController {
         }
     }
 
-    // TODO: optimize comparison algorithm in genReportStopScanning()
+    // TODO: optimize comparison algorith in genReportStopScanning()
     public void genReportStopScanning(){
         if(this.currentReader != null){
             System.out.println("ReportController.genReportStopScanning()");
@@ -223,6 +212,24 @@ public class ReportController {
         System.out.println("ReportController.genReportStopScanning() end!");
     }
 
+    public void scan() {
+        if(scanning)
+        {
+            genReportStopScanning();
+            this.btnGenReportStart.getStyleClass().removeAll("stopScanning");
+            this.btnGenReportStart.getStyleClass().add("startScanning");
+            this.btnGenReportStart.setText("Start Scanning");
+            scanning = false;
+        }
+        else
+        {
+            genReportStartScanning();
+            this.btnGenReportStart.getStyleClass().removeAll("startScanning");
+            this.btnGenReportStart.getStyleClass().add("stopScanning");
+            this.btnGenReportStart.setText("Stop Scanning");
+            scanning = true;
+        }
+    }
     /**
      * getAddressMapFromDB() grabs the address map from the database
      * TODO: implement logic for the getAddressMapFromDB() method.
@@ -230,9 +237,9 @@ public class ReportController {
      * SELECT * FROM 'Tools' WHERE 'belongs_to' = toolboxNumber;
      * **/
     private ArrayList<Tool> getAddressMapFromDB(int toolboxNumber) {
-        /*// temporary logic for the sake of finishing generate report logic.
+        // temporary logic for the sake of finishing generate report logic.
         ArrayList<Tool> tempList = new ArrayList<>();
-        *//*for (int i = 0; i < 25; i++) {
+        /*for (int i = 0; i < 25; i++) {
             if(i < 5) {
                 Tool newTool = new Tool("Hammer", Integer.toString(i*236), Integer.toString(i));
                 tempList.add(newTool);
@@ -246,7 +253,7 @@ public class ReportController {
                 tempList.add(newTool);
             }
 
-        }*//*
+        }*/
         Tool t1 = new Tool("Hammer", "3A1F", "05A01");
         Tool t2 = new Tool("Screw Driver", "3BA0 1F7E 463B", "05A02");
         Tool t3 = new Tool("Ruler", "036F 1358 7584 66A0 07F5", "05A03");
@@ -256,12 +263,6 @@ public class ReportController {
         tempList.add(t3);
         tempList.add(t4);
 
-        return tempList;*/
-        HashMap<String, String> toolBoxNumber = new HashMap<>();
-        toolBoxNumber.put("toolbox", Integer.toString(this.toolboxNum));
-        ServerRequest request = new ServerRequest();
-        String toolListString = request.getResponseFromRequest("test/lookup-by-toolbox.php",toolBoxNumber);
-        //ArrayList<Tool> toolList = this.parseToolString(toolListString);
-        return toolList;
+        return tempList;
     }
 }
