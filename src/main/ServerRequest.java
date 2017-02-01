@@ -31,11 +31,10 @@ public class ServerRequest {
      * An example path parameter input would be "tools/get-tools.php".
      */
     public String getResponseFromRequest(String serverPath, HashMap<String, String> POSTdata) {
-        String responseString = "";
 
         if (POSTdata == null || POSTdata.isEmpty()) { // if no hashmap is passed or the hashmap is empty
             System.out.println("NO POST DATA");
-            return "";
+            return null;
         }
 
         String myURL = serverIP + serverPath;
@@ -85,17 +84,15 @@ public class ServerRequest {
             }
             in.close();
 
-            //print result
-            System.out.println(response.toString());
-
-            responseString = response.toString();
+            return response.toString();
 
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return responseString;
+        return null;
+
     }
 
 
