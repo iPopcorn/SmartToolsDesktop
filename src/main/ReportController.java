@@ -30,6 +30,7 @@ public class ReportController {
     private ArrayList<Tool> toolList;
     private ArrayList<Tool> missingTools;
     private int toolboxNum;
+    private boolean scanning = false;
 
     public Button btnGenReportBack;
     public Button btnGenReportPull;
@@ -211,6 +212,24 @@ public class ReportController {
         System.out.println("ReportController.genReportStopScanning() end!");
     }
 
+    public void scan() {
+        if(scanning)
+        {
+            genReportStopScanning();
+            this.btnGenReportStart.getStyleClass().removeAll("stopScanning");
+            this.btnGenReportStart.getStyleClass().add("startScanning");
+            this.btnGenReportStart.setText("Start Scanning");
+            scanning = false;
+        }
+        else
+        {
+            genReportStartScanning();
+            this.btnGenReportStart.getStyleClass().removeAll("startScanning");
+            this.btnGenReportStart.getStyleClass().add("stopScanning");
+            this.btnGenReportStart.setText("Stop Scanning");
+            scanning = true;
+        }
+    }
     /**
      * getAddressMapFromDB() grabs the address map from the database
      * TODO: implement logic for the getAddressMapFromDB() method.
