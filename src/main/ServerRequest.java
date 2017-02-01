@@ -21,7 +21,7 @@ public class ServerRequest {
      * Basic constructor that will initialize the base serverIP and blank response.
      */
     public ServerRequest() {
-        this.serverIP = "http://129.107.132.24/"; // server IP that will be called to receive responses
+        this.serverIP = "http://129.107.132.26/"; // server IP that will be called to receive responses
     }
 
     /*
@@ -30,11 +30,12 @@ public class ServerRequest {
      * and POST data sent.
      * An example path parameter input would be "tools/get-tools.php".
      */
-    public void getResponseFromRequest(String serverPath, HashMap<String, String> POSTdata) {
+    public String getResponseFromRequest(String serverPath, HashMap<String, String> POSTdata) {
+        String responseString = "";
 
         if (POSTdata == null || POSTdata.isEmpty()) { // if no hashmap is passed or the hashmap is empty
             System.out.println("NO POST DATA");
-            return;
+            return "";
         }
 
         String myURL = serverIP + serverPath;
@@ -87,11 +88,14 @@ public class ServerRequest {
             //print result
             System.out.println(response.toString());
 
+            responseString = response.toString();
+
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        return responseString;
     }
 
 
