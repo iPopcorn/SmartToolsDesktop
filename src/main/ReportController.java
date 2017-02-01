@@ -29,7 +29,7 @@ public class ReportController {
     private String hostname = "169.254.126.52";
     private ArrayList<Tool> toolList;
     private ArrayList<Tool> missingTools;
-    private int toolboxNum;
+    private int toolboxNum = -1;
     private boolean scanning = false;
 
     public Button btnGenReportBack;
@@ -108,26 +108,39 @@ public class ReportController {
             FileWriter fw = new FileWriter("InventoryReport.csv");
             CSVPrinter myPrinter = new CSVPrinter(fw, CSVFormat.EXCEL);
 
+            if(this.toolboxNum == -1)
+                this.toolboxNum = Integer.valueOf(this.txtToolboxNum.getText());
+
             //todo: remove this test case
             this.toolList = getAddressMapFromDB(this.toolboxNum);
 
             if(this.toolList == null){ // check if toolList is null
                 System.out.println("Error: toolList not initialized");
             }else{// if we have a tool list
+                boolean rfidTest = false;
+                if(rfidTest){
+                    // ArrayList to hold missing tools
+                    ArrayList<Tool> missingTools = new ArrayList<>();
+                    for(Tool tool: this.toolList){
+                        if(!tool.getIsHome())
+                            missingTools.add(tool);
+                    }
 
-                // ArrayList to hold missing tools
-                ArrayList<Tool> missingTools = new ArrayList<>();
-                for(Tool tool: this.toolList){
-                    if(!tool.getIsHome())
-                        missingTools.add(tool);
-                }
-
-                // Write ArrayList of missing tools
-                String record;
-                for(Tool tool: missingTools){
-                    record = String.format("%s,%s,%s", tool.getName(), tool.getAddress(), tool.getId());
-                    System.out.println(record);
-                    myPrinter.printRecord(record);
+                    // Write ArrayList of missing tools
+                    String record;
+                    for(Tool tool: missingTools){
+                        record = String.format("%s,%s,%s", tool.getName(), tool.getAddress(), tool.getId());
+                        System.out.println(record);
+                        myPrinter.printRecord(record);
+                    }
+                }else{
+                    // Write ArrayList of missing tools
+                    String record;
+                    for(Tool tool: this.toolList){
+                        record = String.format("%s,%s,%s", tool.getName(), tool.getAddress(), tool.getId());
+                        System.out.println(record);
+                        myPrinter.printRecord(record);
+                    }
                 }
 
                 myPrinter.close();
@@ -237,9 +250,9 @@ public class ReportController {
      * SELECT * FROM 'Tools' WHERE 'belongs_to' = toolboxNumber;
      * **/
     private ArrayList<Tool> getAddressMapFromDB(int toolboxNumber) {
-        // temporary logic for the sake of finishing generate report logic.
+        /*// temporary logic for the sake of finishing generate report logic.
         ArrayList<Tool> tempList = new ArrayList<>();
-        /*for (int i = 0; i < 25; i++) {
+        *//*for (int i = 0; i < 25; i++) {
             if(i < 5) {
                 Tool newTool = new Tool("Hammer", Integer.toString(i*236), Integer.toString(i));
                 tempList.add(newTool);
@@ -253,7 +266,7 @@ public class ReportController {
                 tempList.add(newTool);
             }
 
-        }*/
+        }*//*
         Tool t1 = new Tool("Hammer", "3A1F", "05A01");
         Tool t2 = new Tool("Screw Driver", "3BA0 1F7E 463B", "05A02");
         Tool t3 = new Tool("Ruler", "036F 1358 7584 66A0 07F5", "05A03");
@@ -263,6 +276,14 @@ public class ReportController {
         tempList.add(t3);
         tempList.add(t4);
 
+        return tempList;*/
+        ServerRequest myRequest = new ServerRequest();
+        JSONdecoder requestDecoder = new JSONdecoder();
+        HashMap<String, String> data = new HashMap<>();
+        data.put("searchField","toolbox");
+        data.put("searchValue",Integer.toString(this.toolboxNum));
+        String response = myRequest.getResponseFromRequest("tool-handling/lookup-tool.php", data);
+        ArrayList<Tool> tempList = requestDecoder.decodeJSONToolResponse(response);
         return tempList;
     }
 }

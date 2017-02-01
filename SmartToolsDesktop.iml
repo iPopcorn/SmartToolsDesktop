@@ -10,5 +10,6 @@
     <orderEntry type="library" name="OctaneSDKJava-1.24.1.0-jar-with-dependencies" level="application" />
     <orderEntry type="library" name="commons-csv-1" level="project" />
     <orderEntry type="library" name="commons-csv-1.4" level="application" />
+    <orderEntry type="library" name="java-json" level="application" />
   </component>
 </module>
