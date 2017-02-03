@@ -27,14 +27,14 @@ public class Main extends Application {
          * TEST
          */
 
-        serverRequest = new ServerRequest();
+       /* serverRequest = new ServerRequest();
         responseDecoder = new JSONdecoder();
         HashMap<String, String> POSTdata = new HashMap<>();
         POSTdata.put("searchField", "name");
         POSTdata.put("searchValue", "hammer");
 
         String response = serverRequest.getResponseFromRequest("tool-handling/lookup-tool.php", POSTdata);
-        responseDecoder.decodeJSONToolResponse(response);
+        responseDecoder.decodeJSONToolResponse(response);*/
 
 
         // set stage

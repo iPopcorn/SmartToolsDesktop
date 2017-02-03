@@ -154,6 +154,10 @@ public class ReportController {
     }
 
     public void genReportEmail(ActionEvent actionEvent) {
+        System.out.println("begin genReportEmail()");
+        EmailHandler handler = new EmailHandler();
+        handler.sendEmail("taypetrillo@gmail.com");
+        System.out.println("end genReportEmail()");
     }
 
     public void genReportStartScanning(){
