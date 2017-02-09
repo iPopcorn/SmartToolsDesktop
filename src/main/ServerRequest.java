@@ -21,7 +21,7 @@ public class ServerRequest {
      * Basic constructor that will initialize the base serverIP and blank response.
      */
     public ServerRequest() {
-        this.serverIP = "http://129.107.132.26/"; // server IP that will be called to receive responses
+        this.serverIP = "http://52.32.197.221/"; // server IP that will be called to receive responses
     }
 
     /*

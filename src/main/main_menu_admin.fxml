@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
+   <children>
+      <VBox layoutX="250.0" layoutY="102.0" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Button fx:id="btnOpenLookup" mnemonicParsing="false" onAction="#changeScene" prefHeight="27.0" prefWidth="120.0" text="Lookup Tool" />
+            <Button fx:id="btnOpenLogin" mnemonicParsing="false" onAction="#changeScene" prefHeight="25.0" prefWidth="104.0" text="Admin Login" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

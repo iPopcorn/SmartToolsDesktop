@@ -34,6 +34,8 @@ public class MainController {
     public Button btnOpenAddTool;
     public Button btnOpenReport;
     public Button btnOpenAdmin;
+    public Button btnOpenLogin;
+    public Button btnOpenDeleteTool;
     public Button btnLookupBack;
     public Button btnGenReportBack;
     public Button btnAddToolBack;
@@ -67,6 +69,12 @@ public class MainController {
         }else if(actionEvent.getSource() == btnOpenAdmin) {
             stage = (Stage) btnOpenAdmin.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("admin.fxml"));
+        }else if(actionEvent.getSource() == btnOpenLogin){
+            stage = (Stage) btnOpenLogin.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        }else if(actionEvent.getSource() == btnOpenDeleteTool){
+            stage = (Stage) btnOpenDeleteTool.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("login.fxml")); //todo: make this delete-tool.fxml
         }else{
             stage = null;
             root = null;

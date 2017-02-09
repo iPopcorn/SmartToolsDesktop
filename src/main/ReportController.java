@@ -70,6 +70,9 @@ public class ReportController {
 
     public void genReportDisplay(ActionEvent actionEvent) {
         System.out.println("Begin ReportController.genReportDisplay()");
+        if(this.missingTools == null){
+            this.missingTools = new ArrayList<>();
+        }
         //todo: remove this test case
         //this.toolList = getAddressMapFromDB(this.toolboxNum);
 
@@ -112,12 +115,12 @@ public class ReportController {
                 this.toolboxNum = Integer.valueOf(this.txtToolboxNum.getText());
 
             //todo: remove this test case
-            this.toolList = getAddressMapFromDB(this.toolboxNum);
+            //this.toolList = getAddressMapFromDB(this.toolboxNum);
 
             if(this.toolList == null){ // check if toolList is null
                 System.out.println("Error: toolList not initialized");
             }else{// if we have a tool list
-                boolean rfidTest = false;
+                boolean rfidTest = true;
                 if(rfidTest){
                     // ArrayList to hold missing tools
                     ArrayList<Tool> missingTools = new ArrayList<>();
@@ -290,4 +293,5 @@ public class ReportController {
         ArrayList<Tool> tempList = requestDecoder.decodeJSONToolResponse(response);
         return tempList;
     }
+
 }
