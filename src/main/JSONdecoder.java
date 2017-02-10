@@ -40,4 +40,26 @@ public class JSONdecoder {
         }
         return toolList;
     }
+
+    public ArrayList<String> decodeJSONAddressResponse(String JSONstring) {
+        String[] jsonStrings = JSONstring.split("(?<=})"); // reading
+        ArrayList<String> openAddresses = new ArrayList<>(); // the list of tools to be returned
+
+        JSONObject tempJSON; // temp JSON object from each tool read in
+        try {
+            for (String string: jsonStrings) {
+                tempJSON = new JSONObject(string);
+
+                openAddresses.add(tempJSON.getString("address"));
+            }
+            for (String string: openAddresses) {
+                System.out.println(string);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            System.out.println("ERROR READING THE JSON");
+        }
+        return openAddresses;
+    }
 }
