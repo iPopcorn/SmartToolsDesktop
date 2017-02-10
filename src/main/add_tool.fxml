@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
    <children>
-      <TextField fx:id="txtTagID" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="444.0" />
+      <TextField fx:id="txtTagID" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="444.0" editable="false" />
       <MenuButton fx:id="btnAddToolAddress" layoutX="15.0" layoutY="111.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="444.0" text="Address">
          <items>
             <CheckMenuItem fx:id="address1" mnemonicParsing="false" text="05A01" />
