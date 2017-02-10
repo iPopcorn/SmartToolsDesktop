@@ -9,10 +9,10 @@
             fx:controller="main.LoginController">
     <children>
         <TextField fx:id="txtUsername" layoutX="226.0" layoutY="115.0" promptText="Username"/>
+        <PasswordField fx:id="txtPassword" layoutX="226.0" layoutY="155.0" promptText="Password"/>
         <Button fx:id="btnBack" layoutX="315.0" layoutY="200.0" mnemonicParsing="false" onAction="#goBack"
                 text="Go Back"/>
         <Button fx:id="btnLogIn" layoutX="226.0" layoutY="200.0" mnemonicParsing="false" onAction="#submitLogin"
                 text="Log In"/>
-        <PasswordField fx:id="txtPassword" layoutX="226.0" layoutY="155.0" promptText="Password"/>
     </children>
 </AnchorPane>

@@ -96,14 +96,14 @@ public class MainController {
             root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu.fxml"));
         }else if(actionEvent.getSource() == btnAddToolBack){ //TODO: btnAddToolBack is not being read from add_tool.fxml
             stage = (Stage) btnAddToolBack.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu.fxml"));
+            root = FXMLLoader.load(getClass().getResource("res/fxml/admin.fxml"));
             System.out.println("Back Button Pressed in Add Tool");
         }else if(actionEvent.getSource() == btnGenReportBack){
             stage = (Stage) btnGenReportBack.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu.fxml"));
+            root = FXMLLoader.load(getClass().getResource("res/fxml/admin.fxml"));
         }else if(actionEvent.getSource() == btnAdminBack) {
             stage = (Stage) btnAdminBack.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu.fxml"));
+            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu_admin.fxml"));
         }/*else if(actionEvent.getSource() == btnAddToolBack){
             stage = (Stage) btnAddToolBack.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("main_menu.fxml"));

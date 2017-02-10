@@ -51,7 +51,7 @@ public class ReportController {
 
         if(actionEvent.getSource() == btnGenReportBack){
             stage = (Stage) btnGenReportBack.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu.fxml"));
+            root = FXMLLoader.load(getClass().getResource("res/fxml/admin.fxml"));
         }else{
             stage = null;
             root = null;
