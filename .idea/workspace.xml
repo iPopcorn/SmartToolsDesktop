@@ -2,15 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="938ec455-41d4-49a5-8d23-945b85e994b7" name="Default" comment="Organized the ui layout (fxml) and styling (css) files into a resource (res) folder inside the main folder.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/res/fxml/add_tool.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/res/fxml/admin.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/res/fxml/generate_report.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/res/fxml/login.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/res/fxml/lookup_tool.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/res/fxml/main_menu.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/res/fxml/main_menu_admin.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/res/stylesheet/generate_report.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/res/stylesheet/main_menu.css" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/add_tool.fxml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/admin.fxml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/generate_report.css" afterPath="" />
@@ -20,13 +11,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/main_menu.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/main_menu.fxml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/main_menu_admin.fxml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SmartToolsDesktop/main/Main.class" afterPath="$PROJECT_DIR$/out/production/SmartToolsDesktop/main/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SmartToolsDesktop/main/MainController.class" afterPath="$PROJECT_DIR$/out/production/SmartToolsDesktop/main/MainController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/LoginController.java" afterPath="$PROJECT_DIR$/src/main/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/LookupController.java" afterPath="$PROJECT_DIR$/src/main/LookupController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Main.java" afterPath="$PROJECT_DIR$/src/main/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ReportController.java" afterPath="$PROJECT_DIR$/src/main/ReportController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,7 +45,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
               <caret line="14" column="6" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-              <folding />
+              <folding>
+                <element signature="e#468#469#0" expanded="false" />
+                <element signature="e#496#497#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,8 +56,8 @@
       <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="25" column="41" lean-forward="true" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+            <state relative-caret-position="424">
+              <caret line="28" column="66" lean-forward="false" selection-start-line="28" selection-start-column="66" selection-end-line="28" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -861,7 +849,7 @@
       <workItem from="1483469029984" duration="2178000" />
       <workItem from="1483727341153" duration="3773000" />
       <workItem from="1486756283182" duration="835000" />
-      <workItem from="1486757180986" duration="400000" />
+      <workItem from="1486757180986" duration="548000" />
     </task>
     <task id="LOCAL-00001" summary="Added an addToolSubmit() method that returns an array of strings read from the GUI.">
       <created>1483407655315</created>
@@ -947,11 +935,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486757432905</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Organized the ui layout (fxml) and styling (css) files into a resource (res) folder inside the main folder.">
+      <created>1486757679615</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1486757679615</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7655000" />
+    <option name="totallyTimeSpent" value="7803000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1036,6 +1031,9 @@
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.gitignore" />
   </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
+  </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
       <collection />
@@ -1049,6 +1047,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="Added an addToolSubmit() method that returns an array of strings read from the GUI." />
     <MESSAGE value="Added a new listener class&#10;Modified ReaderThread class&#10;This build isn't working yet." />
     <MESSAGE value="Modified ReaderThread, ReaderListener, ReaderThread&#10; &#10; Setup test case. Program now can read a tag and display it in the GUI." />
@@ -1059,6 +1058,9 @@
     <MESSAGE value="Added EmailHandler.java&#10;Implemented genReportEmail() callback in ReportController.java" />
     <MESSAGE value="Organized the ui layout (fxml) and styling (css) files into a resource (res) folder inside the main folder." />
     <option name="LAST_COMMIT_MESSAGE" value="Organized the ui layout (fxml) and styling (css) files into a resource (res) folder inside the main folder." />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1454,7 +1456,7 @@
         <state relative-caret-position="132">
           <caret line="6" column="247" lean-forward="false" selection-start-line="6" selection-start-column="247" selection-end-line="6" selection-end-column="247" />
           <folding>
-            <marker date="1486757268709" expanded="true" signature="791:851" ph="..." />
+            <marker date="1486757653028" expanded="true" signature="875:939" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1510,14 +1512,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="14" column="6" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-          <folding />
+          <folding>
+            <element signature="e#468#469#0" expanded="false" />
+            <element signature="e#496#497#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="25" column="41" lean-forward="true" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+        <state relative-caret-position="424">
+          <caret line="28" column="66" lean-forward="false" selection-start-line="28" selection-start-column="66" selection-end-line="28" selection-end-column="66" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
