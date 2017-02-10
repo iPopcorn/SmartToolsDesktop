@@ -5,11 +5,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.ListView;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -96,7 +95,7 @@ public class LookupController {
 
         if (actionEvent.getSource() == backButton) {
             stage = (Stage) backButton.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
+            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu.fxml"));
         } else {
             stage = null;
             root = null;

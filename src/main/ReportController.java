@@ -22,6 +22,14 @@ import java.util.HashMap;
 public class ReportController {
 
 
+    public Button btnGenReportBack;
+    public Button btnGenReportPull;
+    public Button btnGenReportCSV;
+    public Button btnGenReportEmail;
+    public Button btnGenReportStart;
+    public Button btnGenReportStop;
+    public ListView genReportList;
+    public TextField txtToolboxNum;
     private ArrayList<String> genReportTagList;
     private HashMap<String, String> addressMap;
     //private ArrayList<CompareTuple<String, String, Boolean>> comparisonMap;
@@ -31,15 +39,6 @@ public class ReportController {
     private ArrayList<Tool> missingTools;
     private int toolboxNum = -1;
     private boolean scanning = false;
-
-    public Button btnGenReportBack;
-    public Button btnGenReportPull;
-    public Button btnGenReportCSV;
-    public Button btnGenReportEmail;
-    public Button btnGenReportStart;
-    public Button btnGenReportStop;
-    public ListView genReportList;
-    public TextField txtToolboxNum;
 
     public void initialize(){
         this.toolList = new ArrayList<>();
@@ -52,7 +51,7 @@ public class ReportController {
 
         if(actionEvent.getSource() == btnGenReportBack){
             stage = (Stage) btnGenReportBack.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
+            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu.fxml"));
         }else{
             stage = null;
             root = null;

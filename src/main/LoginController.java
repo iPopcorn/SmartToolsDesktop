@@ -53,7 +53,7 @@ public class LoginController {
         Parent root = null;
 
         stage = (Stage) btnBack.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("main_menu_admin.fxml"));
+        root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu_admin.fxml"));
 
         if(stage != null && root != null){
             Scene scene = new Scene(root, 640, 480);
@@ -68,7 +68,7 @@ public class LoginController {
         Parent root = null;
 
         stage = (Stage) btnBack.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("admin.fxml"));
+        root = FXMLLoader.load(getClass().getResource("res/fxml/admin.fxml"));
 
         if(stage != null && root != null){
             Scene scene = new Scene(root, 640, 480);

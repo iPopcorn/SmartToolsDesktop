@@ -9,7 +9,6 @@ package main;
 
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -18,10 +17,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import javax.sound.midi.SysexMessage;
-import javax.xml.ws.Action;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainController {
@@ -59,22 +55,22 @@ public class MainController {
         if(actionEvent.getSource() == btnOpenLookup){
             // get reference to button's stage
             stage = (Stage) btnOpenLookup.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("lookup_tool.fxml"));
+            root = FXMLLoader.load(getClass().getResource("res/fxml/lookup_tool.fxml"));
         }else if(actionEvent.getSource() == btnOpenAddTool){
             stage = (Stage) btnOpenAddTool.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("add_tool.fxml"));
+            root = FXMLLoader.load(getClass().getResource("res/fxml/add_tool.fxml"));
         }else if(actionEvent.getSource() == btnOpenReport){
             stage = (Stage) btnOpenReport.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("generate_report.fxml"));
+            root = FXMLLoader.load(getClass().getResource("res/fxml/generate_report.fxml"));
         }else if(actionEvent.getSource() == btnOpenAdmin) {
             stage = (Stage) btnOpenAdmin.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("admin.fxml"));
+            root = FXMLLoader.load(getClass().getResource("res/fxml/admin.fxml"));
         }else if(actionEvent.getSource() == btnOpenLogin){
             stage = (Stage) btnOpenLogin.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("login.fxml"));
+            root = FXMLLoader.load(getClass().getResource("res/fxml/login.fxml"));
         }else if(actionEvent.getSource() == btnOpenDeleteTool){
             stage = (Stage) btnOpenDeleteTool.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("login.fxml")); //todo: make this delete-tool.fxml
+            root = FXMLLoader.load(getClass().getResource("res/fxml/login.fxml")); //todo: make this delete-tool.fxml
         }else{
             stage = null;
             root = null;
@@ -97,17 +93,17 @@ public class MainController {
         if(actionEvent.getSource() == btnLookupBack){
             // get reference to button's stage
             stage = (Stage) btnLookupBack.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
+            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu.fxml"));
         }else if(actionEvent.getSource() == btnAddToolBack){ //TODO: btnAddToolBack is not being read from add_tool.fxml
             stage = (Stage) btnAddToolBack.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
+            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu.fxml"));
             System.out.println("Back Button Pressed in Add Tool");
         }else if(actionEvent.getSource() == btnGenReportBack){
             stage = (Stage) btnGenReportBack.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
+            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu.fxml"));
         }else if(actionEvent.getSource() == btnAdminBack) {
             stage = (Stage) btnAdminBack.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
+            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu.fxml"));
         }/*else if(actionEvent.getSource() == btnAddToolBack){
             stage = (Stage) btnAddToolBack.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
@@ -226,7 +222,7 @@ public class MainController {
                     System.out.println(node.getId());
                     if(node.getId().matches("adminPane")) {
                         System.out.println("adminPane");
-                        Parent root = FXMLLoader.load(getClass().getResource("add_tool.fxml"));
+                        Parent root = FXMLLoader.load(getClass().getResource("res/fxml/add_tool.fxml"));
                         ((Pane) node).getChildren().add(root);
                     }
                 }

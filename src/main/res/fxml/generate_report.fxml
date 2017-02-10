@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102"
+            fx:controller="main.ReportController">
+    <children>
+        <Button fx:id="btnGenReportBack" layoutY="374.0" mnemonicParsing="false" onAction="#openMainMenu"
+                prefHeight="25.0" prefWidth="95.0" text="Go Back" AnchorPane.bottomAnchor="10.0"
+                AnchorPane.leftAnchor="10.0"/>
+        <ToolBar prefHeight="35.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <items>
+                <Button fx:id="btnGenReportPull" onAction="#genReportDisplay" text="Pull Report"/>
+                <Button fx:id="btnGenReportCSV" mnemonicParsing="false" onAction="#genReportCSV" text="Export to CSV"/>
+                <Button fx:id="btnGenReportEmail" mnemonicParsing="false" onAction="#genReportEmail" text="Email"/>
+                <Button fx:id="btnGenReportStart" mnemonicParsing="false" onAction="#scan" styleClass="startScanning"
+                        stylesheets="@../stylesheet/generate_report.css" text="Start Scanning"/>
+                <Button fx:id="btnGenReportStop" mnemonicParsing="false" onAction="#genReportStopScanning"
+                        text="Stop Scanning"/>
+            </items>
+        </ToolBar>
+        <ListView fx:id="genReportList" layoutX="14.0" layoutY="38.0" prefHeight="323.0" prefWidth="570.0"/>
+        <TextField fx:id="txtToolboxNum" layoutX="549.0" layoutY="364.0" prefHeight="26.0" prefWidth="35.0"/>
+        <Label layoutX="268.0" layoutY="369.0" prefHeight="16.0" prefWidth="274.0"
+               text="Enter Toolbox Number Before Scanning:"/>
+    </children>
+</AnchorPane>
