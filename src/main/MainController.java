@@ -103,7 +103,7 @@ public class MainController {
             root = FXMLLoader.load(getClass().getResource("res/fxml/admin.fxml"));
         }else if(actionEvent.getSource() == btnAdminBack) {
             stage = (Stage) btnAdminBack.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu.fxml"));
+            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu_admin.fxml"));
         }/*else if(actionEvent.getSource() == btnAddToolBack){
             stage = (Stage) btnAddToolBack.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
