@@ -7,25 +7,17 @@
 
 package main;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 public class MainController {
 
-    private ReaderThread currentReader;
-    private String hostname = "169.254.126.52";
-
-    public Button btnAddToolRefresh;
     public Button btnOpenLookup;
     public Button btnOpenAddTool;
     public Button btnOpenReport;
@@ -36,12 +28,6 @@ public class MainController {
     public Button btnGenReportBack;
     public Button btnAddToolBack;
     public Button btnAdminBack;
-    public Button btnAddToolSubmit;
-    public Button btnSwitchAddTool;
-
-    public MenuButton btnAddToolAddress;
-    public MenuButton btnAddToolName;
-    public TextField txtTagID;
 
     /**
      * changeScene() is the function that is called when a button on the main menu is pressed.
@@ -121,122 +107,5 @@ public class MainController {
             System.out.println("Stage or root is null!");
         }
 
-    }
-
-    /**
-     * addToolSubmit() is the function that is called when the submit button of the add tool screen is pressed.
-     * This function grabs the data from the GUI and places it in a HashMap.
-     * **/
-    public void addToolSubmit(){
-        System.out.println("addToolSubmit()");
-
-        // read string from text field
-        String tagID = txtTagID.getText();
-
-        String path = "tool-handling/insert-tool.php";
-
-        // create HashMap to store values
-        HashMap<String,String> queryValues = new HashMap(3);
-
-        // get list of items for the tools and the addresses
-        // TODO: address list should be generated based on tool list selection
-        ObservableList<MenuItem> toolList = btnAddToolName.getItems();
-        ObservableList<MenuItem> addressList = btnAddToolAddress.getItems();
-        CheckMenuItem temp, lastSelectedTool = null, lastSelectedAddress = null;
-
-        // iterate through the list of tool names, only used the last selected tool
-        // TODO: think of some way to limit user to select only 1 tool
-        for(int i = 0; i < toolList.size(); i++){
-            temp = (CheckMenuItem) toolList.get(i);
-
-            if(temp.isSelected()) {
-                //System.out.printf("%s is selected\n", temp.getId());
-                lastSelectedTool = temp;
-            }
-        }
-
-        // iterate through address list, only use the last selected address
-        for(int i = 0; i < addressList.size(); i++){
-            temp = (CheckMenuItem) addressList.get(i);
-
-            if(temp.isSelected()) {
-                //System.out.printf("%s is selected\n", temp.getId());
-                lastSelectedAddress = temp;
-            }
-        }
-
-        if(lastSelectedAddress != null && lastSelectedTool != null){
-            queryValues.put("tagID", tagID);
-            queryValues.put("toolName", lastSelectedTool.getText());
-            queryValues.put("toolAddress", lastSelectedAddress.getText());
-            //queryValues.put("toolAddress", "03b11");
-            System.out.printf("tag ID: %s\nTool Name: %s\nAddress: %s\n", queryValues.get("tagID"), queryValues.get("toolName"), queryValues.get("toolAddress"));
-        }else{
-            // TODO: add error label for non-selection
-            System.out.printf("Either address or tool name not selected.");
-        }
-
-        ServerRequest request = new ServerRequest();
-        request.getResponseFromRequest(path, queryValues);
-        //return queryValues;
-    }
-
-    public void addToolRefresh(ActionEvent actionEvent) throws IOException {
-        ReaderThread myReaderThread = new ReaderThread(this.hostname, "add_tool");
-        myReaderThread.start();
-        try {
-            myReaderThread.join();
-        }catch(java.lang.InterruptedException ie){
-            System.out.println(ie);
-        }
-        //while(myReaderThread.isAlive()){}
-        myReaderThread.stopReader();
-        HashMap<String, Integer> tagValues = myReaderThread.getTagValues();
-        int curMax = 0;
-        String resultEpc = "Didn't read anything...";
-
-        try {
-            for (String key : tagValues.keySet()) {
-                System.out.printf("Tag ID: %s\nCount: %d\n", key, tagValues.get(key));
-                if (tagValues.get(key) > curMax)
-                    resultEpc = key;
-            }
-            this.txtTagID.setText(resultEpc);
-        }
-        catch (NullPointerException e)
-        {
-            System.out.print(e);
-        }
-    }
-
-    public void switchToAddTool(ActionEvent actionEvent) throws IOException {
-
-
-        if( actionEvent.getSource() == btnSwitchAddTool)
-        {
-            System.out.println("btnSwitchAddTool");
-            System.out.println(btnSwitchAddTool.getScene().getRoot().getId().toString());
-            for(Node node: btnSwitchAddTool.getScene().getRoot().getChildrenUnmodifiable())
-            {
-                if(node.getId() != null) {
-                    System.out.println(node.getId());
-                    if(node.getId().matches("adminPane")) {
-                        System.out.println("adminPane");
-                        Parent root = FXMLLoader.load(getClass().getResource("res/fxml/add_tool.fxml"));
-                        ((Pane) node).getChildren().add(root);
-                    }
-                }
-            }
-        }
-
-    }
-
-    public void genReportDisplay(ActionEvent actionEvent) {
-    }
-
-    public void genReportCSV(ActionEvent actionEvent) {
-    }
-
-    public void genReportEmail(ActionEvent actionEvent) {
     }
 }

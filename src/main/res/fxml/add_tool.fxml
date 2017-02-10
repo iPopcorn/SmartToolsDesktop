@@ -5,19 +5,9 @@
 <?import javafx.scene.text.Font?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102"
-            fx:controller="main.MainController">
+            fx:controller="main.AddToolController">
     <children>
-        <TextField fx:id="txtTagID" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="444.0" editable="false"/>
-        <MenuButton fx:id="btnAddToolAddress" layoutX="15.0" layoutY="111.0" mnemonicParsing="false" prefHeight="26.0"
-                    prefWidth="444.0" text="Address">
-            <items>
-                <CheckMenuItem fx:id="address1" mnemonicParsing="false" text="05A01"/>
-                <CheckMenuItem fx:id="address2" mnemonicParsing="false" text="05A02"/>
-                <CheckMenuItem fx:id="address3" mnemonicParsing="false" text="05A03"/>
-                <CheckMenuItem fx:id="address4" mnemonicParsing="false" text="05A04"/>
-                <CheckMenuItem fx:id="address5" mnemonicParsing="false" text="05A05"/>
-            </items>
-        </MenuButton>
+        <TextField fx:id="txtTagID" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="444.0"/>
         <Label layoutX="473.0" layoutY="60.0" prefHeight="36.0" prefWidth="117.0" text="Tool Name">
             <font>
                 <Font size="20.0"/>
@@ -29,28 +19,20 @@
             </font>
         </Label>
 
-        <Button fx:id="btnAddToolBack" layoutX="14.0" layoutY="326.0" mnemonicParsing="false" onAction="#openMainMenu"
-                prefHeight="60.0" prefWidth="170.0" text="Go Back"/>
+        <Button fx:id="btnBack" layoutX="14.0" layoutY="326.0" mnemonicParsing="false" onAction="#gotoMainMenu"
+                prefHeight="60.0" prefWidth="170.0" text="Back"/>
 
-        <Button fx:id="btnAddToolSubmit" layoutX="414.0" layoutY="325.0" mnemonicParsing="false"
-                onAction="#addToolSubmit" prefHeight="60.0" prefWidth="170.0" text="Submit"/>
+        <Button fx:id="btnSubmit" layoutX="414.0" layoutY="325.0" mnemonicParsing="false" onAction="#submitTool"
+                prefHeight="60.0" prefWidth="170.0" text="Submit"/>
 
         <Label layoutX="514.0" layoutY="13.0" prefHeight="36.0" prefWidth="68.0" text="Tag ID">
             <font>
                 <Font size="20.0"/>
             </font>
         </Label>
-        <MenuButton fx:id="btnAddToolName" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" prefHeight="26.0"
-                    prefWidth="444.0" text="Name">
-            <items>
-                <CheckMenuItem fx:id="toolName1" mnemonicParsing="false" text="Hammer"/>
-                <CheckMenuItem fx:id="toolName2" mnemonicParsing="false" text="Drill"/>
-                <CheckMenuItem fx:id="toolName3" mnemonicParsing="false" text="Screwdriver"/>
-                <CheckMenuItem fx:id="toolName4" mnemonicParsing="false" text="Ruler"/>
-                <CheckMenuItem fx:id="toolName5" mnemonicParsing="false" text="Knife"/>
-            </items>
-        </MenuButton>
-        <Button fx:id="btnAddToolRefresh" onAction="#addToolRefresh" layoutX="274.0" layoutY="343.0"
-                mnemonicParsing="false" text="Refresh"/>
+        <Button fx:id="btnRefresh" layoutX="274.0" layoutY="343.0" mnemonicParsing="false" onAction="#scanTool"
+                text="Refresh"/>
+        <ChoiceBox fx:id="btnToolAddress" layoutX="14.0" layoutY="105.0" prefHeight="31.0" prefWidth="444.0"/>
+        <ChoiceBox fx:id="btnToolName" layoutX="14.0" layoutY="63.0" prefHeight="31.0" prefWidth="444.0"/>
     </children>
 </AnchorPane>

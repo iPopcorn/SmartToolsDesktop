@@ -35,7 +35,8 @@
         </TextField>
         <RadioButton fx:id="radioByAddress" layoutX="10.0" layoutY="117.0" mnemonicParsing="false" text="By Address"
                      toggleGroup="$searchOptions" AnchorPane.leftAnchor="10.0" GridPane.rowIndex="3"/>
-        <Button fx:id="backButton" layoutX="21.0" layoutY="437.0" mnemonicParsing="false" onAction="#goBack" text="Back"
+        <Button fx:id="btnBack" layoutX="21.0" layoutY="437.0" mnemonicParsing="false" onAction="#gotoMainMenu"
+                text="Back"
                 AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0"/>
     </children>
 </AnchorPane>

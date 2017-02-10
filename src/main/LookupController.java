@@ -29,12 +29,11 @@ public class LookupController {
     @FXML
     private ListView<Tool> toolListView;
     @FXML
-    private Button backButton;
+    private Button btnBack;
 
     private ArrayList<Tool> toolList;
 
     @FXML
-    //todo: where is initialize() called?
     private void initialize() {
         toolList = new ArrayList<>();
         createToolList();
@@ -89,13 +88,13 @@ public class LookupController {
         toolListView.getItems().addAll(searchTools(searchBox.getText()));
     }
 
-    public void goBack(ActionEvent actionEvent) throws IOException {
+    public void gotoMainMenu(ActionEvent actionEvent) throws IOException {
         Stage stage = null;
         Parent root = null;
 
-        if (actionEvent.getSource() == backButton) {
-            stage = (Stage) backButton.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu_admin.fxml"));
+        if (actionEvent.getSource() == btnBack) {
+            stage = (Stage) btnBack.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("res/fxml/admin.fxml"));
         } else {
             stage = null;
             root = null;
