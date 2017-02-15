@@ -1,28 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102"
-            fx:controller="main.ReportController">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ReportController">
     <children>
-        <Button fx:id="btnGenReportBack" layoutY="374.0" mnemonicParsing="false" onAction="#openMainMenu"
-                prefHeight="25.0" prefWidth="95.0" text="Go Back" AnchorPane.bottomAnchor="10.0"
-                AnchorPane.leftAnchor="10.0"/>
+        <Button fx:id="btnGenReportBack" layoutX="14.0" layoutY="369.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="25.0" prefWidth="95.0" text="Go Back" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="14.0" />
         <ToolBar prefHeight="35.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <items>
-                <Button fx:id="btnGenReportPull" onAction="#genReportDisplay" text="Pull Report"/>
-                <Button fx:id="btnGenReportCSV" mnemonicParsing="false" onAction="#genReportCSV" text="Export to CSV"/>
-                <Button fx:id="btnGenReportEmail" mnemonicParsing="false" onAction="#genReportEmail" text="Email"/>
-                <Button fx:id="btnGenReportStart" mnemonicParsing="false" onAction="#scan" styleClass="startScanning"
-                        stylesheets="@../stylesheet/generate_report.css" text="Start Scanning"/>
-                <Button fx:id="btnGenReportStop" mnemonicParsing="false" onAction="#genReportStopScanning"
-                        text="Stop Scanning"/>
+                <Button fx:id="btnGenReportPull" onAction="#genReportDisplay" text="Pull Report" />
+                <Button fx:id="btnGenReportCSV" mnemonicParsing="false" onAction="#genReportCSV" text="Export to CSV" />
+                <Button fx:id="btnGenReportEmail" mnemonicParsing="false" onAction="#genReportEmail" text="Email" />
+                <Button fx:id="btnGenReportStart" mnemonicParsing="false" onAction="#scan" styleClass="startScanning" stylesheets="@../stylesheet/generate_report.css" text="Start Scanning" />
+                <Button fx:id="btnGenReportStop" mnemonicParsing="false" onAction="#genReportStopScanning" text="Stop Scanning" />
             </items>
         </ToolBar>
-        <ListView fx:id="genReportList" layoutX="14.0" layoutY="38.0" prefHeight="323.0" prefWidth="570.0"/>
-        <TextField fx:id="txtToolboxNum" layoutX="549.0" layoutY="364.0" prefHeight="26.0" prefWidth="35.0"/>
-        <Label layoutX="268.0" layoutY="369.0" prefHeight="16.0" prefWidth="274.0"
-               text="Enter Toolbox Number Before Scanning:"/>
+        <ListView fx:id="genReportList" layoutX="14.0" layoutY="38.0" prefHeight="323.0" prefWidth="570.0" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="38.0" />
+        <TextField fx:id="txtToolboxNum" layoutX="549.0" layoutY="369.0" prefHeight="26.0" prefWidth="35.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="16.0" />
+        <Label layoutX="428.0" layoutY="368.0" prefHeight="27.0" prefWidth="121.0" text="Toolbox Number:" AnchorPane.bottomAnchor="5.0">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <RadioButton fx:id="radioAddress" layoutX="212.0" layoutY="368.0" mnemonicParsing="false" selected="true" text="Address" AnchorPane.bottomAnchor="5.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="orderOptions" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="radioName" layoutX="329.0" layoutY="368.0" mnemonicParsing="false" text="Name" toggleGroup="$orderOptions" AnchorPane.bottomAnchor="5.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </RadioButton>
+      <Label layoutX="117.0" layoutY="368.0" prefHeight="17.0" prefWidth="75.0" text="Order By:" AnchorPane.bottomAnchor="5.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

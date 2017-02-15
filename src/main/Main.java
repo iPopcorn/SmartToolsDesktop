@@ -37,7 +37,7 @@ public class Main extends Application {
 
         String response = serverRequest.getResponseFromRequest("tool-handling/lookup-tool.php", POSTdata);
         responseDecoder.decodeJSONToolResponse(response);*/
-        boolean login = true;
+        boolean login = false;
 
 
         // set stage

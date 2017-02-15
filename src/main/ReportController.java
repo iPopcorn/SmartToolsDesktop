@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.apache.commons.csv.CSVFormat;
@@ -30,6 +31,8 @@ public class ReportController {
     public Button btnGenReportStop;
     public ListView genReportList;
     public TextField txtToolboxNum;
+    public RadioButton radioName;
+    public RadioButton radioAddress;
     private ArrayList<String> genReportTagList;
     private HashMap<String, String> addressMap;
     //private ArrayList<CompareTuple<String, String, Boolean>> comparisonMap;
