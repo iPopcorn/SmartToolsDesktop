@@ -1,13 +1,12 @@
 package main;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
@@ -33,6 +32,9 @@ public class ReportController {
     public TextField txtToolboxNum;
     public RadioButton radioName;
     public RadioButton radioAddress;
+    public RadioMenuItem radioAll;
+    public RadioMenuItem radioHome;
+    public RadioMenuItem radioMissing;
     private ArrayList<String> genReportTagList;
     private HashMap<String, String> addressMap;
     //private ArrayList<CompareTuple<String, String, Boolean>> comparisonMap;
@@ -44,7 +46,11 @@ public class ReportController {
     private boolean scanning = false;
 
     public void initialize(){
-        this.toolList = new ArrayList<>();
+        boolean scanner = false;
+        if(scanner)
+            this.toolList = new ArrayList<>();
+        else
+            this.toolList = this.getAddressMapFromDB(5); // if we aren't using the scanner, populate tool list from DB automatically
         this.genReportList.setCellFactory(new ToolCellFactory());
     }
 
@@ -85,24 +91,71 @@ public class ReportController {
             //setup the CellFactory for the listview
             this.genReportList.setCellFactory(new ToolCellFactory());
 
-            // ArrayList to hold missing tools
-            //ArrayList<Tool> missingTools = new ArrayList<>();
-            for(Tool tool: this.toolList){
-                if(tool.getIsHome() != true){
-                    System.out.printf("Found Missing Tool: %s\n",tool.toString());
-                    missingTools.add(tool);
+            // check view selection
+            if(this.radioMissing.isSelected()){ // display missing tools
+                System.out.println("ReportController.genReportDisplay() missing tools case.");
+
+                // add to missing tools array list
+                for(Tool tool: this.toolList){
+                    if(tool.getIsHome() != true){
+                        System.out.printf("Found Missing Tool: %s\n",tool.toString());
+                        missingTools.add(tool);
+                    }
+                }
+
+                // print missing tools
+                /*System.out.println("Missing Tools:");
+                for(Tool tool : missingTools)
+                    System.out.printf("%s\n", tool);*/
+
+                // Sort list of missing tools, then display it.
+                ObservableList<Tool> oMissingTools = FXCollections.observableArrayList(missingTools);
+                ObservableList<Tool> sortedTools = this.sortTools(oMissingTools);
+                //this.genReportList.getItems().clear();
+                this.genReportList.setItems(null);
+                this.genReportList.refresh();
+                //this.genReportList.getItems().addAll(missingTools);
+                this.genReportList.setItems(sortedTools);
+            }else if(this.radioHome.isSelected()){ // display at home tools
+                System.out.println("ReportController.genReportDisplay() home tools case.");
+                ArrayList<Tool> homeTools = new ArrayList<>();
+
+                for(Tool tool: this.toolList){
+                    if(tool.getIsHome() == true){
+                        //System.out.printf("Found Home Tool: %s\n",tool.toString());
+                        homeTools.add(tool);
+                    }
+                }
+
+                ObservableList<Tool> oHomeTools = FXCollections.observableArrayList(homeTools);
+                ObservableList<Tool> oSortedHomeTools = this.sortTools(oHomeTools);
+
+                this.genReportList.getItems().clear();
+                this.genReportList.refresh();
+                //this.genReportList.getItems().addAll(homeTools);
+                this.genReportList.setItems(oHomeTools);
+            }else{
+                System.out.println("ReportController.genReportDisplay() all tools case.");
+
+                ObservableList<Tool> oToolList = FXCollections.observableArrayList(this.toolList);
+                ObservableList<Tool> oSortedToolList = this.sortTools(oToolList);
+
+                try{
+                    //this.genReportList.getItems().clear();
+                    this.genReportList.setItems(null);
+                    this.genReportList.refresh();
+                    //this.genReportList.getItems().addAll(this.toolList);
+                    this.genReportList.setItems(oSortedToolList);
+                }catch(Exception e){
+                    System.out.println(e);
                 }
             }
 
-            System.out.println("Missing Tools:");
-            for(Tool tool : missingTools)
-                System.out.printf("%s\n", tool);
 
-            // Display ArrayList of missing tools
-            // todo: figure out why correct missingTools array isnt showing
-            this.genReportList.getItems().clear();
-            this.genReportList.refresh();
-            this.genReportList.getItems().addAll(missingTools);
+
+
+
+
         }
         System.out.println("End ReportController.genReportDisplay()");
     }
@@ -290,10 +343,23 @@ public class ReportController {
         JSONdecoder requestDecoder = new JSONdecoder();
         HashMap<String, String> data = new HashMap<>();
         data.put("searchField","toolbox");
-        data.put("searchValue",Integer.toString(this.toolboxNum));
+        data.put("searchValue",Integer.toString(toolboxNumber));
         String response = myRequest.getResponseFromRequest("tool-handling/lookup-tool.php", data);
+        System.out.println(response);
         ArrayList<Tool> tempList = requestDecoder.decodeJSONToolResponse(response);
         return tempList;
+    }
+
+    /**
+     * sortTools() returns a sorted ObservableList based on which radio button is selected at the time that the pull
+     * report button is clicked.
+     * **/
+    public ObservableList sortTools(ObservableList list){
+        // return sorted list based on selection
+        if(this.radioName.isSelected())
+            return list.sorted(new NameComparator());
+        else
+            return list.sorted(new AddressComparator());
     }
 
 }

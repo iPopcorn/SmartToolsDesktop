@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="938ec455-41d4-49a5-8d23-945b85e994b7" name="Default" comment="">
+    <list default="true" id="938ec455-41d4-49a5-8d23-945b85e994b7" name="Default" comment="Added functionality to order by radio buttons to generate-report.&#10;Added a dropdown menu to change what type of report to view.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/AddressComparator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/NameComparator.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SmartToolsDesktop/main/lookup_tool.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SmartToolsDesktop/main/main_menu.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SmartToolsDesktop/main/main_menu.fxml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SmartToolsDesktop/main/Main.class" afterPath="$PROJECT_DIR$/out/production/SmartToolsDesktop/main/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Main.java" afterPath="$PROJECT_DIR$/src/main/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ReportController.java" afterPath="$PROJECT_DIR$/src/main/ReportController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/fxml/generate_report.fxml" afterPath="$PROJECT_DIR$/src/main/res/fxml/generate_report.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/fxml/lookup_tool.fxml" afterPath="$PROJECT_DIR$/src/main/res/fxml/lookup_tool.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,8 +33,8 @@
       <file leaf-file-name="ReportController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/ReportController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.34390244">
-              <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.53045684">
+              <caret line="114" column="48" selection-start-line="114" selection-start-column="48" selection-end-line="114" selection-end-column="48" />
               <folding>
                 <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
                 <element signature="method#genReportCSV#0;class#ReportController#0" expanded="false" />
@@ -38,8 +42,29 @@
                 <element signature="method#genReportStartScanning#0;class#ReportController#0" expanded="false" />
                 <element signature="method#genReportStopScanning#0;class#ReportController#0" expanded="false" />
                 <element signature="method#scan#0;class#ReportController#0" expanded="false" />
+                <element signature="docComment;method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
                 <element signature="method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NameComparator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/NameComparator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddressComparator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/AddressComparator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -49,7 +74,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#468#469#0" expanded="false" />
+                <element signature="e#496#497#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -60,20 +89,29 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.018182">
-              <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
-              <folding />
+            <state vertical-scroll-proportion="3.7454545">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="n#ToolBar#0;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="2-8-17" />
+        <entry key="$PROJECT_DIR$" value="2-15-17" />
       </map>
     </option>
   </component>
@@ -104,9 +142,11 @@
         <option value="$PROJECT_DIR$/src/main/res/fxml/login.fxml" />
         <option value="$PROJECT_DIR$/src/main/LookupController.java" />
         <option value="$PROJECT_DIR$/src/main/res/fxml/lookup_tool.fxml" />
-        <option value="$PROJECT_DIR$/src/main/res/fxml/generate_report.fxml" />
-        <option value="$PROJECT_DIR$/src/main/ReportController.java" />
         <option value="$PROJECT_DIR$/src/main/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/res/fxml/generate_report.fxml" />
+        <option value="$PROJECT_DIR$/src/main/NameComparator.java" />
+        <option value="$PROJECT_DIR$/src/main/AddressComparator.java" />
+        <option value="$PROJECT_DIR$/src/main/ReportController.java" />
       </list>
     </option>
   </component>
@@ -141,6 +181,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -221,7 +262,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -254,133 +295,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/SmartToolsDesktop/main/MainController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/LookupController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/MainController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/res/fxml/add_tool.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/res/fxml/lookup_tool.fxml</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/AddToolController.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/add_tool.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/admin.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/generate_report.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/generate_report.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/login.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/lookup_tool.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/main_menu.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/main_menu.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/main_menu_admin.fxml</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunManager" selected="Application.Unnamed">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -489,6 +404,9 @@
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="938ec455-41d4-49a5-8d23-945b85e994b7" name="Default" comment="" />
@@ -589,12 +507,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486759917965</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added order by radio buttons to generate-report">
+      <created>1487195393340</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1487195393340</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1320" height="784" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -603,12 +527,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35276073" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35276073" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17301588" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32822084" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32668713" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -660,6 +584,14 @@
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -677,7 +609,8 @@
     <MESSAGE value="Connected authentication to database." />
     <MESSAGE value="Updated navigational buttons" />
     <MESSAGE value="Finished updating navigational buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished updating navigational buttons" />
+    <MESSAGE value="Added order by radio buttons to generate-report" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added order by radio buttons to generate-report" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -690,6 +623,90 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/ReportController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportCSV#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportEmail#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportStartScanning#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportStopScanning#0;class#ReportController#0" expanded="false" />
+            <element signature="method#scan#0;class#ReportController#0" expanded="false" />
+            <element signature="docComment;method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
+            <element signature="method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#468#469#0" expanded="false" />
+            <element signature="e#496#497#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/fxml/generate_report.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+          <folding>
+            <element signature="n#ToolBar#0;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ReportController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportCSV#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportEmail#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportStartScanning#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportStopScanning#0;class#ReportController#0" expanded="false" />
+            <element signature="method#scan#0;class#ReportController#0" expanded="false" />
+            <element signature="docComment;method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
+            <element signature="method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#468#469#0" expanded="false" />
+            <element signature="e#496#497#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/fxml/generate_report.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
+          <folding>
+            <element signature="n#ToolBar#0;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ServerResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -797,14 +814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/JSONdecoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05255023">
-          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ReportListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -891,7 +900,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -930,7 +939,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#468#469#0" expanded="false" />
+            <element signature="e#496#497#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/JSONdecoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_73/javafx-src.zip!/javafx/scene/control/ListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38324872">
+          <caret line="946" column="14" selection-start-line="946" selection-start-column="14" selection-end-line="946" selection-end-column="14" />
+          <folding>
+            <element signature="e#38086#38087#0" expanded="false" />
+            <element signature="e#38158#38159#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -939,16 +973,34 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.018182">
-          <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
+        <state vertical-scroll-proportion="3.7454545">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#ToolBar#0;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/NameComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/AddressComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ReportController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.34390244">
-          <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.53045684">
+          <caret line="114" column="48" selection-start-line="114" selection-start-column="48" selection-end-line="114" selection-end-column="48" />
           <folding>
             <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
             <element signature="method#genReportCSV#0;class#ReportController#0" expanded="false" />
@@ -956,6 +1008,7 @@
             <element signature="method#genReportStartScanning#0;class#ReportController#0" expanded="false" />
             <element signature="method#genReportStopScanning#0;class#ReportController#0" expanded="false" />
             <element signature="method#scan#0;class#ReportController#0" expanded="false" />
+            <element signature="docComment;method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
             <element signature="method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
           </folding>
         </state>
