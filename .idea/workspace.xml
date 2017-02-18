@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="938ec455-41d4-49a5-8d23-945b85e994b7" name="Default" comment="Added functionality to order by radio buttons to generate-report.&#10;Added a dropdown menu to change what type of report to view.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/AddressComparator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/NameComparator.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SmartToolsDesktop/main/lookup_tool.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SmartToolsDesktop/main/main_menu.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SmartToolsDesktop/main/main_menu.fxml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SmartToolsDesktop/main/Main.class" afterPath="$PROJECT_DIR$/out/production/SmartToolsDesktop/main/Main.class" />
+    <list default="true" id="938ec455-41d4-49a5-8d23-945b85e994b7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ReportController.java" afterPath="$PROJECT_DIR$/src/main/ReportController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/fxml/generate_report.fxml" afterPath="$PROJECT_DIR$/src/main/res/fxml/generate_report.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,8 +26,8 @@
       <file leaf-file-name="ReportController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/ReportController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53045684">
-              <caret line="114" column="48" selection-start-line="114" selection-start-column="48" selection-end-line="114" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.39847717">
+              <caret line="96" column="42" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="42" />
               <folding>
                 <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
                 <element signature="method#genReportCSV#0;class#ReportController#0" expanded="false" />
@@ -513,7 +506,13 @@
       <option name="project" value="LOCAL" />
       <updated>1487195393340</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added functionality to order by radio buttons to generate-report.&#10;Added a dropdown menu to change what type of report to view.">
+      <created>1487386913196</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1487386913196</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -610,7 +609,8 @@
     <MESSAGE value="Updated navigational buttons" />
     <MESSAGE value="Finished updating navigational buttons" />
     <MESSAGE value="Added order by radio buttons to generate-report" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added order by radio buttons to generate-report" />
+    <MESSAGE value="Added functionality to order by radio buttons to generate-report.&#10;Added a dropdown menu to change what type of report to view." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added functionality to order by radio buttons to generate-report.&#10;Added a dropdown menu to change what type of report to view." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -999,8 +999,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ReportController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53045684">
-          <caret line="114" column="48" selection-start-line="114" selection-start-column="48" selection-end-line="114" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.39847717">
+          <caret line="96" column="42" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="42" />
           <folding>
             <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
             <element signature="method#genReportCSV#0;class#ReportController#0" expanded="false" />

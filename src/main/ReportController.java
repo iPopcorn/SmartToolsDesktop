@@ -94,6 +94,7 @@ public class ReportController {
             // check view selection
             if(this.radioMissing.isSelected()){ // display missing tools
                 System.out.println("ReportController.genReportDisplay() missing tools case.");
+                this.missingTools.clear();
 
                 // add to missing tools array list
                 for(Tool tool: this.toolList){
