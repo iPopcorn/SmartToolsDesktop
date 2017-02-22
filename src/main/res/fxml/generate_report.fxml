@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ReportController">
+<AnchorPane fx:id="paneGenReport" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ReportController">
     <children>
         <Button fx:id="btnGenReportBack" layoutX="14.0" layoutY="369.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="25.0" prefWidth="95.0" text="Go Back" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="14.0" />
         <ToolBar prefHeight="35.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -32,6 +32,7 @@
                   <RadioMenuItem fx:id="radioAll" mnemonicParsing="false" text="All Tools" toggleGroup="$viewOptions" />
               </items>
             </MenuButton>
+            <Label fx:id="labelError" prefHeight="17.0" prefWidth="193.0" textFill="#f80202" />
             </items>
         </ToolBar>
         <ListView fx:id="genReportList" layoutX="14.0" layoutY="38.0" prefHeight="323.0" prefWidth="570.0" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="38.0" />

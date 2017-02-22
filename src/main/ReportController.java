@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
@@ -35,6 +36,8 @@ public class ReportController {
     public RadioMenuItem radioAll;
     public RadioMenuItem radioHome;
     public RadioMenuItem radioMissing;
+    public AnchorPane paneGenReport;
+    public Label labelError;
     private ArrayList<String> genReportTagList;
     private HashMap<String, String> addressMap;
     //private ArrayList<CompareTuple<String, String, Boolean>> comparisonMap;
@@ -46,7 +49,7 @@ public class ReportController {
     private boolean scanning = false;
 
     public void initialize(){
-        boolean scanner = false;
+        boolean scanner = true;
         if(scanner)
             this.toolList = new ArrayList<>();
         else
@@ -221,33 +224,37 @@ public class ReportController {
 
     public void genReportStartScanning(){
         System.out.printf("ReportController.genReportStartScanning()\n");
-        if(this.txtToolboxNum.getText() != null){
-            try{
-                String myToolboxNum = this.txtToolboxNum.getText();
-                System.out.printf("myToolboxNum = %s\n", myToolboxNum);
-                this.toolboxNum = Integer.valueOf(myToolboxNum);
-                System.out.printf("The toolboxNum is: %d\n", this.toolboxNum);
-            }catch(NumberFormatException e){
-                System.out.println(e);
-            }
-            if(this.toolboxNum > 0 && this.toolboxNum < 6){
-                System.out.println("Correct toolbox number!");
-                ReaderThread tempReader = new ReaderThread(this.hostname, "generate_report");
-                tempReader.run();
-                this.currentReader = tempReader;
-                System.out.println(tempReader.toString());
-            } else {
-                System.out.println("Invalid toolbox number!");
-            }
-        }else{
-            System.out.println("textbox is empty.");
+        try{
+            String myToolboxNum = this.txtToolboxNum.getText();
+            System.out.printf("myToolboxNum = %s\n", myToolboxNum);
+            this.toolboxNum = Integer.valueOf(myToolboxNum);
+            System.out.printf("The toolboxNum is: %d\n", this.toolboxNum);
+        }catch(NumberFormatException e){
+            System.out.println(e);
         }
+        if(this.toolboxNum > 0 && this.toolboxNum < 6){
+            System.out.println("Correct toolbox number!");
+            ReaderThread tempReader = new ReaderThread(this.hostname, "generate_report");
+            tempReader.run();
+            this.currentReader = tempReader;
+            System.out.println(tempReader.toString());
+        } else {
+            System.out.println("Invalid toolbox number!");
+            this.showError("Invalid Toolbox Number.");
+        }
+    }
+
+    private void showError(String s) {
+        this.labelError.setText(s);
     }
 
     // TODO: optimize comparison algorith in genReportStopScanning()
     public void genReportStopScanning(){
+        System.out.println("ReportController.genReportStopScanning()\n");
+        // remove error message
+        if(!this.labelError.getText().equalsIgnoreCase("")) // if the label is not "" make it ""
+            this.labelError.setText("");
         if(this.currentReader != null){
-            System.out.println("ReportController.genReportStopScanning()");
             this.currentReader.stopReader();
 
             // grab tag list from reader
@@ -257,6 +264,7 @@ public class ReportController {
                 System.out.println("tagList set successfully.");
             }else{
                 System.out.println("There is no genReportTagValues inside of this.currentReader.");
+                this.showError("There is no genReportTagValues inside of this.currentReader.");
             }
 
             // print tag values
@@ -284,6 +292,7 @@ public class ReportController {
             }
         }else{
             System.out.println("Reader never started!");
+            this.showError("Reader never started!");
         }
         System.out.println("ReportController.genReportStopScanning() end!");
     }
