@@ -101,7 +101,7 @@ public class AddToolController {
      * read the tag.
      **/
     public void scanTool(ActionEvent actionEvent) throws IOException {
-        ReaderThread myReaderThread = new ReaderThread(this.hostname, "add_tool");
+        ReaderThread myReaderThread = new ReaderThread(this.hostname, "add_tool", this);
         myReaderThread.start();
         try {
             myReaderThread.join();

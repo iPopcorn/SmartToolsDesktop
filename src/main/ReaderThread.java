@@ -17,10 +17,21 @@ public class ReaderThread extends Thread {
     private ArrayList<String> genReportTagValues;
     private int runCondition;
     private boolean running;
+    private ReportController reportParent;
+    private LookupController lookupParent;
+    private AddToolController addToolParent;
 
-    public ReaderThread(String hostname, String task){
+    public ReaderThread(String hostname, String task, Object creator){
         this.hostname = hostname;
         this.reader = new ImpinjReader();
+
+        String parentName = creator.getClass().getSimpleName();
+        if(parentName.equalsIgnoreCase("ReportController"))
+            this.reportParent = (ReportController) creator;
+        else if(parentName.equalsIgnoreCase("AddToolController"))
+            this.addToolParent = (AddToolController) creator;
+        else if(parentName.equalsIgnoreCase("LookupController"))
+            this.lookupParent = (LookupController) creator;
 
         if(task.equalsIgnoreCase("generate_report")){
             this.runCondition = 1;
@@ -100,6 +111,15 @@ public class ReaderThread extends Thread {
                 this.reader.applySettings(mySettings);
             } catch(Exception e){
                 e.printStackTrace();
+                switch(runCondition){
+                    case 1:{ // generate report
+                        this.reportParent.showError("Reader Failed To Connect!");
+                    }case 2:{ // add tool
+
+                    }case 3:{ // lookup tool
+
+                    }
+                }
             }
         try{
             System.out.printf("ReaderThread.runCondition = %d\n", runCondition);

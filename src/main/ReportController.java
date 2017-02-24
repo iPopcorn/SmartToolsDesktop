@@ -89,6 +89,7 @@ public class ReportController {
 
         if(this.toolList == null){ // check if toolList is null
             System.out.println("Error: toolList not initialized");
+            this.showError("Error: toolList not initialized");
         }else{// if we have a tool list
 
             //setup the CellFactory for the listview
@@ -234,7 +235,7 @@ public class ReportController {
         }
         if(this.toolboxNum > 0 && this.toolboxNum < 6){
             System.out.println("Correct toolbox number!");
-            ReaderThread tempReader = new ReaderThread(this.hostname, "generate_report");
+            ReaderThread tempReader = new ReaderThread(this.hostname, "generate_report", this);
             tempReader.run();
             this.currentReader = tempReader;
             System.out.println(tempReader.toString());
@@ -244,7 +245,7 @@ public class ReportController {
         }
     }
 
-    private void showError(String s) {
+    public void showError(String s) {
         this.labelError.setText(s);
     }
 
