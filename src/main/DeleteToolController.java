@@ -15,12 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckMenuItem;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 /**
@@ -28,7 +23,7 @@ import javafx.stage.Stage;
  *
  * @author Sam
  */
-public class Del_toolController implements Initializable {
+public class DeleteToolController {
 
     /**
      * Initializes the controller class.
@@ -42,7 +37,11 @@ public class Del_toolController implements Initializable {
     public ListView delToolBoxNumb;
     public MenuButton delToolSelectTool;
     public TextField delToolTagID;
-    
+    public Label lblDelToolError;
+    public TextField txtDelToolID;
+    public TextField txtDelToolName;
+    public TextField txtDelToolAddress;
+
     private HashMap<String, String> addressMap;
     private ReaderThread Reader;
     private String hostname = "169.254.126.52";
@@ -60,16 +59,6 @@ public class Del_toolController implements Initializable {
         currentTools = requestDecoder.decodeJSONToolResponse(response);
     }
     
-    public void fillToolList (int toolnumb)
-    {
-        this.getToolList(toolnumb);
-        for (int i = 0; i < currentTools.size(); i++)
-        {
-            CheckMenuItem menuItem = new CheckMenuItem(currentTools.get(i).getName());
-            delToolSelectTool.add(menuItem);
-        }
-    }
-    
     public void openMainMenu(ActionEvent actionEvent) throws IOException
     {
         Stage stage = null;
@@ -77,7 +66,7 @@ public class Del_toolController implements Initializable {
 
         if(actionEvent.getSource() == btnDelToolBack){
             stage = (Stage) btnDelToolBack.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
+            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu.fxml"));
         }else{
             stage = null;
             root = null;
@@ -95,13 +84,13 @@ public class Del_toolController implements Initializable {
     
     public void scanTool()
     {
-        ReaderThread tempReader = new ReaderThread(this.hostname, "delete_tool");
+        ReaderThread tempReader = new ReaderThread(this.hostname, "delete_tool", this);
         tempReader.run();   
     }
     
-    public void deleteTool (String tool_id)
+    public void deleteTool (ActionEvent ae)
     {
-        
+        String tool_id = "";
         ServerRequest serverRequest = new ServerRequest();
         HashMap<String, String> POSTdata = new HashMap<>();
                 
@@ -109,11 +98,6 @@ public class Del_toolController implements Initializable {
         String response = serverRequest.getResponseFromRequest("tool-handling/delete-tool.php", POSTdata);
         
     }
-    
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+
+
 }

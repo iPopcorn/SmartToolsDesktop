@@ -56,7 +56,7 @@ public class MainController {
             root = FXMLLoader.load(getClass().getResource("res/fxml/login.fxml"));
         }else if(actionEvent.getSource() == btnOpenDeleteTool){
             stage = (Stage) btnOpenDeleteTool.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("res/fxml/login.fxml")); //todo: make this delete-tool.fxml
+            root = FXMLLoader.load(getClass().getResource("res/fxml/delete_tool.fxml"));
         }else{
             stage = null;
             root = null;

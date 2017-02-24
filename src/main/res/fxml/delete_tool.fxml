@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:controller="main.DeleteToolController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="txtDelToolID" editable="false" layoutX="15.0" layoutY="55.0" prefHeight="25.0" prefWidth="570.0" promptText="ID" />
+      <TextField fx:id="txtDelToolName" editable="false" layoutX="15.0" layoutY="96.0" prefHeight="25.0" prefWidth="570.0" promptText="Name" />
+      <TextField fx:id="txtDelToolAddress" editable="false" layoutX="15.0" layoutY="145.0" prefHeight="25.0" prefWidth="570.0" promptText="Address" />
+      <Button fx:id="btnDelToolBack" onAction="#openMainMenu" layoutX="15.0" layoutY="191.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="btnDelToolScan" onAction="#scanTool" layoutX="275.0" layoutY="191.0" mnemonicParsing="false" text="Scan" />
+      <Button fx:id="btnDelToolDelete" onAction="#deleteTool" layoutX="535.0" layoutY="191.0" mnemonicParsing="false" text="Delete" />
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="570.0" text="Delete Tool">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDelToolError" layoutX="15.0" layoutY="231.0" prefHeight="25.0" prefWidth="570.0" textFill="#ff0202" />
+   </children>
+</AnchorPane>
