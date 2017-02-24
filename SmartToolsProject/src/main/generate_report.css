@@ -1,8 +1,0 @@
-.stopScanning{}
-.stopScanning:hover{
-    -fx-background-color:red;
-}
-.startScanning {}
-.startScanning:hover{
-    -fx-background-color:#64EE64;
-}
