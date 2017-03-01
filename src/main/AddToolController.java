@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -26,15 +27,30 @@ public class AddToolController {
     //public Button btnSubmit;
     //public Button btnSwitch;
     @FXML
-    public ChoiceBox btnToolName;
+    public TextField txtToolName;
+    @FXML
     public TextField txtTagID;
     //private ReaderThread currentReader;
     private String hostname = "169.254.126.52";
+    private ObservableList<String> addressList = FXCollections.observableArrayList();
 
-    @FXML
-    private void initialize() {
-        btnToolName.setItems(FXCollections.observableArrayList("Drill", "Screwdriver", "Ruler", "Knife"));
-        btnToolAddress.setItems(FXCollections.observableArrayList("05A01", "05A02", "05A03", "05A04", "05A05"));
+    public void searchOpenAddresses() {
+        ServerRequest serverRequest = new ServerRequest();
+        JSONdecoder responseDecoder = new JSONdecoder();
+
+        HashMap<String, String> POSTdata = new HashMap<>();
+        ArrayList<String> foundAddresses = new ArrayList();
+
+        POSTdata.put("toolname", txtToolName.getText());
+
+        String response = serverRequest.getResponseFromRequest("tool-handling/open-addresses.php", POSTdata);
+        foundAddresses = responseDecoder.decodeJSONAddressResponse(response);
+
+        btnToolAddress.getItems().clear();
+        if (!foundAddresses.isEmpty()) {
+            addressList.addAll(foundAddresses);
+            btnToolAddress.setItems(addressList);
+        }
     }
 
     /**
@@ -54,20 +70,20 @@ public class AddToolController {
 
         // get list of items for the tools and the addresses
         // TODO: address list should be generated based on tool list selection
-        ObservableList<MenuItem> toolList = btnToolName.getItems();
+        //ObservableList<MenuItem> toolList = txtToolName;
         ObservableList<MenuItem> addressList = btnToolAddress.getItems();
         CheckMenuItem temp, lastSelectedTool = null, lastSelectedAddress = null;
 
         // iterate through the list of tool names, only used the last selected tool
         // TODO: think of some way to limit user to select only 1 tool
-        for (int i = 0; i < toolList.size(); i++) {
+        /*for (int i = 0; i < toolList.size(); i++) {
             temp = (CheckMenuItem) toolList.get(i);
 
             if (temp.isSelected()) {
                 //System.out.printf("%s is selected\n", temp.getId());
                 lastSelectedTool = temp;
             }
-        }
+        }*/
 
         // iterate through address list, only use the last selected address
         for (int i = 0; i < addressList.size(); i++) {
