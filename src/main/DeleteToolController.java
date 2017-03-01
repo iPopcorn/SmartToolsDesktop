@@ -96,16 +96,37 @@ public class DeleteToolController {
         HashMap<String, Integer> tagValues = tempReader.getTagValues();
         // get tag with highest count
         int curMax = 0;
-        String resultEPC = "Didn't read anything...";
+        String toolID = "Didn't read anything...";
         for(String key: tagValues.keySet()){
             if(tagValues.get(key) > curMax){ // if current count > current max
-                resultEPC = key;
+                toolID = key;
                 curMax = tagValues.get(key);
             }
         }
+        // use toolID to get tool info
+        ServerRequest request = new ServerRequest();
+        HashMap<String, String> responseMap = new HashMap<>();
+        JSONdecoder decoder = new JSONdecoder();
+        ArrayList<Tool> toolList = new ArrayList<>();
+        Tool resultTool;
 
-        // set tag EPC into text field
-        txtDelToolID.setText(resultEPC);
+        responseMap.put("searchField", "id");
+        responseMap.put("searchValue", toolID);
+        String responseString = request.getResponseFromRequest("/tool-handling/lookup-tool.php", responseMap);
+        if(!(responseString.equalsIgnoreCase(""))){
+            toolList = decoder.decodeJSONToolResponse(responseString);
+            resultTool = toolList.get(0);
+
+            // set tool info into text field
+            txtDelToolID.setText(resultTool.getId());
+            txtDelToolAddress.setText(resultTool.getAddress());
+            txtDelToolName.setText(resultTool.getName());
+        }else{ // TODO: Error message goes here.
+            System.out.println("Empty response.");
+        }
+
+
+
     }
     
     public void deleteTool (ActionEvent ae)
