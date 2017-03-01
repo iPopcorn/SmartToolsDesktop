@@ -44,10 +44,10 @@ public class AddToolController {
         POSTdata.put("toolname", txtToolName.getText());
 
         String response = serverRequest.getResponseFromRequest("tool-handling/open-addresses.php", POSTdata);
-        foundAddresses = responseDecoder.decodeJSONAddressResponse(response);
 
-        btnToolAddress.getItems().clear();
-        if (!foundAddresses.isEmpty()) {
+        if (!response.isEmpty() || response == null) {
+            foundAddresses = responseDecoder.decodeJSONAddressResponse(response);
+            btnToolAddress.getItems().clear();
             addressList.addAll(foundAddresses);
             btnToolAddress.setItems(addressList);
         }

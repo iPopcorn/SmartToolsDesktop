@@ -121,21 +121,21 @@ public class LookupController {
             POSTdata.put("searchValue", searchText.toLowerCase());
 
             String response = serverRequest.getResponseFromRequest("tool-handling/lookup-tool.php", POSTdata);
-            if (!response.isEmpty())
+            if (!response.isEmpty() || response == null)
                 foundTools = responseDecoder.decodeJSONToolResponse(response);
         } else if (radioByAddress.isSelected()) {
             POSTdata.put("searchField", "address");
             POSTdata.put("searchValue", searchText.toLowerCase());
 
             String response = serverRequest.getResponseFromRequest("tool-handling/lookup-tool.php", POSTdata);
-            if (!response.isEmpty())
+            if (!response.isEmpty() || response == null)
                 foundTools = responseDecoder.decodeJSONToolResponse(response);
         } else if (radioByID.isSelected()) {
             POSTdata.put("searchField", "id");
             POSTdata.put("searchValue", searchText.toLowerCase());
 
             String response = serverRequest.getResponseFromRequest("tool-handling/lookup-tool.php", POSTdata);
-            if (!response.isEmpty())
+            if (!response.isEmpty() || response == null)
                 foundTools = responseDecoder.decodeJSONToolResponse(response);
         }
 
