@@ -132,8 +132,10 @@ public class AddToolController {
         try {
             for (String key : tagValues.keySet()) {
                 System.out.printf("Tag ID: %s\nCount: %d\n", key, tagValues.get(key));
-                if (tagValues.get(key) > curMax)
+                if (tagValues.get(key) > curMax){
                     resultEpc = key;
+                    curMax = tagValues.get(key);
+                }
             }
             this.txtTagID.setText(resultEpc);
         } catch (NullPointerException e) {

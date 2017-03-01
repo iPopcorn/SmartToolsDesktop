@@ -86,6 +86,10 @@ public class ReaderThread extends Thread {
                 System.out.println("test case processing...");
                 break;
             }
+            case 5:{ // delete tool
+                System.out.println("delete tool processing...");
+                break;
+            }
         }
 
         System.out.println("stopReader() end!");
@@ -184,7 +188,7 @@ public class ReaderThread extends Thread {
 
                     this.setTagValues(myListener.getTagValues());
                     break;
-                }case 5:{
+                }case 5:{ // delete tool
                     // connect a listener
                     this.reader.setTagReportListener(new ReaderListener());
 
@@ -193,8 +197,8 @@ public class ReaderThread extends Thread {
                     System.out.println("add_tool reader started!");
 
                     long start = System.currentTimeMillis();
-                    // fail safe timer set to 5 minutes
-                    long end = start + (1000 * 1); // 60 seconds * 1000 ms/sec
+                    // run for half a second
+                    long end = start + (500);
                     while (System.currentTimeMillis() < end)
                     {
                         // run
