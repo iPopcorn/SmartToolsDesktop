@@ -85,7 +85,27 @@ public class DeleteToolController {
     public void scanTool()
     {
         ReaderThread tempReader = new ReaderThread(this.hostname, "delete_tool", this);
-        tempReader.run();   
+        tempReader.run();
+
+        try{
+            tempReader.join();
+        }catch(InterruptedException ie){
+            System.out.println(ie);
+        }
+        tempReader.stopReader();
+        HashMap<String, Integer> tagValues = tempReader.getTagValues();
+        // get tag with highest count
+        int curMax = 0;
+        String resultEPC = "Didn't read anything...";
+        for(String key: tagValues.keySet()){
+            if(tagValues.get(key) > curMax){ // if current count > current max
+                resultEPC = key;
+                curMax = tagValues.get(key);
+            }
+        }
+
+        // set tag EPC into text field
+        txtDelToolID.setText(resultEPC);
     }
     
     public void deleteTool (ActionEvent ae)
