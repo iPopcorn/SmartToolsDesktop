@@ -25,11 +25,7 @@ import javafx.stage.Stage;
  */
 public class DeleteToolController {
 
-    /**
-     * Initializes the controller class.
-     */
 
-    
     public Button btnDelToolScan;
     public Button btnDelToolBack;
     public Button btnDelToolDelete;
@@ -46,9 +42,9 @@ public class DeleteToolController {
     private ReaderThread Reader;
     private String hostname = "169.254.126.52";
     private ArrayList<Tool> currentTools;
-    private int toolboxNum;
+    private Tool resultTool;
     
-    private void getToolList (int toolNumb)
+    /*private void getToolList (int toolNumb)
     {
         ServerRequest myRequest = new ServerRequest();
         JSONdecoder requestDecoder = new JSONdecoder();
@@ -57,7 +53,7 @@ public class DeleteToolController {
         data.put("searchValue",Integer.toString(this.toolboxNum));
         String response = myRequest.getResponseFromRequest("tool-handling/lookup-tool.php", data);
         currentTools = requestDecoder.decodeJSONToolResponse(response);
-    }
+    }*/
     
     public void openMainMenu(ActionEvent actionEvent) throws IOException
     {
@@ -108,14 +104,13 @@ public class DeleteToolController {
         HashMap<String, String> responseMap = new HashMap<>();
         JSONdecoder decoder = new JSONdecoder();
         ArrayList<Tool> toolList = new ArrayList<>();
-        Tool resultTool;
 
         responseMap.put("searchField", "id");
         responseMap.put("searchValue", toolID);
         String responseString = request.getResponseFromRequest("/tool-handling/lookup-tool.php", responseMap);
         if(!(responseString.equalsIgnoreCase(""))){
             toolList = decoder.decodeJSONToolResponse(responseString);
-            resultTool = toolList.get(0);
+            this.resultTool = toolList.get(0);
 
             // set tool info into text field
             txtDelToolID.setText(resultTool.getId());
@@ -129,15 +124,22 @@ public class DeleteToolController {
 
     }
     
-    public void deleteTool (ActionEvent ae)
+    public void deleteTool ()
     {
         String tool_id = "";
         ServerRequest serverRequest = new ServerRequest();
         HashMap<String, String> POSTdata = new HashMap<>();
                 
-        POSTdata.put("tagID", tool_id);
+        POSTdata.put("tagID", this.resultTool.getId());
         String response = serverRequest.getResponseFromRequest("tool-handling/delete-tool.php", POSTdata);
-        
+
+        // TODO: Add messages to GUI labels.
+        if(response.equalsIgnoreCase("location: success.php")){
+            System.out.println("Delete Success");
+        }else{
+            System.out.println("Delete Fail");
+        }
+
     }
 
 
