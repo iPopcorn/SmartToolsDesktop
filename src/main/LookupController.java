@@ -154,7 +154,7 @@ public class LookupController {
 
         if (actionEvent.getSource() == backButton) {
             stage = (Stage) backButton.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
+            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu.fxml"));
         } else {
             stage = null;
             root = null;

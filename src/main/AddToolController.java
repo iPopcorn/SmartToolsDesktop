@@ -72,34 +72,13 @@ public class AddToolController {
         // TODO: address list should be generated based on tool list selection
         //ObservableList<MenuItem> toolList = txtToolName;
         ObservableList<MenuItem> addressList = btnToolAddress.getItems();
-        System.out.println(addressList.toString());
-        CheckMenuItem temp, lastSelectedTool = null, lastSelectedAddress = null;
+        CheckMenuItem temp, selectedTool = null;
+        String selectedAddress = btnToolAddress.getValue().toString();
 
-        // iterate through the list of tool names, only used the last selected tool
-        // TODO: think of some way to limit user to select only 1 tool
-        /*for (int i = 0; i < toolList.size(); i++) {
-            temp = (CheckMenuItem) toolList.get(i);
-
-            if (temp.isSelected()) {
-                //System.out.printf("%s is selected\n", temp.getId());
-                lastSelectedTool = temp;
-            }
-        }*/
-
-        // iterate through address list, only use the last selected address
-        for (int i = 0; i < addressList.size(); i++) {
-            temp = (CheckMenuItem) addressList.get(i);
-
-            if (temp.isSelected()) {
-                //System.out.printf("%s is selected\n", temp.getId());
-                lastSelectedAddress = temp;
-            }
-        }
-
-        if (lastSelectedAddress != null && lastSelectedTool != null) {
+        if (selectedAddress != null && selectedTool != null) {
             queryValues.put("tagID", tagID);
-            queryValues.put("toolName", lastSelectedTool.getText());
-            queryValues.put("toolAddress", lastSelectedAddress.getText());
+            queryValues.put("toolName", selectedTool.getText());
+            queryValues.put("toolAddress", selectedAddress);
             //queryValues.put("toolAddress", "03b11");
             System.out.printf("tag ID: %s\nTool Name: %s\nAddress: %s\n", queryValues.get("tagID"), queryValues.get("toolName"), queryValues.get("toolAddress"));
         } else {

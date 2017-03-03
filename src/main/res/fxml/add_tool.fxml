@@ -32,7 +32,8 @@
         </Label>
         <Button fx:id="btnRefresh" layoutX="274.0" layoutY="343.0" mnemonicParsing="false" onAction="#scanTool"
                 text="Refresh"/>
-        <ChoiceBox fx:id="btnToolAddress" layoutX="14.0" layoutY="105.0" prefHeight="31.0" prefWidth="444.0"/>
+        <ChoiceBox fx:id="btnToolAddress" layoutX="14.0" layoutY="105.0" maxWidth="444.0" minHeight="31.0"
+                   minWidth="444.0" prefHeight="31.0" prefWidth="444.0"/>
         <TextField fx:id="txtToolName" layoutX="14.0" layoutY="63.0" onKeyReleased="#searchOpenAddresses"
                    prefHeight="26.0" prefWidth="444.0" promptText="Tool Name"/>
     </children>
