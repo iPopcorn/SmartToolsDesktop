@@ -37,6 +37,7 @@ public class DeleteToolController {
     public TextField txtDelToolID;
     public TextField txtDelToolName;
     public TextField txtDelToolAddress;
+    public Label lblDelToolMsg;
 
     private HashMap<String, String> addressMap;
     private ReaderThread Reader;
@@ -126,7 +127,6 @@ public class DeleteToolController {
     
     public void deleteTool ()
     {
-        String tool_id = "";
         ServerRequest serverRequest = new ServerRequest();
         HashMap<String, String> POSTdata = new HashMap<>();
                 
@@ -135,9 +135,9 @@ public class DeleteToolController {
 
         // TODO: Add messages to GUI labels.
         if(response.equalsIgnoreCase("location: success.php")){
-            System.out.println("Delete Success");
+            this.lblDelToolMsg.setText("Delete Success");
         }else{
-            System.out.println("Delete Fail");
+            this.lblDelToolError.setText("Delete Fail");
         }
 
     }
