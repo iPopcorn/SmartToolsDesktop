@@ -81,11 +81,11 @@ public class ReportController {
 
     public void genReportDisplay(ActionEvent actionEvent) {
         System.out.println("Begin ReportController.genReportDisplay()");
+
+        // initialize missing tools ArrayList if it hasn't been already.
         if(this.missingTools == null){
             this.missingTools = new ArrayList<>();
         }
-        //todo: remove this test case
-        //this.toolList = getAddressMapFromDB(this.toolboxNum);
 
         if(this.toolList == null){ // check if toolList is null
             System.out.println("Error: toolList not initialized");
@@ -116,10 +116,8 @@ public class ReportController {
                 // Sort list of missing tools, then display it.
                 ObservableList<Tool> oMissingTools = FXCollections.observableArrayList(missingTools);
                 ObservableList<Tool> sortedTools = this.sortTools(oMissingTools);
-                //this.genReportList.getItems().clear();
                 this.genReportList.setItems(null);
                 this.genReportList.refresh();
-                //this.genReportList.getItems().addAll(missingTools);
                 this.genReportList.setItems(sortedTools);
             }else if(this.radioHome.isSelected()){ // display at home tools
                 System.out.println("ReportController.genReportDisplay() home tools case.");
@@ -127,7 +125,6 @@ public class ReportController {
 
                 for(Tool tool: this.toolList){
                     if(tool.getIsHome() == true){
-                        //System.out.printf("Found Home Tool: %s\n",tool.toString());
                         homeTools.add(tool);
                     }
                 }
@@ -137,8 +134,7 @@ public class ReportController {
 
                 this.genReportList.getItems().clear();
                 this.genReportList.refresh();
-                //this.genReportList.getItems().addAll(homeTools);
-                this.genReportList.setItems(oHomeTools);
+                this.genReportList.setItems(oSortedHomeTools);
             }else{
                 System.out.println("ReportController.genReportDisplay() all tools case.");
 
@@ -146,10 +142,8 @@ public class ReportController {
                 ObservableList<Tool> oSortedToolList = this.sortTools(oToolList);
 
                 try{
-                    //this.genReportList.getItems().clear();
                     this.genReportList.setItems(null);
                     this.genReportList.refresh();
-                    //this.genReportList.getItems().addAll(this.toolList);
                     this.genReportList.setItems(oSortedToolList);
                 }catch(Exception e){
                     System.out.println(e);
@@ -174,11 +168,9 @@ public class ReportController {
             if(this.toolboxNum == -1)
                 this.toolboxNum = Integer.valueOf(this.txtToolboxNum.getText());
 
-            //todo: remove this test case
-            //this.toolList = getAddressMapFromDB(this.toolboxNum);
-
             if(this.toolList == null){ // check if toolList is null
                 System.out.println("Error: toolList not initialized");
+                this.showError("Error: toolList not initialized");
             }else{// if we have a tool list
                 boolean rfidTest = true;
                 if(rfidTest){
@@ -249,7 +241,7 @@ public class ReportController {
         this.labelError.setText(s);
     }
 
-    // TODO: optimize comparison algorith in genReportStopScanning()
+    // TODO: optimize comparison algorithm in genReportStopScanning()
     public void genReportStopScanning(){
         System.out.println("ReportController.genReportStopScanning()\n");
         // remove error message

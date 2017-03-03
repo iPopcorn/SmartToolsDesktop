@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="938ec455-41d4-49a5-8d23-945b85e994b7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/DeleteToolController.java" afterPath="$PROJECT_DIR$/src/main/DeleteToolController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/fxml/delete_tool.fxml" afterPath="$PROJECT_DIR$/src/main/res/fxml/delete_tool.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ReportController.java" afterPath="$PROJECT_DIR$/src/main/ReportController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,65 +23,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DeleteToolController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/DeleteToolController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.5512195">
-              <caret line="128" column="5" selection-start-line="128" selection-start-column="5" selection-end-line="128" selection-end-column="5" />
-              <folding>
-                <element signature="method#openMainMenu#0;class#DeleteToolController#0" expanded="false" />
-                <element signature="method#scanTool#0;class#DeleteToolController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="delete-tool.php" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Google Drive/School/System Design/Smart Toolbox Project/scripts/tool-handling/delete-tool.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="41" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="delete_tool.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/fxml/delete_tool.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.6727273">
-              <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReaderThread.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/ReaderThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="88" column="35" selection-start-line="88" selection-start-column="35" selection-end-line="88" selection-end-column="35" />
-              <folding>
-                <element signature="method#run#0;class#ReaderThread#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ReaderListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/ReaderListener.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReportController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/ReportController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.1564792">
+              <caret line="359" column="21" selection-start-line="359" selection-start-column="21" selection-end-line="359" selection-end-column="21" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1375#1376#0" expanded="false" />
-                <element signature="e#1407#1408#0" expanded="false" />
-                <element signature="e#1475#1476#0" expanded="false" />
-                <element signature="e#1517#1518#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#initialize#0;class#ReportController#0" expanded="false" />
+                <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
+                <element signature="method#genReportDisplay#0;class#ReportController#0" expanded="false" />
+                <element signature="method#genReportCSV#0;class#ReportController#0" expanded="false" />
+                <element signature="method#genReportEmail#0;class#ReportController#0" expanded="false" />
+                <element signature="method#genReportStartScanning#0;class#ReportController#0" expanded="false" />
+                <element signature="method#genReportStopScanning#0;class#ReportController#0" expanded="false" />
+                <element signature="method#scan#0;class#ReportController#0" expanded="false" />
+                <element signature="docComment;method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
+                <element signature="method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
+                <element signature="method#sortTools#0;class#ReportController#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -134,7 +102,6 @@
         <option value="$PROJECT_DIR$/src/main/NameComparator.java" />
         <option value="$PROJECT_DIR$/src/main/AddressComparator.java" />
         <option value="$PROJECT_DIR$/src/main/res/fxml/generate_report.fxml" />
-        <option value="$PROJECT_DIR$/src/main/ReportController.java" />
         <option value="$PROJECT_DIR$/src/main/res/fxml/main_menu.fxml" />
         <option value="$PROJECT_DIR$/src/main/res/fxml/del_tool.fxml" />
         <option value="$PROJECT_DIR$/src/main/MainController.java" />
@@ -142,6 +109,7 @@
         <option value="$PROJECT_DIR$/src/main/AddToolController.java" />
         <option value="$PROJECT_DIR$/src/main/res/fxml/delete_tool.fxml" />
         <option value="$PROJECT_DIR$/src/main/DeleteToolController.java" />
+        <option value="$PROJECT_DIR$/src/main/ReportController.java" />
       </list>
     </option>
   </component>
@@ -209,54 +177,6 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="main">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="SmartToolsDesktop">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="main">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="res">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="SmartToolsDesktop">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="main">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="res">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="fxml">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -752,7 +672,13 @@
       <option name="project" value="LOCAL" />
       <updated>1488559093596</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Updated detlete_tool.fxml and DeleteToolcontroller.java&#10;&#10;Updated deleteTool() method to display messages to the GUI">
+      <created>1488562308862</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1488562308863</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -761,10 +687,11 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32668713" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32924962" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17301588" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -783,7 +710,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32668713" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -858,7 +784,8 @@
     <MESSAGE value="Updated scanTool() method inside of DeleteToolController. Now, whenever the 'scan tool' button is pressed, the reader will start, and the program will display the tag that was read." />
     <MESSAGE value="Updated scanTool() method inside of DeleteToolController. Now, whenever the 'scan tool' button is pressed, the reader will start, and the program will display the tag that was read, and then query the database and populate the rest of the fields with the tool information." />
     <MESSAGE value="Implemented deleteTool() method in DeletetoolController.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented deleteTool() method in DeletetoolController.java" />
+    <MESSAGE value="Updated detlete_tool.fxml and DeleteToolcontroller.java&#10;&#10;Updated deleteTool() method to display messages to the GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated detlete_tool.fxml and DeleteToolcontroller.java&#10;&#10;Updated deleteTool() method to display messages to the GUI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -907,8 +834,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#initialize#0;class#ReportController#0" expanded="false" />
             <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
             <element signature="method#genReportDisplay#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportCSV#0;class#ReportController#0" expanded="false" />
             <element signature="method#genReportEmail#0;class#ReportController#0" expanded="false" />
             <element signature="method#genReportStartScanning#0;class#ReportController#0" expanded="false" />
             <element signature="method#genReportStopScanning#0;class#ReportController#0" expanded="false" />
@@ -948,8 +877,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#initialize#0;class#ReportController#0" expanded="false" />
             <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
             <element signature="method#genReportDisplay#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportCSV#0;class#ReportController#0" expanded="false" />
             <element signature="method#genReportEmail#0;class#ReportController#0" expanded="false" />
             <element signature="method#genReportStartScanning#0;class#ReportController#0" expanded="false" />
             <element signature="method#genReportStopScanning#0;class#ReportController#0" expanded="false" />
@@ -1239,25 +1170,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/ReportController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19871795">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
-            <element signature="method#genReportDisplay#0;class#ReportController#0" expanded="false" />
-            <element signature="method#genReportEmail#0;class#ReportController#0" expanded="false" />
-            <element signature="method#genReportStartScanning#0;class#ReportController#0" expanded="false" />
-            <element signature="method#genReportStopScanning#0;class#ReportController#0" expanded="false" />
-            <element signature="method#scan#0;class#ReportController#0" expanded="false" />
-            <element signature="docComment;method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
-            <element signature="method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
-            <element signature="method#sortTools#0;class#ReportController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/fxml/add_tool.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -1278,30 +1190,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/ReaderListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1375#1376#0" expanded="false" />
-            <element signature="e#1407#1408#0" expanded="false" />
-            <element signature="e#1475#1476#0" expanded="false" />
-            <element signature="e#1517#1518#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/ReaderThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="88" column="35" selection-start-line="88" selection-start-column="35" selection-end-line="88" selection-end-column="35" />
-          <folding>
-            <element signature="method#run#0;class#ReaderThread#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/AddToolController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.77506113">
@@ -1318,9 +1206,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/DeleteToolController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.5550122">
+          <caret line="128" column="5" selection-start-line="128" selection-start-column="5" selection-end-line="128" selection-end-column="5" />
+          <folding>
+            <element signature="method#openMainMenu#0;class#DeleteToolController#0" expanded="false" />
+            <element signature="method#scanTool#0;class#DeleteToolController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/Google Drive/School/System Design/Smart Toolbox Project/scripts/tool-handling/delete-tool.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.42146596">
           <caret line="14" column="41" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="41" />
           <folding />
         </state>
@@ -1331,19 +1230,47 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6727273">
+        <state vertical-scroll-proportion="0.5706215">
           <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/DeleteToolController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/ReaderThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5512195">
-          <caret line="128" column="5" selection-start-line="128" selection-start-column="5" selection-end-line="128" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.041564792">
+          <caret line="88" column="35" selection-start-line="88" selection-start-column="35" selection-end-line="88" selection-end-column="35" />
           <folding>
-            <element signature="method#openMainMenu#0;class#DeleteToolController#0" expanded="false" />
-            <element signature="method#scanTool#0;class#DeleteToolController#0" expanded="false" />
+            <element signature="method#run#0;class#ReaderThread#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ReaderListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ReportController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1564792">
+          <caret line="359" column="21" selection-start-line="359" selection-start-column="21" selection-end-line="359" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#initialize#0;class#ReportController#0" expanded="false" />
+            <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportDisplay#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportCSV#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportEmail#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportStartScanning#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportStopScanning#0;class#ReportController#0" expanded="false" />
+            <element signature="method#scan#0;class#ReportController#0" expanded="false" />
+            <element signature="docComment;method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
+            <element signature="method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
+            <element signature="method#sortTools#0;class#ReportController#0" expanded="false" />
           </folding>
         </state>
       </provider>
