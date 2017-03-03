@@ -49,7 +49,7 @@ public class ReportController {
     private boolean scanning = false;
 
     public void initialize(){
-        boolean scanner = true;
+        boolean scanner = false;
         if(scanner)
             this.toolList = new ArrayList<>();
         else
@@ -87,9 +87,9 @@ public class ReportController {
             this.missingTools = new ArrayList<>();
         }
 
-        if(this.toolList == null){ // check if toolList is null
+        if(this.toolList == null || this.toolList.isEmpty()){ // check if toolList is null or empty
             System.out.println("Error: toolList not initialized");
-            this.showError("Error: toolList not initialized");
+            this.showError("Error: toolList not initialized, run scanner first.");
         }else{// if we have a tool list
 
             //setup the CellFactory for the listview
@@ -129,12 +129,16 @@ public class ReportController {
                     }
                 }
 
-                ObservableList<Tool> oHomeTools = FXCollections.observableArrayList(homeTools);
-                ObservableList<Tool> oSortedHomeTools = this.sortTools(oHomeTools);
+                if(homeTools.isEmpty()){
+                    this.showError("Error: No tools at home.");
+                }else{
+                    ObservableList<Tool> oHomeTools = FXCollections.observableArrayList(homeTools);
+                    ObservableList<Tool> oSortedHomeTools = this.sortTools(oHomeTools);
 
-                this.genReportList.getItems().clear();
-                this.genReportList.refresh();
-                this.genReportList.setItems(oSortedHomeTools);
+                    this.genReportList.getItems().clear();
+                    this.genReportList.refresh();
+                    this.genReportList.setItems(oSortedHomeTools);
+                }
             }else{
                 System.out.println("ReportController.genReportDisplay() all tools case.");
 
@@ -160,6 +164,7 @@ public class ReportController {
     }
 
     public void genReportCSV(ActionEvent actionEvent) {
+        boolean success = false;
         System.out.println("ReportController.genReportCSV()");
         try{
             FileWriter fw = new FileWriter("InventoryReport.csv");
@@ -172,8 +177,10 @@ public class ReportController {
                 System.out.println("Error: toolList not initialized");
                 this.showError("Error: toolList not initialized");
             }else{// if we have a tool list
-                boolean rfidTest = true;
-                if(rfidTest){
+
+                // check if we want missing or home tools.
+                // TODO: show error if missingTools/homeTools array is empty
+                if(this.radioMissing.isSelected()){ // we want missing tools
                     // ArrayList to hold missing tools
                     ArrayList<Tool> missingTools = new ArrayList<>();
                     for(Tool tool: this.toolList){
@@ -188,10 +195,16 @@ public class ReportController {
                         System.out.println(record);
                         myPrinter.printRecord(record);
                     }
-                }else{
-                    // Write ArrayList of missing tools
-                    String record;
+                }else{ // we want home tools
+                    ArrayList<Tool> homeTools = new ArrayList<>();
                     for(Tool tool: this.toolList){
+                        if(tool.getIsHome())
+                            homeTools.add(tool);
+                    }
+
+                    // Write ArrayList of home tools
+                    String record;
+                    for(Tool tool: homeTools){
                         record = String.format("%s,%s,%s", tool.getName(), tool.getAddress(), tool.getId());
                         System.out.println(record);
                         myPrinter.printRecord(record);
@@ -199,12 +212,20 @@ public class ReportController {
                 }
 
                 myPrinter.close();
+                success = true;
             }
-        } catch(Exception e){
-            System.out.println(e);
+        } catch(NumberFormatException n){
+            System.out.println(n);
+            success = false;
+            this.showError("Error: Invalid Toolbox Number");
         }
-
-
+        catch(Exception e){
+            System.out.println(e);
+            success = false;
+        }
+        if(success){
+            this.showError("Message: CSV creation success.");
+        }
         System.out.println("genReportCSV() end.");
     }
 

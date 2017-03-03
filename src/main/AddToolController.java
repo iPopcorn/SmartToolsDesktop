@@ -72,6 +72,7 @@ public class AddToolController {
         // TODO: address list should be generated based on tool list selection
         //ObservableList<MenuItem> toolList = txtToolName;
         ObservableList<MenuItem> addressList = btnToolAddress.getItems();
+        System.out.println(addressList.toString());
         CheckMenuItem temp, lastSelectedTool = null, lastSelectedAddress = null;
 
         // iterate through the list of tool names, only used the last selected tool
