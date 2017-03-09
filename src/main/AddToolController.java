@@ -72,12 +72,12 @@ public class AddToolController {
         // TODO: address list should be generated based on tool list selection
         //ObservableList<MenuItem> toolList = txtToolName;
         ObservableList<MenuItem> addressList = btnToolAddress.getItems();
-        CheckMenuItem temp, selectedTool = null;
         String selectedAddress = btnToolAddress.getValue().toString();
+        String selectedTool = txtToolName.getText();
 
-        if (selectedAddress != null && selectedTool != null) {
+        if (selectedAddress != null && !selectedTool.isEmpty()) {
             queryValues.put("tagID", tagID);
-            queryValues.put("toolName", selectedTool.getText());
+            queryValues.put("toolName", selectedTool);
             queryValues.put("toolAddress", selectedAddress);
             //queryValues.put("toolAddress", "03b11");
             System.out.printf("tag ID: %s\nTool Name: %s\nAddress: %s\n", queryValues.get("tagID"), queryValues.get("toolName"), queryValues.get("toolAddress"));
