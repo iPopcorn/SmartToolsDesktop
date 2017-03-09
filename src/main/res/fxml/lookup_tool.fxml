@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="480.0" prefWidth="640.0"
-            xmlns="http://javafx.com/javafx/8.0.111" fx:controller="main.LookupController">
+
+<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.LookupController">
     <children>
         <ListView fx:id="toolListView" layoutX="10.0" layoutY="94.0" prefHeight="338.0" prefWidth="620.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="94.0" GridPane.columnSpan="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS" />
         <Button fx:id="searchButton" layoutX="487.0" layoutY="15.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#search" prefHeight="25.0" prefWidth="143.0" text="Search" AnchorPane.rightAnchor="10.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS">
@@ -34,12 +40,12 @@
          <font>
             <Font size="20.0" />
          </font></RadioButton>
-        <Button fx:id="backButton" layoutX="21.0" layoutY="437.0" mnemonicParsing="false" onAction="#gotoMainMenu"
-                text="Back" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0"/>
+        <Button fx:id="backButton" layoutX="21.0" layoutY="437.0" mnemonicParsing="false" onAction="#gotoMainMenu" text="Back" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
       <Label layoutX="13.0" layoutY="50.0" prefHeight="17.0" prefWidth="92.0" text="Search By:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
+      <Button fx:id="btnScan" onAction="#startScanning" layoutX="589.0" layoutY="445.0" mnemonicParsing="false" text="Scan" />
     </children>
 </AnchorPane>

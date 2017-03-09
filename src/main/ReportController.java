@@ -49,7 +49,7 @@ public class ReportController {
     private boolean scanning = false;
 
     public void initialize(){
-        boolean scanner = false;
+        boolean scanner = true;
         if(scanner)
             this.toolList = new ArrayList<>();
         else

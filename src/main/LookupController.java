@@ -19,6 +19,7 @@ import java.util.HashMap;
  * Created by mwhar on 1/13/2017.
  */
 public class LookupController {
+    public Button btnScan;
     @FXML
     private TextField searchBox;
     @FXML
@@ -35,6 +36,7 @@ public class LookupController {
     private ArrayList<Tool> toolList;
     private ServerRequest serverRequest;
     private ServerResponse serverResponse;
+    private String hostname = "169.254.126.52";
 
     @FXML
     // The initialize() method is called after the constructor and all the components inside of the LookupController class
@@ -167,6 +169,16 @@ public class LookupController {
             stage.show();
         } else {
             System.out.println("Stage or root is null!");
+        }
+    }
+
+    public void startScanning(ActionEvent actionEvent) {
+        if(this.radioByID.isSelected()){
+            // logic to start the scanner
+            ReaderThread tempReader = new ReaderThread(this.hostname, "add_tool", this);
+            tempReader.run();
+        }else{
+            // todo: error message here
         }
     }
 }
