@@ -34,8 +34,6 @@ public class LookupController {
     private Button backButton;
 
     private ArrayList<Tool> toolList;
-    private ServerRequest serverRequest;
-    private ServerResponse serverResponse;
     private String hostname = "169.254.126.52";
 
     @FXML
@@ -44,57 +42,8 @@ public class LookupController {
     // component.
     private void initialize() {
         toolList = new ArrayList<>();
-        createToolList();
         toolListView.setCellFactory(new ToolCellFactory());
     }
-
-    // Populates the LookupController's toolList with mock tools with unique ids and addresses
-    private void createToolList() {
-
-        for (int i = 0; i < 25; i++) {
-            if (i < 5) {
-                Tool newTool = new Tool("Hammer", Integer.toString(i * 236), Integer.toString(i));
-                toolList.add(newTool);
-            } else if (i >= 5 && i <= 13) {
-                Tool newTool = new Tool("Screwdriver", Integer.toString(i * 72 + 2), Integer.toString(i));
-                toolList.add(newTool);
-            } else {
-                Tool newTool = new Tool("Drill", Integer.toString(i * 11 + 1), Integer.toString(i));
-                toolList.add(newTool);
-            }
-
-        }
-    }
-
-//    ServerRequest serverRequest;
-//    JSONdecoder responseDecoder;
-//
-//    @Override
-//    public void start(Stage primaryStage) throws Exception{
-//        /*
-//         * TEST
-//         */
-//
-//        serverRequest = new ServerRequest();
-//        responseDecoder = new JSONdecoder();
-//        HashMap<String, String> POSTdata = new HashMap<>();
-//        POSTdata.put("searchField", "name");
-//        POSTdata.put("searchValue", "hammer");
-//
-//        String response = serverRequest.getResponseFromRequest("tool-handling/lookup-tool.php", POSTdata);
-//        responseDecoder.decodeJSONToolResponse(response);
-//
-//
-//        // set stage
-//        myStage = primaryStage;
-//
-//        // create root objects for scene, connecting them to fxml files
-//        Parent mainMenuRoot = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
-//        //Parent lookupToolRoot = FXMLLoader.load(getClass().getResource("lookup_tool.fxml"));
-//        mainMenu = new Scene(mainMenuRoot, 640, 480);
-//        myStage.setTitle("Desktop App");
-//        myStage.setScene(mainMenu);
-//        myStage.show();
 
     // Searches for a tool by name, address, or id according to which radio button is selected, returning all tools
     // that match the search criteria
@@ -123,21 +72,21 @@ public class LookupController {
             POSTdata.put("searchValue", searchText.toLowerCase());
 
             String response = serverRequest.getResponseFromRequest("tool-handling/lookup-tool.php", POSTdata);
-            if (!response.isEmpty() || response == null)
+            if (response != null && !response.isEmpty())
                 foundTools = responseDecoder.decodeJSONToolResponse(response);
         } else if (radioByAddress.isSelected()) {
             POSTdata.put("searchField", "address");
             POSTdata.put("searchValue", searchText.toLowerCase());
 
             String response = serverRequest.getResponseFromRequest("tool-handling/lookup-tool.php", POSTdata);
-            if (!response.isEmpty() || response == null)
+            if (response != null && !response.isEmpty())
                 foundTools = responseDecoder.decodeJSONToolResponse(response);
         } else if (radioByID.isSelected()) {
             POSTdata.put("searchField", "id");
             POSTdata.put("searchValue", searchText.toLowerCase());
 
             String response = serverRequest.getResponseFromRequest("tool-handling/lookup-tool.php", POSTdata);
-            if (!response.isEmpty() || response == null)
+            if (response != null && !response.isEmpty())
                 foundTools = responseDecoder.decodeJSONToolResponse(response);
         }
 
