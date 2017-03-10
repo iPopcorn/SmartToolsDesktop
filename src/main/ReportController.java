@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import jdk.management.resource.internal.inst.FileChannelImplRMHooks;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
@@ -164,7 +165,7 @@ public class ReportController {
         try{
             Stage stage = new Stage();
             FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle("Select location to store CSV");
+            configureFileChooser(fileChooser);
             File outFile = fileChooser.showSaveDialog(stage);
 
 
@@ -386,6 +387,21 @@ public class ReportController {
             return list.sorted(new NameComparator());
         else
             return list.sorted(new AddressComparator());
+    }
+
+    /**
+     *  configureFileChooser confifures the file chooser to start at the default
+     *  user.home directory and also limits the output file to .csv
+     **/
+
+    private static void configureFileChooser(FileChooser fileChooser) {
+        fileChooser.setTitle("Select location to store CSV");
+        fileChooser.setInitialDirectory(
+                new File(System.getProperty("user.home"))
+        );
+        fileChooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("CSV", "*.csv")
+        );
     }
 
 }
