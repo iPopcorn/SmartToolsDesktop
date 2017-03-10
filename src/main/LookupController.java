@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,6 +17,7 @@ import java.util.HashMap;
  */
 public class LookupController {
     public Button btnScan;
+    public Label lblError;
     @FXML
     private TextField searchBox;
     @FXML
@@ -46,6 +44,10 @@ public class LookupController {
         toolList = new ArrayList<>();
         createToolList();
         toolListView.setCellFactory(new ToolCellFactory());
+    }
+
+    private void showError(String errorMessage){
+        this.lblError.setText(errorMessage);
     }
 
     // Populates the LookupController's toolList with mock tools with unique ids and addresses
@@ -172,13 +174,36 @@ public class LookupController {
         }
     }
 
-    public void startScanning(ActionEvent actionEvent) {
+    public void scanTool(ActionEvent actionEvent) throws IOException {
         if(this.radioByID.isSelected()){
-            // logic to start the scanner
-            ReaderThread tempReader = new ReaderThread(this.hostname, "add_tool", this);
-            tempReader.run();
+            ReaderThread myReaderThread = new ReaderThread(this.hostname, "add_tool", this);
+            myReaderThread.start();
+            try {
+                myReaderThread.join();
+            } catch (java.lang.InterruptedException ie) {
+                System.out.println(ie);
+            }
+            myReaderThread.stopReader();
+            HashMap<String, Integer> tagValues = myReaderThread.getTagValues();
+            int curMax = 0;
+            String resultEpc = "Didn't read anything...";
+
+            try {
+                for (String key : tagValues.keySet()) {
+                    System.out.printf("Tag ID: %s\nCount: %d\n", key, tagValues.get(key));
+                    if (tagValues.get(key) > curMax){
+                        resultEpc = key;
+                        curMax = tagValues.get(key);
+                    }
+                }
+                this.searchBox.setText(resultEpc);
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
         }else{
-            // todo: error message here
+            //todo: error message here
+            System.out.println("Must Select ID to scan");
+            this.showError("Error: ID Not Selected!");
         }
     }
 }
