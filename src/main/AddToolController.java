@@ -7,10 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -33,9 +30,19 @@ public class AddToolController {
     public TextField txtToolName;
     @FXML
     public TextField txtTagID;
+    public Label lblError;
+    public Label lblMsg;
     //private ReaderThread currentReader;
     private String hostname = "169.254.126.52";
     private ObservableList<String> addressList = FXCollections.observableArrayList();
+
+    public void showError(String errorMsg){
+        this.lblError.setText(errorMsg);
+    }
+
+    public void showMsg(String msg){
+        this.lblMsg.setText(msg);
+    }
 
     public void searchOpenAddresses() {
         ServerRequest serverRequest = new ServerRequest();
@@ -67,15 +74,21 @@ public class AddToolController {
         String tagID = txtTagID.getText();
 
         String path = "tool-handling/insert-tool.php";
+        String selectedAddress = "";
 
         // create HashMap to store values
         HashMap<String, String> queryValues = new HashMap(3);
 
         // get list of items for the tools and the addresses
-        // TODO: address list should be generated based on tool list selection
         //ObservableList<MenuItem> toolList = txtToolName;
         ObservableList<MenuItem> addressList = btnToolAddress.getItems();
-        String selectedAddress = btnToolAddress.getValue().toString();
+        if(btnToolAddress.getValue() != null){
+            selectedAddress = btnToolAddress.getValue().toString();
+        }else{
+            //todo: error message here
+            showError("Error: Please Select an Address");
+            return;
+        }
         String selectedTool = txtToolName.getText();
 
         if (selectedAddress != null && !selectedTool.isEmpty()) {
