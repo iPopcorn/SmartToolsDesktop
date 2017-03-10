@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="938ec455-41d4-49a5-8d23-945b85e994b7" name="Default" comment="Changed the logic in AddTool's submit action so that lastAddressSelected is a string called addressSelected that is initialized to the address choicebox's selected value. Fixed LookUpTool's gotoMainMenu action, the ID for the back button wasn't the same name as the button inside of the LookUpController class.">
+    <list default="true" id="938ec455-41d4-49a5-8d23-945b85e994b7" name="Default" comment="Fixed the server response conditionals in AddToolController and LookupToolController so the results are only added to their lists if the response is not null and is not empty.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/AddToolController.java" afterPath="$PROJECT_DIR$/src/main/AddToolController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/LookupController.java" afterPath="$PROJECT_DIR$/src/main/LookupController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,25 +21,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AddToolController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AddToolController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/AddToolController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="47" column="51" lean-forward="false" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="308">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LookupController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LookupController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/LookupController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+            <state relative-caret-position="502">
+              <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1247#1248#0" expanded="true" />
+                <element signature="e#1298#1299#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -119,8 +117,8 @@
         <option value="$PROJECT_DIR$/src/main/res/fxml/add_tool.fxml" />
         <option value="$PROJECT_DIR$/src/main/res/fxml/lookup_tool.fxml" />
         <option value="$PROJECT_DIR$/src/main/res/stylesheet/add_tool.css" />
-        <option value="$PROJECT_DIR$/src/main/LookupController.java" />
         <option value="$PROJECT_DIR$/src/main/AddToolController.java" />
+        <option value="$PROJECT_DIR$/src/main/LookupController.java" />
       </list>
     </option>
   </component>
@@ -333,11 +331,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/AddToolController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/LookupController.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/ReportController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/res/fxml/lookup_tool.fxml</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -940,7 +934,7 @@
       <workItem from="1488400783697" duration="3637000" />
       <workItem from="1488567485625" duration="3750000" />
       <workItem from="1488571610899" duration="702000" />
-      <workItem from="1489167004922" duration="3980000" />
+      <workItem from="1489167004922" duration="5060000" />
     </task>
     <task id="LOCAL-00001" summary="Added an addToolSubmit() method that returns an array of strings read from the GUI.">
       <created>1483407655315</created>
@@ -1075,11 +1069,18 @@
       <option name="project" value="LOCAL" />
       <updated>1488572267166</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Fixed the server response conditionals in AddToolController and LookupToolController so the results are only added to their lists if the response is not null and is not empty.">
+      <created>1489172422965</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1489172422965</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45999000" />
+    <option name="totallyTimeSpent" value="47079000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1103,7 +1104,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35345775" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34906697" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1195,7 +1196,8 @@
     <MESSAGE value="Change AddTool and LookupTool screen logic so when searching for open addresses and looking up a tool the response return by the server is checked to ensure it is not empty or null." />
     <MESSAGE value="Changed AddTool and LookupTool screen logic so when searching for open addresses and looking up a tool the response return by the server is checked to ensure it is not empty or null." />
     <MESSAGE value="Changed the logic in AddTool's submit action so that lastAddressSelected is a string called addressSelected that is initialized to the address choicebox's selected value. Fixed LookUpTool's gotoMainMenu action, the ID for the back button wasn't the same name as the button inside of the LookUpController class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed the logic in AddTool's submit action so that lastAddressSelected is a string called addressSelected that is initialized to the address choicebox's selected value. Fixed LookUpTool's gotoMainMenu action, the ID for the back button wasn't the same name as the button inside of the LookUpController class." />
+    <MESSAGE value="Fixed the server response conditionals in AddToolController and LookupToolController so the results are only added to their lists if the response is not null and is not empty." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the server response conditionals in AddToolController and LookupToolController so the results are only added to their lists if the response is not null and is not empty." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1494,13 +1496,6 @@
           <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           <folding>
             <element signature="method#initialize#0;class#ReportController#0" expanded="false" />
-            <element signature="method#genReportDisplay#0;class#ReportController#0" expanded="false" />
-            <element signature="method#genReportCSV#0;class#ReportController#0" expanded="false" />
-            <element signature="method#genReportEmail#0;class#ReportController#0" expanded="false" />
-            <element signature="method#genReportStartScanning#0;class#ReportController#0" expanded="false" />
-            <element signature="method#genReportStopScanning#0;class#ReportController#0" expanded="false" />
-            <element signature="method#scan#0;class#ReportController#0" expanded="false" />
-            <element signature="method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1630,22 +1625,22 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/stylesheet/add_tool.css" />
-    <entry file="file://$PROJECT_DIR$/src/main/LookupController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/AddToolController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="308">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/AddToolController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/LookupController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="47" column="51" lean-forward="false" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
+        <state relative-caret-position="502">
+          <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1247#1248#0" expanded="true" />
+            <element signature="e#1298#1299#0" expanded="true" />
           </folding>
         </state>
       </provider>
