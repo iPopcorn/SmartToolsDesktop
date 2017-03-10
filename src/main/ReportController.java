@@ -8,10 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -156,9 +159,18 @@ public class ReportController {
     public void genReportCSV(ActionEvent actionEvent) {
         boolean success = false;
         System.out.println("ReportController.genReportCSV()");
+        System.out.println("Export To CSV PRESSED");
+
         try{
-            FileWriter fw = new FileWriter("InventoryReport.csv");
+            Stage stage = new Stage();
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Select location to store CSV");
+            File outFile = fileChooser.showSaveDialog(stage);
+
+
+            FileWriter fw = new FileWriter(outFile.getAbsolutePath());
             CSVPrinter myPrinter = new CSVPrinter(fw, CSVFormat.EXCEL);
+
 
             if(this.toolboxNum == -1)
                 this.toolboxNum = Integer.valueOf(this.txtToolboxNum.getText());
