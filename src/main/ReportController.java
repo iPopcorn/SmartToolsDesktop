@@ -49,11 +49,7 @@ public class ReportController {
     private boolean scanning = false;
 
     public void initialize(){
-        boolean scanner = true;
-        if(scanner)
-            this.toolList = new ArrayList<>();
-        else
-            this.toolList = this.getAddressMapFromDB(5); // if we aren't using the scanner, populate tool list from DB automatically
+        this.toolList = new ArrayList<>();
         this.genReportList.setCellFactory(new ToolCellFactory());
     }
 
@@ -153,12 +149,6 @@ public class ReportController {
                     System.out.println(e);
                 }
             }
-
-
-
-
-
-
         }
         System.out.println("End ReportController.genReportDisplay()");
     }

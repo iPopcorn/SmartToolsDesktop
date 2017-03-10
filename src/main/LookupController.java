@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,6 +17,7 @@ import java.util.HashMap;
  */
 public class LookupController {
     public Button btnScan;
+    public Label lblError;
     @FXML
     private TextField searchBox;
     @FXML
@@ -44,6 +42,58 @@ public class LookupController {
         toolList = new ArrayList<>();
         toolListView.setCellFactory(new ToolCellFactory());
     }
+
+    private void showError(String errorMessage){
+        this.lblError.setText(errorMessage);
+    }
+
+    // Populates the LookupController's toolList with mock tools with unique ids and addresses
+    private void createToolList() {
+
+        for (int i = 0; i < 25; i++) {
+            if (i < 5) {
+                Tool newTool = new Tool("Hammer", Integer.toString(i * 236), Integer.toString(i));
+                toolList.add(newTool);
+            } else if (i >= 5 && i <= 13) {
+                Tool newTool = new Tool("Screwdriver", Integer.toString(i * 72 + 2), Integer.toString(i));
+                toolList.add(newTool);
+            } else {
+                Tool newTool = new Tool("Drill", Integer.toString(i * 11 + 1), Integer.toString(i));
+                toolList.add(newTool);
+            }
+
+        }
+    }
+
+//    ServerRequest serverRequest;
+//    JSONdecoder responseDecoder;
+//
+//    @Override
+//    public void start(Stage primaryStage) throws Exception{
+//        /*
+//         * TEST
+//         */
+//
+//        serverRequest = new ServerRequest();
+//        responseDecoder = new JSONdecoder();
+//        HashMap<String, String> POSTdata = new HashMap<>();
+//        POSTdata.put("searchField", "name");
+//        POSTdata.put("searchValue", "hammer");
+//
+//        String response = serverRequest.getResponseFromRequest("tool-handling/lookup-tool.php", POSTdata);
+//        responseDecoder.decodeJSONToolResponse(response);
+//
+//
+//        // set stage
+//        myStage = primaryStage;
+//
+//        // create root objects for scene, connecting them to fxml files
+//        Parent mainMenuRoot = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
+//        //Parent lookupToolRoot = FXMLLoader.load(getClass().getResource("lookup_tool.fxml"));
+//        mainMenu = new Scene(mainMenuRoot, 640, 480);
+//        myStage.setTitle("Desktop App");
+//        myStage.setScene(mainMenu);
+//        myStage.show();
 
     // Searches for a tool by name, address, or id according to which radio button is selected, returning all tools
     // that match the search criteria
@@ -121,13 +171,36 @@ public class LookupController {
         }
     }
 
-    public void startScanning(ActionEvent actionEvent) {
+    public void scanTool(ActionEvent actionEvent) throws IOException {
         if(this.radioByID.isSelected()){
-            // logic to start the scanner
-            ReaderThread tempReader = new ReaderThread(this.hostname, "add_tool", this);
-            tempReader.run();
+            ReaderThread myReaderThread = new ReaderThread(this.hostname, "add_tool", this);
+            myReaderThread.start();
+            try {
+                myReaderThread.join();
+            } catch (java.lang.InterruptedException ie) {
+                System.out.println(ie);
+            }
+            myReaderThread.stopReader();
+            HashMap<String, Integer> tagValues = myReaderThread.getTagValues();
+            int curMax = 0;
+            String resultEpc = "Didn't read anything...";
+
+            try {
+                for (String key : tagValues.keySet()) {
+                    System.out.printf("Tag ID: %s\nCount: %d\n", key, tagValues.get(key));
+                    if (tagValues.get(key) > curMax){
+                        resultEpc = key;
+                        curMax = tagValues.get(key);
+                    }
+                }
+                this.searchBox.setText(resultEpc);
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
         }else{
-            // todo: error message here
+            //todo: error message here
+            System.out.println("Must Select ID to scan");
+            this.showError("Error: ID Not Selected!");
         }
     }
 }

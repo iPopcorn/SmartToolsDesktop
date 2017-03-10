@@ -46,6 +46,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="btnScan" onAction="#startScanning" layoutX="589.0" layoutY="445.0" mnemonicParsing="false" text="Scan" />
+      <Button fx:id="btnScan" layoutX="589.0" layoutY="445.0" mnemonicParsing="false" onAction="#scanTool" text="Scan" />
+      <Label fx:id="lblError" layoutX="59.0" layoutY="449.0" prefHeight="17.0" prefWidth="522.0" textFill="#f80101" />
     </children>
 </AnchorPane>
