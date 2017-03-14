@@ -5,10 +5,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -36,11 +39,11 @@ public class AddToolController {
     private String hostname = "169.254.126.52";
     private ObservableList<String> addressList = FXCollections.observableArrayList();
 
-    public void showError(String errorMsg){
+    public void showError(String errorMsg) {
         this.lblError.setText(errorMsg);
     }
 
-    public void showMsg(String msg){
+    public void showMsg(String msg) {
         this.lblMsg.setText(msg);
     }
 
@@ -82,9 +85,9 @@ public class AddToolController {
         // get list of items for the tools and the addresses
         //ObservableList<MenuItem> toolList = txtToolName;
         ObservableList<MenuItem> addressList = btnToolAddress.getItems();
-        if(btnToolAddress.getValue() != null){
+        if (btnToolAddress.getValue() != null) {
             selectedAddress = btnToolAddress.getValue().toString();
-        }else{
+        } else {
             //todo: error message here
             showError("Error: Please Select an Address");
             return;
@@ -103,7 +106,35 @@ public class AddToolController {
         }
 
         ServerRequest request = new ServerRequest();
-        request.getResponseFromRequest(path, queryValues);
+        String response = request.getResponseFromRequest(path, queryValues);
+
+        if (response.equalsIgnoreCase("success")) {
+            PopupWindow popupWindow = new PopupWindow("ADD TOOL", "Successfully added tool");
+            popupWindow.popup();
+        } else if (response.equalsIgnoreCase("fail")) {
+            PopupWindow popupWindow = new PopupWindow("ADD TOOL", "Failed to insert tool");
+            popupWindow.popup();
+        } else if (response.contains("fail:")) {
+            String errorCode = response.split(" ")[1];
+
+            if (errorCode.equalsIgnoreCase("address_taken")) {
+                PopupWindow popupWindow = new PopupWindow("ADD TOOL", "Failed to insert tool: Address in use");
+                popupWindow.popup();
+            } else if (errorCode.equalsIgnoreCase("id_in_use")) {
+                PopupWindow popupWindow = new PopupWindow("ADD TOOL", "Failed to insert tool: Tool ID in use");
+                popupWindow.popup();
+            } else {
+                PopupWindow popupWindow = new PopupWindow("ADD TOOL", "Failed to insert tool");
+                popupWindow.popup();
+            }
+
+        } else {
+            PopupWindow popupWindow = new PopupWindow("ADD TOOL", "Failed to insert tool");
+            popupWindow.popup();
+        }
+
+
+        System.out.println(response);
         //return queryValues;
     }
 
@@ -128,7 +159,7 @@ public class AddToolController {
         try {
             for (String key : tagValues.keySet()) {
                 System.out.printf("Tag ID: %s\nCount: %d\n", key, tagValues.get(key));
-                if (tagValues.get(key) > curMax){
+                if (tagValues.get(key) > curMax) {
                     resultEpc = key;
                     curMax = tagValues.get(key);
                 }
