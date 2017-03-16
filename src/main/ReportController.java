@@ -49,6 +49,7 @@ public class ReportController {
     private String hostname = "169.254.126.52";
     private ArrayList<Tool> toolList;
     private ArrayList<Tool> missingTools;
+    private ArrayList<Tool> currentList;
     private int toolboxNum = -1;
     private boolean scanning = false;
 
@@ -119,6 +120,7 @@ public class ReportController {
                 this.genReportList.setItems(null);
                 this.genReportList.refresh();
                 this.genReportList.setItems(sortedTools);
+                this.currentList = missingTools;
             }else if(this.radioHome.isSelected()){ // display at home tools
                 System.out.println("ReportController.genReportDisplay() home tools case.");
                 ArrayList<Tool> homeTools = new ArrayList<>();
@@ -135,11 +137,12 @@ public class ReportController {
                     ObservableList<Tool> oHomeTools = FXCollections.observableArrayList(homeTools);
                     ObservableList<Tool> oSortedHomeTools = this.sortTools(oHomeTools);
 
-                    this.genReportList.getItems().clear();
+                    this.genReportList.setItems(null);
                     this.genReportList.refresh();
                     this.genReportList.setItems(oSortedHomeTools);
                 }
-            }else{
+                this.currentList = homeTools;
+            }else{ // display all tools
                 System.out.println("ReportController.genReportDisplay() all tools case.");
 
                 ObservableList<Tool> oToolList = FXCollections.observableArrayList(this.toolList);
@@ -152,6 +155,8 @@ public class ReportController {
                 }catch(Exception e){
                     System.out.println(e);
                 }
+
+                this.currentList = this.toolList;
             }
         }
         System.out.println("End ReportController.genReportDisplay()");
@@ -180,8 +185,14 @@ public class ReportController {
                 System.out.println("Error: toolList not initialized");
                 this.showError("Error: toolList not initialized");
             }else{// if we have a tool list
+                String record;
+                for(Tool tool: this.currentList){
+                    record = String.format("%s,%s,%s", tool.getName(), tool.getAddress(), tool.getId());
+                    System.out.println(record);
+                    myPrinter.printRecord(record);
+                }
 
-                // check if we want missing or home tools.
+                /*// check if we want missing or home tools.
                 // TODO: show error if missingTools/homeTools array is empty
                 if(this.radioMissing.isSelected()){ // we want missing tools
                     // ArrayList to hold missing tools
@@ -212,7 +223,7 @@ public class ReportController {
                         System.out.println(record);
                         myPrinter.printRecord(record);
                     }
-                }
+                }*/
 
                 myPrinter.close();
                 success = true;
@@ -233,10 +244,16 @@ public class ReportController {
     }
 
     public void genReportEmail(ActionEvent actionEvent) {
-        System.out.println("begin genReportEmail()");
-        EmailHandler handler = new EmailHandler();
-        handler.sendEmail("taypetrillo@gmail.com");
-        System.out.println("end genReportEmail()");
+        try{
+            File inventoryReport = this.createFile();
+            System.out.println("begin genReportEmail()");
+            EmailHandler handler = new EmailHandler();
+            handler.sendEmail("taypetrillo@gmail.com", inventoryReport);
+            System.out.println("end genReportEmail()");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     public void genReportStartScanning(){
@@ -402,6 +419,37 @@ public class ReportController {
         fileChooser.getExtensionFilters().add(
                 new FileChooser.ExtensionFilter("CSV", "*.csv")
         );
+    }
+
+    /**
+     * createFile() creates a new .csv file based on the selected options.
+     * **/
+    public File createFile() throws IOException{
+        System.out.println("ReportController.createFile() Begin");
+        File outFile = new File("InventoryReport.csv");
+        // create the file object
+
+        FileWriter fw = new FileWriter(outFile.getAbsolutePath());
+        CSVPrinter myPrinter = new CSVPrinter(fw, CSVFormat.EXCEL);
+
+        if(this.toolboxNum == -1)
+            this.toolboxNum = Integer.valueOf(this.txtToolboxNum.getText());
+
+        if(this.toolList == null){ // check if toolList is null
+            System.out.println("Error: toolList not initialized");
+            this.showError("Error: toolList not initialized");
+        }else {// if we have a tool list
+            String record;
+            for (Tool tool : this.currentList) {
+                record = String.format("%s,%s,%s", tool.getName(), tool.getAddress(), tool.getId());
+                System.out.println(record);
+                myPrinter.printRecord(record);
+            }
+        }
+
+        myPrinter.close();
+        System.out.println("ReportController.createFile() End");
+        return outFile;
     }
 
 }

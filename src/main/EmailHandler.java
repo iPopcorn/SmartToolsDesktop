@@ -1,5 +1,9 @@
 package main;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
+
+import java.io.*;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -31,7 +35,31 @@ public class EmailHandler {
 
     public EmailHandler(){}
 
-    public void sendEmail(String toAddress){
+    public void printFile(File file){
+        System.out.println("Begin EmailHandler.printFile()");
+        try{
+            FileInputStream stream = new FileInputStream(file);
+            DataInputStream in = new DataInputStream(stream);
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            String strLine;
+            //Read File Line By Line
+            while ((strLine = br.readLine()) != null)   {
+                // Print the content on the console
+                System.out.println (strLine);
+            }
+            in.close();
+        }catch(Exception e){
+
+        }
+        System.out.println("End EmailHandler.printFile()");
+
+    }
+
+
+
+    public void sendEmail(String toAddress, File inventoryReport){
+        System.out.println("EmailHandler.sendEmail()");
+        this.printFile(inventoryReport);
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -78,7 +106,7 @@ public class EmailHandler {
             // Part two is attachment
             messageBodyPart = new MimeBodyPart();
             String filename = "InventoryReport.csv";
-            DataSource source = new FileDataSource(filename);
+            DataSource source = new FileDataSource(inventoryReport);
             messageBodyPart.setDataHandler(new DataHandler(source));
             messageBodyPart.setFileName(filename);
             multipart.addBodyPart(messageBodyPart);
@@ -94,6 +122,8 @@ public class EmailHandler {
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
+
+        System.out.println("End EmailHandler.SendEmail()");
     }
 }
 
