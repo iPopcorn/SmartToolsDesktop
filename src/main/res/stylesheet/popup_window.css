@@ -1,0 +1,17 @@
+.btnOk {
+    -fx-font: 15pt "Arial Black", Gadget, sans-serif;
+    -fx-text-fill: red;
+    -fx-text-alignment: center;
+    -fx-border-color: black;
+    -fx-padding: 4 10;
+    -fx-background-color: white;
+
+    -webkit-transition-duration: .4s;
+    transition-duration: 0.4s;
+    -fx-cursor: hand;
+}
+
+.btnOk:hover {
+    -fx-text-fill: white;
+    -fx-background-color: red;
+}

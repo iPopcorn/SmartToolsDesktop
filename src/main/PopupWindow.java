@@ -14,22 +14,29 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * Created by gabinoluna on 3/14/17.
+ * PopupWindow is a general purpose popup window creation class that will
+ * create a popup window object with the specified window title and dialog text
+ * that is specified in the constructor of the object.
+ *
+ * The window can then be displayed by calling the object's popop() method
+ * and the main application will not be interactable until the "ok" button is
+ * pressed and the window is closed.
  */
 public class PopupWindow {
     private String titleText;
     private String dialogText;
 
-    public PopupWindow (String titleText, String dialogText) {
+    public PopupWindow(String titleText, String dialogText) {
         this.titleText = titleText;
         this.dialogText = dialogText;
     }
 
     public void popup() {
-        final Stage dialog = new Stage();
-        Button btnOk = new Button("Ok");
-        Label labelDialog = new Label(dialogText);
-        labelDialog.setFont(Font.font(null, FontWeight.BOLD, 14));
+        final Stage dialog = new Stage(); // creating the stage for the popup
+        Button btnOk = new Button("Ok"); // single OK button
+        Label labelDialog = new Label(dialogText); // creating the label for the dialog text
+
+        labelDialog.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 14));
 
         dialog.setTitle(titleText);
         dialog.initModality(Modality.APPLICATION_MODAL);
@@ -40,6 +47,9 @@ public class PopupWindow {
         VBox dialogVbox1 = new VBox(40);
         dialogVbox1.setAlignment(Pos.CENTER);
 
+        Scene dialogScene = new Scene(dialogHbox, 500, 60);
+        dialogScene.getStylesheets().add("/main/res/stylesheet/popup_window.css");
+        btnOk.getStyleClass().add("btnOk");
 
 
         dialogHbox.getChildren().add(labelDialog);
@@ -53,17 +63,12 @@ public class PopupWindow {
                     }
                 });
 
-
         dialogHbox.getChildren().addAll(dialogVbox1);
-        Scene dialogScene = new Scene(dialogHbox, 500, 60);
+
         dialog.setScene(dialogScene);
+        dialog.setResizable(false);
         dialog.show();
 
-
-
-
     }
-
-
 
 }

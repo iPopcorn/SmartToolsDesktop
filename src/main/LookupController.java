@@ -146,27 +146,37 @@ public class LookupController {
     }
 
 
-    public ArrayList<Tool> handleResponse(String response) {
-        ArrayList<Tool> foundTools = new ArrayList<>();
-        JSONdecoder responseDecoder = new JSONdecoder();
+    /*
+     * ArrayList<Tool> handleResponse(String response)
+     * This function takes in the String response after querying the server to see the response
+     * received from the server and handle it accordingly. If the response contains fail, the appropriate
+     * failure message popup window is created and an empty ArrayList of the tool object is returned.
+     * Else if the response was not a failure (1 or more tools matching the criteria was found) the
+     * response is a JSON string that is then parsed to create the tool object(s) received and
+     * put into the ArrayList and returned.
+     */
+    private ArrayList<Tool> handleResponse(String response) {
+        ArrayList<Tool> foundTools = new ArrayList<>(); // array list to be returned
+        JSONdecoder responseDecoder; // JSON decoder, only initialized if the response is a JSON string
 
         if (response != null && !response.isEmpty()) {
-            if (response.contains("fail")) {
-                if (response.equalsIgnoreCase("fail")) {
+            if (response.contains("fail")) { // if failure code
+                if (response.equalsIgnoreCase("fail")) { // if the query fails with unknown reason (bad connection, error in server)
                     PopupWindow popupWindow = new PopupWindow("Lookup Tool", "Error processing the request");
                     popupWindow.popup();
-                } else if (response.equalsIgnoreCase("fail: no_results")) {
+                } else if (response.equalsIgnoreCase("fail: no_results")) { // if the query fails because no results found
                     PopupWindow popupWindow = new PopupWindow("Lookup Tool", "No tool(s) match the specified criteria");
                     popupWindow.popup();
-                } else {
+                } else { // if the query fails with unknown reason (bad connection, error in server)
                     PopupWindow popupWindow = new PopupWindow("Lookup Tool", "Error processing the request");
                     popupWindow.popup();
                 }
 
-            } else {
+            } else { // if the response isn't a fail message
+                responseDecoder = new JSONdecoder();
                 foundTools = responseDecoder.decodeJSONToolResponse(response);
             }
-        } else {
+        } else { // if the query fails with unknown reason (bad connection, error in server)
             PopupWindow popupWindow = new PopupWindow("Lookup Tool", "Error processing the request");
             popupWindow.popup();
         }
