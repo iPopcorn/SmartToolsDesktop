@@ -43,7 +43,7 @@ public class LookupController {
         toolListView.setCellFactory(new ToolCellFactory());
     }
 
-    private void showError(String errorMessage){
+    private void showError(String errorMessage) {
         this.lblError.setText(errorMessage);
     }
 
@@ -111,7 +111,6 @@ public class LookupController {
     public ArrayList<Tool> searchTools(String searchText) {
 
         ServerRequest serverRequest = new ServerRequest();
-        JSONdecoder responseDecoder = new JSONdecoder();
 
         HashMap<String, String> POSTdata = new HashMap<>();
         ArrayList<Tool> foundTools = new ArrayList<>();
@@ -122,24 +121,55 @@ public class LookupController {
             POSTdata.put("searchValue", searchText.toLowerCase());
 
             String response = serverRequest.getResponseFromRequest("tool-handling/lookup-tool.php", POSTdata);
-            if (response != null && !response.isEmpty())
-                foundTools = responseDecoder.decodeJSONToolResponse(response);
+
+            foundTools = handleResponse(response);
         } else if (radioByAddress.isSelected()) {
             POSTdata.put("searchField", "address");
             POSTdata.put("searchValue", searchText.toLowerCase());
 
             String response = serverRequest.getResponseFromRequest("tool-handling/lookup-tool.php", POSTdata);
-            if (response != null && !response.isEmpty())
-                foundTools = responseDecoder.decodeJSONToolResponse(response);
+
+            foundTools = handleResponse(response);
         } else if (radioByID.isSelected()) {
             POSTdata.put("searchField", "id");
             POSTdata.put("searchValue", searchText.toLowerCase());
 
             String response = serverRequest.getResponseFromRequest("tool-handling/lookup-tool.php", POSTdata);
-            if (response != null && !response.isEmpty())
-                foundTools = responseDecoder.decodeJSONToolResponse(response);
+
+            foundTools = handleResponse(response);
+        } else {
+            PopupWindow popupWindow = new PopupWindow("Lookup Tool", "Error processing the request");
+            popupWindow.popup();
         }
 
+        return foundTools;
+    }
+
+
+    public ArrayList<Tool> handleResponse(String response) {
+        ArrayList<Tool> foundTools = new ArrayList<>();
+        JSONdecoder responseDecoder = new JSONdecoder();
+
+        if (response != null && !response.isEmpty()) {
+            if (response.contains("fail")) {
+                if (response.equalsIgnoreCase("fail")) {
+                    PopupWindow popupWindow = new PopupWindow("Lookup Tool", "Error processing the request");
+                    popupWindow.popup();
+                } else if (response.equalsIgnoreCase("fail: no_results")) {
+                    PopupWindow popupWindow = new PopupWindow("Lookup Tool", "No tool(s) match the specified criteria");
+                    popupWindow.popup();
+                } else {
+                    PopupWindow popupWindow = new PopupWindow("Lookup Tool", "Error processing the request");
+                    popupWindow.popup();
+                }
+
+            } else {
+                foundTools = responseDecoder.decodeJSONToolResponse(response);
+            }
+        } else {
+            PopupWindow popupWindow = new PopupWindow("Lookup Tool", "Error processing the request");
+            popupWindow.popup();
+        }
         return foundTools;
     }
 
@@ -172,7 +202,7 @@ public class LookupController {
     }
 
     public void scanTool(ActionEvent actionEvent) throws IOException {
-        if(this.radioByID.isSelected()){
+        if (this.radioByID.isSelected()) {
             ReaderThread myReaderThread = new ReaderThread(this.hostname, "add_tool", this);
             myReaderThread.start();
             try {
@@ -188,7 +218,7 @@ public class LookupController {
             try {
                 for (String key : tagValues.keySet()) {
                     System.out.printf("Tag ID: %s\nCount: %d\n", key, tagValues.get(key));
-                    if (tagValues.get(key) > curMax){
+                    if (tagValues.get(key) > curMax) {
                         resultEpc = key;
                         curMax = tagValues.get(key);
                     }
@@ -197,7 +227,7 @@ public class LookupController {
             } catch (NullPointerException e) {
                 e.printStackTrace();
             }
-        }else{
+        } else {
             //todo: error message here
             System.out.println("Must Select ID to scan");
             this.showError("Error: ID Not Selected!");
