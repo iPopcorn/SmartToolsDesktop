@@ -29,32 +29,13 @@ public class DeleteToolController {
     public Button btnDelToolScan;
     public Button btnDelToolBack;
     public Button btnDelToolDelete;
-    public Button btnDelToolRefresh;
-    public ListView delToolBoxNumb;
-    public MenuButton delToolSelectTool;
-    public TextField delToolTagID;
     public Label lblDelToolError;
     public TextField txtDelToolID;
     public TextField txtDelToolName;
     public TextField txtDelToolAddress;
     public Label lblDelToolMsg;
-
-    private HashMap<String, String> addressMap;
-    private ReaderThread Reader;
     private String hostname = "169.254.126.52";
-    private ArrayList<Tool> currentTools;
     private Tool resultTool;
-    
-    /*private void getToolList (int toolNumb)
-    {
-        ServerRequest myRequest = new ServerRequest();
-        JSONdecoder requestDecoder = new JSONdecoder();
-        HashMap<String, String> data = new HashMap<>();
-        data.put("searchField","toolbox");
-        data.put("searchValue",Integer.toString(this.toolboxNum));
-        String response = myRequest.getResponseFromRequest("tool-handling/lookup-tool.php", data);
-        currentTools = requestDecoder.decodeJSONToolResponse(response);
-    }*/
     
     public void openMainMenu(ActionEvent actionEvent) throws IOException
     {
@@ -133,20 +114,6 @@ public class DeleteToolController {
                 txtDelToolName.setText(resultTool.getName());
             }
         }
-        /*if(!(responseString.equalsIgnoreCase(""))){
-            toolList = decoder.decodeJSONToolResponse(responseString);
-            this.resultTool = toolList.get(0);
-
-            // set tool info into text field
-            txtDelToolID.setText(resultTool.getId());
-            txtDelToolAddress.setText(resultTool.getAddress());
-            txtDelToolName.setText(resultTool.getName());
-        }else{ // TODO: Error message goes here.
-            System.out.println("Empty response.");
-        }*/
-
-
-
     }
     
     public void deleteTool ()
@@ -158,7 +125,6 @@ public class DeleteToolController {
         POSTdata.put("tagID", this.resultTool.getId());
         String response = serverRequest.getResponseFromRequest("tool-handling/delete-tool.php", POSTdata);
 
-        // TODO: Add messages to GUI labels.
         if(response.equalsIgnoreCase("success")){
             // this.lblDelToolMsg.setText("Delete Success");
             PopupWindow successPopup = new PopupWindow("Success", "Tool Successfully Deleted!");

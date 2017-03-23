@@ -90,7 +90,9 @@ public class ReportController {
 
         if(this.toolList == null || this.toolList.isEmpty()){ // check if toolList is null or empty
             System.out.println("Error: toolList not initialized");
-            this.showError("Error: toolList not initialized, run scanner first.");
+            // this.showError("Error: toolList not initialized, run scanner first.");
+            PopupWindow errorPopup = new PopupWindow("Error", "toolList not initialized, run scanner first!");
+            errorPopup.popup();
         }else{// if we have a tool list
 
             //setup the CellFactory for the listview
@@ -132,7 +134,9 @@ public class ReportController {
                 }
 
                 if(homeTools.isEmpty()){
-                    this.showError("Error: No tools at home.");
+                    // this.showError("Error: No tools at home.");
+                    PopupWindow errorPopup = new PopupWindow("Error", "No tools at home!");
+                    errorPopup.popup();
                 }else{
                     ObservableList<Tool> oHomeTools = FXCollections.observableArrayList(homeTools);
                     ObservableList<Tool> oSortedHomeTools = this.sortTools(oHomeTools);
@@ -183,7 +187,9 @@ public class ReportController {
 
             if(this.toolList == null){ // check if toolList is null
                 System.out.println("Error: toolList not initialized");
-                this.showError("Error: toolList not initialized");
+                // this.showError("Error: toolList not initialized");
+                PopupWindow errorPopup = new PopupWindow("Error", "toolList not initialized!");
+                errorPopup.popup();
             }else{// if we have a tool list
                 String record;
                 for(Tool tool: this.currentList){
@@ -231,14 +237,18 @@ public class ReportController {
         } catch(NumberFormatException n){
             System.out.println(n);
             success = false;
-            this.showError("Error: Invalid Toolbox Number");
+            // this.showError("Error: Invalid Toolbox Number");
+            PopupWindow errorPopup = new PopupWindow("Error", "Invalid Toolbox Number!");
+            errorPopup.popup();
         }
         catch(Exception e){
             System.out.println(e);
             success = false;
         }
         if(success){
-            this.showError("Message: CSV creation success.");
+            // this.showError("Message: CSV creation success.");
+            PopupWindow errorPopup = new PopupWindow("Success", "CSV file created!");
+            errorPopup.popup();
         }
         System.out.println("genReportCSV() end.");
     }
@@ -274,7 +284,9 @@ public class ReportController {
             System.out.println(tempReader.toString());
         } else {
             System.out.println("Invalid toolbox number!");
-            this.showError("Invalid Toolbox Number.");
+            // this.showError("Invalid Toolbox Number.");
+            PopupWindow errorPopup = new PopupWindow("Error", "Invalid toolbox number!");
+            errorPopup.popup();
         }
     }
 
@@ -298,7 +310,9 @@ public class ReportController {
                 System.out.println("tagList set successfully.");
             }else{
                 System.out.println("There is no genReportTagValues inside of this.currentReader.");
-                this.showError("There is no genReportTagValues inside of this.currentReader.");
+                // this.showError("There is no genReportTagValues inside of this.currentReader.");
+                PopupWindow errorPopup = new PopupWindow("Error", "There is no genReportTagValues inside of this.currentReader!");
+                errorPopup.popup();
             }
 
             // print tag values
@@ -326,7 +340,9 @@ public class ReportController {
             }
         }else{
             System.out.println("Reader never started!");
-            this.showError("Reader never started!");
+            // this.showError("Reader never started!");
+            PopupWindow errorPopup = new PopupWindow("Error", "Reader never started!");
+            errorPopup.popup();
         }
         System.out.println("ReportController.genReportStopScanning() end!");
     }
@@ -437,7 +453,9 @@ public class ReportController {
 
         if(this.toolList == null){ // check if toolList is null
             System.out.println("Error: toolList not initialized");
-            this.showError("Error: toolList not initialized");
+            // this.showError("Error: toolList not initialized");
+            PopupWindow errorPopup = new PopupWindow("Error", "toolList not initialized!");
+            errorPopup.popup();
         }else {// if we have a tool list
             String record;
             for (Tool tool : this.currentList) {

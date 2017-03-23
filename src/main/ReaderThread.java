@@ -120,7 +120,9 @@ public class ReaderThread extends Thread {
                 e.printStackTrace();
                 switch(runCondition){
                     case 1:{ // generate report
-                        this.reportParent.showError("Reader Failed To Connect!");
+                        // this.reportParent.showError("Reader Failed To Connect!");
+                        PopupWindow error = new PopupWindow("Error", "Reader failed to connect!");
+                        error.popup();
                     }case 2:{ // add tool
 
                     }case 3:{ // lookup tool

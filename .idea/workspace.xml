@@ -4,6 +4,8 @@
     <list default="true" id="938ec455-41d4-49a5-8d23-945b85e994b7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/DeleteToolController.java" afterPath="$PROJECT_DIR$/src/main/DeleteToolController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ReaderThread.java" afterPath="$PROJECT_DIR$/src/main/ReaderThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ReportController.java" afterPath="$PROJECT_DIR$/src/main/ReportController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,12 +28,38 @@
       <file leaf-file-name="DeleteToolController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/DeleteToolController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.61421317">
-              <caret line="132" column="61" selection-start-line="132" selection-start-column="61" selection-end-line="132" selection-end-column="61" />
+            <state vertical-scroll-proportion="-0.33424658">
+              <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
               <folding>
                 <element signature="method#openMainMenu#0;class#DeleteToolController#0" expanded="false" />
-                <element signature="method#deleteTool#0;class#DeleteToolController#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReportController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/ReportController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.172414">
+              <caret line="280" column="36" selection-start-line="280" selection-start-column="29" selection-end-line="280" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
+                <element signature="method#scan#0;class#ReportController#0" expanded="false" />
+                <element signature="method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
+                <element signature="method#sortTools#0;class#ReportController#0" expanded="false" />
+                <element signature="method#configureFileChooser#0;class#ReportController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReaderThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/ReaderThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.3448277">
+              <caret line="124" column="38" selection-start-line="124" selection-start-column="38" selection-end-line="124" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -63,7 +91,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="3-16-17" />
+        <entry key="$PROJECT_DIR$" value="3-22-17" />
       </map>
     </option>
   </component>
@@ -96,7 +124,6 @@
         <option value="$PROJECT_DIR$/src/main/res/fxml/main_menu.fxml" />
         <option value="$PROJECT_DIR$/src/main/res/fxml/del_tool.fxml" />
         <option value="$PROJECT_DIR$/src/main/MainController.java" />
-        <option value="$PROJECT_DIR$/src/main/ReaderThread.java" />
         <option value="$PROJECT_DIR$/src/main/res/fxml/delete_tool.fxml" />
         <option value="$PROJECT_DIR$/src/main/res/fxml/lookup_tool.fxml" />
         <option value="$PROJECT_DIR$/src/main/LookupController.java" />
@@ -105,6 +132,7 @@
         <option value="$PROJECT_DIR$/src/main/EmailHandler.java" />
         <option value="$PROJECT_DIR$/src/main/ReportController.java" />
         <option value="$PROJECT_DIR$/src/main/DeleteToolController.java" />
+        <option value="$PROJECT_DIR$/src/main/ReaderThread.java" />
       </list>
     </option>
   </component>
@@ -146,38 +174,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartToolsDesktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartToolsDesktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartToolsDesktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartToolsDesktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
+      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -232,7 +229,38 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartToolsDesktop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartToolsDesktop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartToolsDesktop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartToolsDesktop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -263,8 +291,8 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/LookupController.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/PopupWindow.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/res/stylesheet/popup_window.css</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -272,7 +300,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/res/stylesheet/popup_window.css</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -843,7 +870,13 @@
       <option name="project" value="LOCAL" />
       <updated>1489693677406</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Updated DeleteToolController.java&#10;&#10;Fixed an error where the program would crash if delete-tool scanned a tag that was not in the database.&#10;&#10;Fixed an error where the program would display incorrect error messages upon success.">
+      <created>1490233083574</created>
+      <option name="number" value="00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1490233083574</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -929,7 +962,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="I fixed the reader for the &quot;generate_report&quot; use case. Now the ReportController can read a list of tags and compare it with an address map to determine which tools are missing. Now I need to grab the address list from the database." />
     <MESSAGE value="Fixed the add_tool reader thread." />
     <MESSAGE value="Working on export to CSV." />
     <MESSAGE value="Integrated .json decoder to grab tool list from database in ReportController.java" />
@@ -954,7 +986,8 @@
     <MESSAGE value="Updated LookupController&#10;&#10;Updated scan method in LookupController&#10;Added error message to GUI in LookupController&#10;" />
     <MESSAGE value="Updated AddToolController.java&#10;&#10;fixed an error when the user adds a blank tool. added an error message." />
     <MESSAGE value="Updated ReportController.java and EmailHandler.java&#10;&#10;Fixed the problem where the sendEmail() method was attaching blank files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated ReportController.java and EmailHandler.java&#10;&#10;Fixed the problem where the sendEmail() method was attaching blank files." />
+    <MESSAGE value="Updated DeleteToolController.java&#10;&#10;Fixed an error where the program would crash if delete-tool scanned a tag that was not in the database.&#10;&#10;Fixed an error where the program would display incorrect error messages upon success." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated DeleteToolController.java&#10;&#10;Fixed an error where the program would crash if delete-tool scanned a tag that was not in the database.&#10;&#10;Fixed an error where the program would display incorrect error messages upon success." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -980,13 +1013,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/fxml/generate_report.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ReportController.java">
@@ -996,9 +1029,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
-            <element signature="method#genReportDisplay#0;class#ReportController#0" expanded="false" />
-            <element signature="method#genReportStartScanning#0;class#ReportController#0" expanded="false" />
-            <element signature="method#genReportStopScanning#0;class#ReportController#0" expanded="false" />
             <element signature="method#scan#0;class#ReportController#0" expanded="false" />
             <element signature="method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
             <element signature="method#sortTools#0;class#ReportController#0" expanded="false" />
@@ -1020,14 +1050,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/fxml/generate_report.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ReportController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1036,9 +1066,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
-            <element signature="method#genReportDisplay#0;class#ReportController#0" expanded="false" />
-            <element signature="method#genReportStartScanning#0;class#ReportController#0" expanded="false" />
-            <element signature="method#genReportStopScanning#0;class#ReportController#0" expanded="false" />
             <element signature="method#scan#0;class#ReportController#0" expanded="false" />
             <element signature="method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
             <element signature="method#sortTools#0;class#ReportController#0" expanded="false" />
@@ -1060,13 +1087,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/fxml/generate_report.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ServerResponse.java">
@@ -1220,13 +1247,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/fxml/login.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Main.java">
@@ -1265,23 +1292,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/fxml/generate_report.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="36" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/fxml/main_menu.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/fxml/main_menu.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6519174">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ReportListener.java">
@@ -1318,13 +1345,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/fxml/delete_tool.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5706215">
           <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ReaderListener.java">
@@ -1343,13 +1370,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/fxml/add_tool.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/AddToolController.java">
@@ -1364,42 +1391,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/fxml/lookup_tool.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7609842">
           <caret line="50" column="15" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/ReaderThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.02724359">
-          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-          <folding>
-            <element signature="method#stopReader#0;class#ReaderThread#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/ReportController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2436548">
-          <caret line="449" column="26" selection-start-line="449" selection-start-column="26" selection-end-line="449" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
-            <element signature="method#genReportDisplay#0;class#ReportController#0" expanded="false" />
-            <element signature="method#genReportStartScanning#0;class#ReportController#0" expanded="false" />
-            <element signature="method#genReportStopScanning#0;class#ReportController#0" expanded="false" />
-            <element signature="method#scan#0;class#ReportController#0" expanded="false" />
-            <element signature="method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
-            <element signature="method#sortTools#0;class#ReportController#0" expanded="false" />
-            <element signature="method#configureFileChooser#0;class#ReportController#0" expanded="false" />
-          </folding>
-        </state>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/EmailHandler.java">
@@ -1429,13 +1427,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ReportController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.172414">
+          <caret line="280" column="36" selection-start-line="280" selection-start-column="29" selection-end-line="280" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
+            <element signature="method#scan#0;class#ReportController#0" expanded="false" />
+            <element signature="method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
+            <element signature="method#sortTools#0;class#ReportController#0" expanded="false" />
+            <element signature="method#configureFileChooser#0;class#ReportController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ReaderThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3448277">
+          <caret line="124" column="38" selection-start-line="124" selection-start-column="38" selection-end-line="124" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/DeleteToolController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61421317">
-          <caret line="132" column="61" selection-start-line="132" selection-start-column="61" selection-end-line="132" selection-end-column="61" />
+        <state vertical-scroll-proportion="-0.33424658">
+          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
           <folding>
             <element signature="method#openMainMenu#0;class#DeleteToolController#0" expanded="false" />
-            <element signature="method#deleteTool#0;class#DeleteToolController#0" expanded="false" />
           </folding>
         </state>
       </provider>
