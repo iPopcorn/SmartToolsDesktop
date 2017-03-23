@@ -104,12 +104,36 @@ public class DeleteToolController {
         ServerRequest request = new ServerRequest();
         HashMap<String, String> responseMap = new HashMap<>();
         JSONdecoder decoder = new JSONdecoder();
-        ArrayList<Tool> toolList = new ArrayList<>();
+        ArrayList<Tool> toolList;
 
         responseMap.put("searchField", "id");
         responseMap.put("searchValue", toolID);
         String responseString = request.getResponseFromRequest("/tool-handling/lookup-tool.php", responseMap);
-        if(!(responseString.equalsIgnoreCase(""))){
+        System.out.println("responseString = " + responseString);
+
+        if(responseString != null && !responseString.isEmpty()){ // make sure we actually have a string
+            if(responseString.contains("fail")){ // if it is a failure message
+                if(responseString.equalsIgnoreCase("fail")){ // generic fail
+                    PopupWindow popupWindow = new PopupWindow("Lookup Tool", "Error processing the request");
+                    popupWindow.popup();
+                }else if(responseString.equalsIgnoreCase("fail: no_results")){ // tool not found fail
+                    PopupWindow popupWindow = new PopupWindow("Lookup Tool", "No tool(s) match the specified criteria");
+                    popupWindow.popup();
+                }else{ // failsafe fail
+                    PopupWindow popupWindow = new PopupWindow("Lookup Tool", "Error processing the request");
+                    popupWindow.popup();
+                }
+            }else{ // if it is a success
+                toolList = decoder.decodeJSONToolResponse(responseString);
+                this.resultTool = toolList.get(0);
+
+                // set tool info into text field
+                txtDelToolID.setText(resultTool.getId());
+                txtDelToolAddress.setText(resultTool.getAddress());
+                txtDelToolName.setText(resultTool.getName());
+            }
+        }
+        /*if(!(responseString.equalsIgnoreCase(""))){
             toolList = decoder.decodeJSONToolResponse(responseString);
             this.resultTool = toolList.get(0);
 
@@ -119,7 +143,7 @@ public class DeleteToolController {
             txtDelToolName.setText(resultTool.getName());
         }else{ // TODO: Error message goes here.
             System.out.println("Empty response.");
-        }
+        }*/
 
 
 
@@ -127,6 +151,7 @@ public class DeleteToolController {
     
     public void deleteTool ()
     {
+        System.out.println("DeleteToolController.deleteTool() begin");
         ServerRequest serverRequest = new ServerRequest();
         HashMap<String, String> POSTdata = new HashMap<>();
                 
@@ -134,11 +159,16 @@ public class DeleteToolController {
         String response = serverRequest.getResponseFromRequest("tool-handling/delete-tool.php", POSTdata);
 
         // TODO: Add messages to GUI labels.
-        if(response.equalsIgnoreCase("location: success.php")){
-            this.lblDelToolMsg.setText("Delete Success");
+        if(response.equalsIgnoreCase("success")){
+            // this.lblDelToolMsg.setText("Delete Success");
+            PopupWindow successPopup = new PopupWindow("Success", "Tool Successfully Deleted!");
+            successPopup.popup();
         }else{
-            this.lblDelToolError.setText("Delete Fail");
+            // this.lblDelToolError.setText("Delete Fail");
+            PopupWindow failPopup = new PopupWindow("Fail", "Tool Deletion Failed!");
+            failPopup.popup();
         }
+        System.out.println("DeleteToolController.deletetool() end");
 
     }
 
