@@ -1,9 +1,28 @@
-.btnOk {
-    -fx-font: 15pt "Arial Black", Gadget, sans-serif;
-    -fx-text-fill: red;
+:root {
+    -uta_orange: #FC7500;
+    -uta_blue: #0168B3;
+}
+
+.dialogText {
+    -fx-font: 13pt "Arial", Gadget, sans-serif;
+    -fx-text-fill: #0168B3; /* UTA color blue */
     -fx-text-alignment: center;
-    -fx-border-color: black;
-    -fx-padding: 4 10;
+    -fx-text-alignment: center;
+
+}
+
+.background {
+    -fx-background-color: white;
+    -fx-border-color: #FC7500;
+
+
+}
+.btnOk {
+    -fx-font: 12pt "Arial", Gadget, sans-serif;
+    -fx-text-fill: #0168B3;
+    -fx-text-alignment: center;
+    -fx-border-color: #FC7500;
+    -fx-padding: 3 10;
     -fx-background-color: white;
 
     -webkit-transition-duration: .4s;
@@ -13,5 +32,5 @@
 
 .btnOk:hover {
     -fx-text-fill: white;
-    -fx-background-color: red;
+    -fx-background-color: #0168B3;
 }

@@ -8,10 +8,11 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.scene.paint.Color;
+import java.awt.*;
+
 
 /**
  * PopupWindow is a general purpose popup window creation class that will
@@ -36,20 +37,24 @@ public class PopupWindow {
         Button btnOk = new Button("Ok"); // single OK button
         Label labelDialog = new Label(dialogText); // creating the label for the dialog text
 
-        labelDialog.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 14));
+//        labelDialog.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 14)); // not needed anymore since we're using CSS style sheet
 
         dialog.setTitle(titleText);
         dialog.initModality(Modality.APPLICATION_MODAL);
 
-        HBox dialogHbox = new HBox(20);
+        HBox dialogHbox = new HBox(10);
         dialogHbox.setAlignment(Pos.CENTER);
 
-        VBox dialogVbox1 = new VBox(40);
+        VBox dialogVbox1 = new VBox(20);
         dialogVbox1.setAlignment(Pos.CENTER);
 
-        Scene dialogScene = new Scene(dialogHbox, 500, 60);
+        Scene dialogScene = new Scene(dialogHbox, 450, 60);
         dialogScene.getStylesheets().add("/main/res/stylesheet/popup_window.css");
+
+        dialogHbox.getStyleClass().add("background");
+//        labelDialog.getStyleClass().add("dialogWindow");
         btnOk.getStyleClass().add("btnOk");
+        labelDialog.getStyleClass().add("dialogText");
 
 
         dialogHbox.getChildren().add(labelDialog);
