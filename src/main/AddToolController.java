@@ -98,7 +98,9 @@ public class AddToolController {
             selectedAddress = btnToolAddress.getValue().toString();
         } else {
             //todo: error message here
-            showError("Error: Please Select an Address");
+            // showError("Error: Please Select an Address");
+            PopupWindow error = new PopupWindow("Error", "Please Select an Address");
+            error.popup();
             return;
         }
         String selectedTool = txtToolName.getText();
