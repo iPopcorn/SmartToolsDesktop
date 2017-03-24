@@ -1,5 +1,6 @@
 package main;
 
+import com.impinj.octane.OctaneSdkException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -35,6 +36,12 @@ public class AddToolController {
     //private ReaderThread currentReader;
     private String hostname = "169.254.126.52";
     private ObservableList<String> addressList = FXCollections.observableArrayList();
+
+    private ReaderThread connectToReader() throws OctaneSdkException{
+        ReaderThread reader = new ReaderThread(this.hostname, "add_tool", this);
+        reader.run();
+        return reader;
+    }
 
     public void scannerConnectionError() {
         PopupWindow error = new PopupWindow("Error", "Reader failed to connect!");
@@ -146,29 +153,34 @@ public class AddToolController {
      * read the tag.
      **/
     public void scanTool(ActionEvent actionEvent) throws IOException {
-        ReaderThread myReaderThread = new ReaderThread(this.hostname, "add_tool", this);
-        myReaderThread.run();
-        try {
-            myReaderThread.join();
-        } catch (java.lang.InterruptedException ie) {
-            System.out.println(ie);
-        }
-        myReaderThread.stopReader();
-        HashMap<String, Integer> tagValues = myReaderThread.getTagValues();
-        int curMax = 0;
-        String resultEpc = "Didn't read anything...";
-
-        try {
-            for (String key : tagValues.keySet()) {
-                System.out.printf("Tag ID: %s\nCount: %d\n", key, tagValues.get(key));
-                if (tagValues.get(key) > curMax) {
-                    resultEpc = key;
-                    curMax = tagValues.get(key);
-                }
+        try{
+            ReaderThread myReaderThread = this.connectToReader();
+            // ReaderThread myReaderThread = new ReaderThread(this.hostname, "add_tool", this);
+            // myReaderThread.run();
+            try {
+                myReaderThread.join();
+            } catch (java.lang.InterruptedException ie) {
+                System.out.println(ie);
             }
-            this.txtTagID.setText(resultEpc);
-        } catch (NullPointerException e) {
-            System.out.print(e);
+            myReaderThread.stopReader();
+            HashMap<String, Integer> tagValues = myReaderThread.getTagValues();
+            int curMax = 0;
+            String resultEpc = "Didn't read anything...";
+
+            try {
+                for (String key : tagValues.keySet()) {
+                    System.out.printf("Tag ID: %s\nCount: %d\n", key, tagValues.get(key));
+                    if (tagValues.get(key) > curMax) {
+                        resultEpc = key;
+                        curMax = tagValues.get(key);
+                    }
+                }
+                this.txtTagID.setText(resultEpc);
+            } catch (NullPointerException e) {
+                System.out.print(e);
+            }
+        }catch(OctaneSdkException oe){
+            oe.printStackTrace();
         }
     }
 
