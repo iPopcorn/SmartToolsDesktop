@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="938ec455-41d4-49a5-8d23-945b85e994b7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/AddToolController.java" afterPath="$PROJECT_DIR$/src/main/AddToolController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/DeleteToolController.java" afterPath="$PROJECT_DIR$/src/main/DeleteToolController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/LookupController.java" afterPath="$PROJECT_DIR$/src/main/LookupController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ReaderThread.java" afterPath="$PROJECT_DIR$/src/main/ReaderThread.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ReportController.java" afterPath="$PROJECT_DIR$/src/main/ReportController.java" />
     </list>
@@ -25,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DeleteToolController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DeleteToolController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/DeleteToolController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.33424658">
-              <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
               <folding>
                 <element signature="method#openMainMenu#0;class#DeleteToolController#0" expanded="false" />
               </folding>
@@ -37,18 +39,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReportController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ReportController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/ReportController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.172414">
-              <caret line="280" column="36" selection-start-line="280" selection-start-column="29" selection-end-line="280" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.6259542">
+              <caret line="66" column="83" selection-start-line="66" selection-start-column="83" selection-end-line="66" selection-end-column="83" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
+                <element signature="method#genReportDisplay#0;class#ReportController#0" expanded="false" />
+                <element signature="method#genReportCSV#0;class#ReportController#0" expanded="false" />
+                <element signature="method#genReportEmail#0;class#ReportController#0" expanded="false" />
+                <element signature="method#genReportStartScanning#0;class#ReportController#0" expanded="false" />
+                <element signature="method#genReportStopScanning#0;class#ReportController#0" expanded="false" />
                 <element signature="method#scan#0;class#ReportController#0" expanded="false" />
                 <element signature="method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
                 <element signature="method#sortTools#0;class#ReportController#0" expanded="false" />
                 <element signature="method#configureFileChooser#0;class#ReportController#0" expanded="false" />
+                <element signature="method#createFile#0;class#ReportController#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -57,8 +64,34 @@
       <file leaf-file-name="ReaderThread.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/ReaderThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.3448277">
-              <caret line="124" column="38" selection-start-line="124" selection-start-column="38" selection-end-line="124" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="129" column="0" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
+              <folding>
+                <element signature="method#stopReader#0;class#ReaderThread#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddToolController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/AddToolController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="187" column="58" selection-start-line="187" selection-start-column="58" selection-end-line="187" selection-end-column="83" />
+              <folding>
+                <element signature="method#searchOpenAddresses#0;class#AddToolController#0" expanded="false" />
+                <element signature="method#submitTool#0;class#AddToolController#0" expanded="false" />
+                <element signature="method#scanTool#0;class#AddToolController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PopupWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/PopupWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -68,10 +101,14 @@
         <entry file="file://$PROJECT_DIR$/src/main/LookupController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="167" column="20" selection-start-line="167" selection-start-column="20" selection-end-line="168" selection-end-column="40" />
+              <caret line="222" column="17" selection-start-line="222" selection-start-column="17" selection-end-line="222" selection-end-column="17" />
               <folding>
+                <element signature="method#createToolList#0;class#LookupController#0" expanded="false" />
+                <element signature="e#2175#2209#0" expanded="false" />
+                <element signature="method#getToolList#0;class#LookupController#0" expanded="false" />
+                <element signature="method#searchTools#0;class#LookupController#0" expanded="false" />
+                <element signature="method#handleResponse#0;class#LookupController#0" expanded="false" />
                 <element signature="method#gotoMainMenu#0;class#LookupController#0" expanded="false" />
-                <element signature="method#scanTool#0;class#LookupController#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -126,13 +163,13 @@
         <option value="$PROJECT_DIR$/src/main/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/res/fxml/delete_tool.fxml" />
         <option value="$PROJECT_DIR$/src/main/res/fxml/lookup_tool.fxml" />
-        <option value="$PROJECT_DIR$/src/main/LookupController.java" />
         <option value="$PROJECT_DIR$/src/main/res/fxml/add_tool.fxml" />
-        <option value="$PROJECT_DIR$/src/main/AddToolController.java" />
         <option value="$PROJECT_DIR$/src/main/EmailHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/ReportController.java" />
-        <option value="$PROJECT_DIR$/src/main/DeleteToolController.java" />
         <option value="$PROJECT_DIR$/src/main/ReaderThread.java" />
+        <option value="$PROJECT_DIR$/src/main/DeleteToolController.java" />
+        <option value="$PROJECT_DIR$/src/main/LookupController.java" />
+        <option value="$PROJECT_DIR$/src/main/AddToolController.java" />
+        <option value="$PROJECT_DIR$/src/main/ReportController.java" />
       </list>
     </option>
   </component>
@@ -143,11 +180,14 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState />
+  </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="54" />
     <option name="y" value="-8" />
     <option name="width" value="1320" />
-    <option name="height" value="784" />
+    <option name="height" value="780" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -174,7 +214,39 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartToolsDesktop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartToolsDesktop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartToolsDesktop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SmartToolsDesktop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -229,39 +301,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartToolsDesktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartToolsDesktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartToolsDesktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartToolsDesktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -276,117 +316,6 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Taylor\Documents\SCHOOL\senior design\New folder\SmartToolsDesktop\src\main\res\fxml" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/PopupWindow.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/res/stylesheet/popup_window.css</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunManager" selected="Application.Unnamed">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -876,11 +805,17 @@
       <option name="project" value="LOCAL" />
       <updated>1490233083574</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Updated DeleteToolController.java&#10;    Took out unused code&#10;    &#10;Updated ReaderThread.java&#10;    Changed error message to popup error&#10;&#10;Updated ReportController.java&#10;    Changed all error messages to popup errors&#10;    Changed success messages to popup messages">
+      <created>1490312413374</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1490312413374</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1320" height="784" extended-state="0" />
+    <frame x="54" y="-8" width="1320" height="780" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -888,9 +823,9 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32668713" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936507" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35276073" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35030866" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17301588" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -962,7 +897,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="Fixed the add_tool reader thread." />
     <MESSAGE value="Working on export to CSV." />
     <MESSAGE value="Integrated .json decoder to grab tool list from database in ReportController.java" />
     <MESSAGE value="Added EmailHandler.java&#10;Implemented genReportEmail() callback in ReportController.java" />
@@ -987,7 +921,8 @@
     <MESSAGE value="Updated AddToolController.java&#10;&#10;fixed an error when the user adds a blank tool. added an error message." />
     <MESSAGE value="Updated ReportController.java and EmailHandler.java&#10;&#10;Fixed the problem where the sendEmail() method was attaching blank files." />
     <MESSAGE value="Updated DeleteToolController.java&#10;&#10;Fixed an error where the program would crash if delete-tool scanned a tag that was not in the database.&#10;&#10;Fixed an error where the program would display incorrect error messages upon success." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated DeleteToolController.java&#10;&#10;Fixed an error where the program would crash if delete-tool scanned a tag that was not in the database.&#10;&#10;Fixed an error where the program would display incorrect error messages upon success." />
+    <MESSAGE value="Updated DeleteToolController.java&#10;    Took out unused code&#10;    &#10;Updated ReaderThread.java&#10;    Changed error message to popup error&#10;&#10;Updated ReportController.java&#10;    Changed all error messages to popup errors&#10;    Changed success messages to popup messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated DeleteToolController.java&#10;    Took out unused code&#10;    &#10;Updated ReaderThread.java&#10;    Changed error message to popup error&#10;&#10;Updated ReportController.java&#10;    Changed all error messages to popup errors&#10;    Changed success messages to popup messages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1028,11 +963,16 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportDisplay#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportCSV#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportEmail#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportStartScanning#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportStopScanning#0;class#ReportController#0" expanded="false" />
             <element signature="method#scan#0;class#ReportController#0" expanded="false" />
             <element signature="method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
             <element signature="method#sortTools#0;class#ReportController#0" expanded="false" />
             <element signature="method#configureFileChooser#0;class#ReportController#0" expanded="false" />
+            <element signature="method#createFile#0;class#ReportController#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1065,11 +1005,16 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportDisplay#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportCSV#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportEmail#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportStartScanning#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportStopScanning#0;class#ReportController#0" expanded="false" />
             <element signature="method#scan#0;class#ReportController#0" expanded="false" />
             <element signature="method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
             <element signature="method#sortTools#0;class#ReportController#0" expanded="false" />
             <element signature="method#configureFileChooser#0;class#ReportController#0" expanded="false" />
+            <element signature="method#createFile#0;class#ReportController#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1379,17 +1324,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/AddToolController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42307693">
-          <caret line="93" column="64" selection-start-line="93" selection-start-column="64" selection-end-line="93" selection-end-column="64" />
-          <folding>
-            <element signature="method#searchOpenAddresses#0;class#AddToolController#0" expanded="false" />
-            <element signature="method#gotoMainMenu#0;class#AddToolController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/fxml/lookup_tool.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7609842">
@@ -1411,51 +1345,74 @@
     <entry file="file://$PROJECT_DIR$/src/main/PopupWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ReaderThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="129" column="0" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
+          <folding>
+            <element signature="method#stopReader#0;class#ReaderThread#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/DeleteToolController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+          <folding>
+            <element signature="method#openMainMenu#0;class#DeleteToolController#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/LookupController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="167" column="20" selection-start-line="167" selection-start-column="20" selection-end-line="168" selection-end-column="40" />
+          <caret line="222" column="17" selection-start-line="222" selection-start-column="17" selection-end-line="222" selection-end-column="17" />
           <folding>
+            <element signature="method#createToolList#0;class#LookupController#0" expanded="false" />
+            <element signature="e#2175#2209#0" expanded="false" />
+            <element signature="method#getToolList#0;class#LookupController#0" expanded="false" />
+            <element signature="method#searchTools#0;class#LookupController#0" expanded="false" />
+            <element signature="method#handleResponse#0;class#LookupController#0" expanded="false" />
             <element signature="method#gotoMainMenu#0;class#LookupController#0" expanded="false" />
-            <element signature="method#scanTool#0;class#LookupController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/AddToolController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="187" column="58" selection-start-line="187" selection-start-column="58" selection-end-line="187" selection-end-column="83" />
+          <folding>
+            <element signature="method#searchOpenAddresses#0;class#AddToolController#0" expanded="false" />
+            <element signature="method#submitTool#0;class#AddToolController#0" expanded="false" />
+            <element signature="method#scanTool#0;class#AddToolController#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ReportController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.172414">
-          <caret line="280" column="36" selection-start-line="280" selection-start-column="29" selection-end-line="280" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.6259542">
+          <caret line="66" column="83" selection-start-line="66" selection-start-column="83" selection-end-line="66" selection-end-column="83" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#openMainMenu#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportDisplay#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportCSV#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportEmail#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportStartScanning#0;class#ReportController#0" expanded="false" />
+            <element signature="method#genReportStopScanning#0;class#ReportController#0" expanded="false" />
             <element signature="method#scan#0;class#ReportController#0" expanded="false" />
             <element signature="method#getAddressMapFromDB#0;class#ReportController#0" expanded="false" />
             <element signature="method#sortTools#0;class#ReportController#0" expanded="false" />
             <element signature="method#configureFileChooser#0;class#ReportController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/ReaderThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.3448277">
-          <caret line="124" column="38" selection-start-line="124" selection-start-column="38" selection-end-line="124" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/DeleteToolController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.33424658">
-          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-          <folding>
-            <element signature="method#openMainMenu#0;class#DeleteToolController#0" expanded="false" />
+            <element signature="method#createFile#0;class#ReportController#0" expanded="false" />
           </folding>
         </state>
       </provider>

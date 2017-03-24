@@ -20,6 +20,7 @@ public class ReaderThread extends Thread {
     private ReportController reportParent;
     private LookupController lookupParent;
     private AddToolController addToolParent;
+    private DeleteToolController deleteParent;
 
     public ReaderThread(String hostname, String task, Object creator){
         this.hostname = hostname;
@@ -32,6 +33,8 @@ public class ReaderThread extends Thread {
             this.addToolParent = (AddToolController) creator;
         else if(parentName.equalsIgnoreCase("LookupController"))
             this.lookupParent = (LookupController) creator;
+        else if(parentName.equalsIgnoreCase("DeleteToolController"))
+            this.deleteParent = (DeleteToolController) creator;
 
         if(task.equalsIgnoreCase("generate_report")){
             this.runCondition = 1;
@@ -120,13 +123,13 @@ public class ReaderThread extends Thread {
                 e.printStackTrace();
                 switch(runCondition){
                     case 1:{ // generate report
-                        // this.reportParent.showError("Reader Failed To Connect!");
-                        PopupWindow error = new PopupWindow("Error", "Reader failed to connect!");
-                        error.popup();
+                        this.reportParent.scannerConnectionError();
                     }case 2:{ // add tool
-
+                        this.addToolParent.scannerConnectionError();
                     }case 3:{ // lookup tool
-
+                        this.lookupParent.scannerConnectionError();
+                    }case 5:{ // delete tool
+                        this.deleteParent.scannerConnectionError();
                     }
                 }
             }

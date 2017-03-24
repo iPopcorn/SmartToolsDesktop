@@ -39,6 +39,11 @@ public class AddToolController {
     private String hostname = "169.254.126.52";
     private ObservableList<String> addressList = FXCollections.observableArrayList();
 
+    public void scannerConnectionError() {
+        PopupWindow error = new PopupWindow("Error", "Reader failed to connect!");
+        error.popup();
+    }
+
     public void showError(String errorMsg) {
         this.lblError.setText(errorMsg);
     }
@@ -145,7 +150,7 @@ public class AddToolController {
      **/
     public void scanTool(ActionEvent actionEvent) throws IOException {
         ReaderThread myReaderThread = new ReaderThread(this.hostname, "add_tool", this);
-        myReaderThread.start();
+        myReaderThread.run();
         try {
             myReaderThread.join();
         } catch (java.lang.InterruptedException ie) {

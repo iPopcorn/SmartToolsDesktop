@@ -43,6 +43,11 @@ public class LookupController {
         toolListView.setCellFactory(new ToolCellFactory());
     }
 
+    public void scannerConnectionError() {
+        PopupWindow error = new PopupWindow("Error", "Reader failed to connect!");
+        error.popup();
+    }
+
     private void showError(String errorMessage) {
         this.lblError.setText(errorMessage);
     }
@@ -146,7 +151,7 @@ public class LookupController {
     }
 
 
-    /*
+    /**
      * ArrayList<Tool> handleResponse(String response)
      * This function takes in the String response after querying the server to see the response
      * received from the server and handle it accordingly. If the response contains fail, the appropriate
@@ -213,8 +218,8 @@ public class LookupController {
 
     public void scanTool(ActionEvent actionEvent) throws IOException {
         if (this.radioByID.isSelected()) {
-            ReaderThread myReaderThread = new ReaderThread(this.hostname, "add_tool", this);
-            myReaderThread.start();
+            ReaderThread myReaderThread = new ReaderThread(this.hostname, "lookup_tool", this);
+            myReaderThread.run();
             try {
                 myReaderThread.join();
             } catch (java.lang.InterruptedException ie) {
@@ -238,9 +243,10 @@ public class LookupController {
                 e.printStackTrace();
             }
         } else {
-            //todo: error message here
-            System.out.println("Must Select ID to scan");
-            this.showError("Error: ID Not Selected!");
+            PopupWindow error = new PopupWindow("Error", "Must Select ID to scan");
+            error.popup();
+            /*System.out.println("Must Select ID to scan");
+            this.showError("Error: ID Not Selected!");*/
         }
     }
 }

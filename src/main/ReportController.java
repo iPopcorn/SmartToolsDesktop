@@ -64,7 +64,7 @@ public class ReportController {
 
         if(actionEvent.getSource() == btnGenReportBack){
             stage = (Stage) btnGenReportBack.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("res/fxml/admin.fxml"));
+            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu.fxml"));
         }else{
             stage = null;
             root = null;
@@ -470,4 +470,8 @@ public class ReportController {
         return outFile;
     }
 
+    public void scannerConnectionError() {
+        PopupWindow error = new PopupWindow("Error", "Reader failed to connect!");
+        error.popup();
+    }
 }

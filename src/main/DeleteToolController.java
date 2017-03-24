@@ -36,6 +36,11 @@ public class DeleteToolController {
     public Label lblDelToolMsg;
     private String hostname = "169.254.126.52";
     private Tool resultTool;
+
+    public void scannerConnectionError() {
+        PopupWindow error = new PopupWindow("Error", "Reader failed to connect!");
+        error.popup();
+    }
     
     public void openMainMenu(ActionEvent actionEvent) throws IOException
     {
