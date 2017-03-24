@@ -5,13 +5,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,7 +22,7 @@ public class AddToolController {
     @FXML
     public Button btnBack;
     @FXML
-    public ChoiceBox btnToolAddress;
+    public ComboBox btnToolAddress;
     //public Button btnRefresh;
     //public Button btnSubmit;
     //public Button btnSwitch;
