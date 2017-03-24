@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="938ec455-41d4-49a5-8d23-945b85e994b7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/AddToolController.java" afterPath="$PROJECT_DIR$/src/main/AddToolController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/DeleteToolController.java" afterPath="$PROJECT_DIR$/src/main/DeleteToolController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/LookupController.java" afterPath="$PROJECT_DIR$/src/main/LookupController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ReaderThread.java" afterPath="$PROJECT_DIR$/src/main/ReaderThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ReportController.java" afterPath="$PROJECT_DIR$/src/main/ReportController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,10 +34,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReportController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ReportController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/ReportController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6259542">
+            <state vertical-scroll-proportion="0.0">
               <caret line="66" column="83" selection-start-line="66" selection-start-column="83" selection-end-line="66" selection-end-column="83" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -73,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddToolController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AddToolController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/AddToolController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="187" column="58" selection-start-line="187" selection-start-column="58" selection-end-line="187" selection-end-column="83" />
+            <state vertical-scroll-proportion="0.65356266">
+              <caret line="184" column="58" selection-start-line="184" selection-start-column="58" selection-end-line="184" selection-end-column="83" />
               <folding>
                 <element signature="method#searchOpenAddresses#0;class#AddToolController#0" expanded="false" />
                 <element signature="method#submitTool#0;class#AddToolController#0" expanded="false" />
@@ -811,7 +806,13 @@
       <option name="project" value="LOCAL" />
       <updated>1490312413374</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Added connection error handling methods to each controller class.&#10;I changed the way the reader thread starts from readerThread.start() to readerThread.run() in LookupController and AddToolController. start() was causing issues with the popup errors. I fixed the back button logic on ReportController.java">
+      <created>1490396312963</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1490396312963</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -824,8 +825,8 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936507" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35030866" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35030866" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17301588" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -897,7 +898,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="Working on export to CSV." />
     <MESSAGE value="Integrated .json decoder to grab tool list from database in ReportController.java" />
     <MESSAGE value="Added EmailHandler.java&#10;Implemented genReportEmail() callback in ReportController.java" />
     <MESSAGE value="Added new classes and fxml files for the admin subsystem.&#10;Added login screen&#10;Modified admin screen&#10;Added basic navigational logic between the new admin screen and existing screens." />
@@ -922,7 +922,8 @@
     <MESSAGE value="Updated ReportController.java and EmailHandler.java&#10;&#10;Fixed the problem where the sendEmail() method was attaching blank files." />
     <MESSAGE value="Updated DeleteToolController.java&#10;&#10;Fixed an error where the program would crash if delete-tool scanned a tag that was not in the database.&#10;&#10;Fixed an error where the program would display incorrect error messages upon success." />
     <MESSAGE value="Updated DeleteToolController.java&#10;    Took out unused code&#10;    &#10;Updated ReaderThread.java&#10;    Changed error message to popup error&#10;&#10;Updated ReportController.java&#10;    Changed all error messages to popup errors&#10;    Changed success messages to popup messages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated DeleteToolController.java&#10;    Took out unused code&#10;    &#10;Updated ReaderThread.java&#10;    Changed error message to popup error&#10;&#10;Updated ReportController.java&#10;    Changed all error messages to popup errors&#10;    Changed success messages to popup messages" />
+    <MESSAGE value="Added connection error handling methods to each controller class.&#10;I changed the way the reader thread starts from readerThread.start() to readerThread.run() in LookupController and AddToolController. start() was causing issues with the popup errors. I fixed the back button logic on ReportController.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added connection error handling methods to each controller class.&#10;I changed the way the reader thread starts from readerThread.start() to readerThread.run() in LookupController and AddToolController. start() was causing issues with the popup errors. I fixed the back button logic on ReportController.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1385,21 +1386,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/AddToolController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="187" column="58" selection-start-line="187" selection-start-column="58" selection-end-line="187" selection-end-column="83" />
-          <folding>
-            <element signature="method#searchOpenAddresses#0;class#AddToolController#0" expanded="false" />
-            <element signature="method#submitTool#0;class#AddToolController#0" expanded="false" />
-            <element signature="method#scanTool#0;class#AddToolController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ReportController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6259542">
+        <state vertical-scroll-proportion="0.0">
           <caret line="66" column="83" selection-start-line="66" selection-start-column="83" selection-end-line="66" selection-end-column="83" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1413,6 +1402,18 @@
             <element signature="method#sortTools#0;class#ReportController#0" expanded="false" />
             <element signature="method#configureFileChooser#0;class#ReportController#0" expanded="false" />
             <element signature="method#createFile#0;class#ReportController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/AddToolController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65356266">
+          <caret line="184" column="58" selection-start-line="184" selection-start-column="58" selection-end-line="184" selection-end-column="83" />
+          <folding>
+            <element signature="method#searchOpenAddresses#0;class#AddToolController#0" expanded="false" />
+            <element signature="method#submitTool#0;class#AddToolController#0" expanded="false" />
+            <element signature="method#scanTool#0;class#AddToolController#0" expanded="false" />
           </folding>
         </state>
       </provider>
