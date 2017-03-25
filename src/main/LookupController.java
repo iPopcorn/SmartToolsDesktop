@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -30,9 +31,17 @@ public class LookupController {
     private ListView<Tool> toolListView;
     @FXML
     private Button backButton;
+    @FXML
+    private Button searchButton;
+    @FXML
+    private Label searchByName;
+    @FXML
+    private Label searchByID;
+    @FXML
+    private Label searchByAddress;
 
     private ArrayList<Tool> toolList;
-    private String hostname = "169.254.126.52";
+    private final String hostname = "169.254.126.52";
 
     @FXML
     // The initialize() method is called after the constructor and all the components inside of the LookupController class
@@ -41,6 +50,17 @@ public class LookupController {
     private void initialize() {
         toolList = new ArrayList<>();
         toolListView.setCellFactory(new ToolCellFactory());
+
+        radioByName.getStyleClass().add("radio-button");
+        radioByID.getStyleClass().add("radio-button");
+        radioByAddress.getStyleClass().add("radio-button");
+
+        backButton.getStyleClass().add("smallButton");
+        btnScan.getStyleClass().add("smallButton");
+        searchButton.getStyleClass().add("smallButton");
+
+        searchBox.getStyleClass().add("searchBox");
+
     }
 
     public void scannerConnectionError() {

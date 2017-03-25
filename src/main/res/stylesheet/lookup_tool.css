@@ -1,0 +1,46 @@
+.radio-button {
+
+    /*-fx-fill: #FC7500;*/
+}
+
+#backgroundGrad {
+    -fx-background: white; /* For browsers that do not support gradients */
+    /*-fx-background: linear-gradient(white, #0168B3, white); !* Standard syntax *!*/
+}
+
+.smallButton {
+    -fx-font: 12pt "Arial", Gadget, sans-serif;
+    -fx-text-fill: #0168B3;
+    -fx-text-alignment: center;
+    -fx-border-color: #FC7500;
+    -fx-padding: 3 9;
+    -fx-background-color: white;
+
+    -webkit-transition-duration: .4s;
+    transition-duration: 0.4s;
+    -fx-cursor: hand;
+}
+
+.searchBox {
+    -fx-font: 12pt "Arial", Gadget, sans-serif;
+    -fx-text-fill: #0168B3;
+    -fx-text-alignment: center;
+    -fx-border-color: #FC7500;
+    -fx-padding: 3 9;
+    -fx-background-color: white;
+}
+
+.smallButton:hover {
+    -fx-text-fill: white;
+    -fx-background-color: #0168B3;
+}
+
+.label {
+    -fx-font: 12pt "Arial", Gadget, sans-serif;
+    -fx-text-fill: #0168B3;
+    -fx-text-alignment: center;
+}
+
+.list-view{
+    -fx-border-color: #FC7500;
+}
