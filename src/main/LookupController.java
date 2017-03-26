@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -228,7 +227,9 @@ public class LookupController {
 
         // create new scene with stage and root
         if (stage != null && root != null) {
-            Scene scene = new Scene(root, 640, 480);
+            Double width = stage.getWidth();
+            Double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
             stage.setScene(scene);
             stage.show();
         } else {

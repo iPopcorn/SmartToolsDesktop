@@ -8,10 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import jdk.management.resource.internal.inst.FileChannelImplRMHooks;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
@@ -72,8 +70,9 @@ public class ReportController {
 
         // create new scene with stage and root
         if(stage != null && root != null){
-            Scene scene = new Scene(root, 640, 480);
-            stage.setScene(scene);
+            Double width = stage.getWidth();
+            Double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);            stage.setScene(scene);
             stage.show();
         }else{
             System.out.println("Stage or root is null!");

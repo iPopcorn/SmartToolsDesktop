@@ -64,7 +64,10 @@ public class MainController {
 
         // create new scene with stage and root
         if(stage != null && root != null){
-            Scene scene = new Scene(root, 640, 480);
+            Double width = stage.getWidth();
+            Double height = stage.getHeight();
+            System.out.println(width + "  " + height);
+            Scene scene = new Scene(root, width, height);
             stage.setScene(scene);
             stage.show();
         }else{

@@ -56,7 +56,9 @@ public class LoginController {
         root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu_admin.fxml"));
 
         if(stage != null && root != null){
-            Scene scene = new Scene(root, 640, 480);
+            Double width = stage.getWidth();
+            Double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
             stage.setScene(scene);
             stage.show();
         }else
@@ -71,7 +73,9 @@ public class LoginController {
         root = FXMLLoader.load(getClass().getResource("res/fxml/admin.fxml"));
 
         if(stage != null && root != null){
-            Scene scene = new Scene(root, 640, 480);
+            Double width = stage.getWidth();
+            Double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
             stage.setScene(scene);
             stage.show();
         }else

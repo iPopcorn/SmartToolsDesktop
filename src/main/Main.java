@@ -53,6 +53,8 @@ public class Main extends Application {
         mainMenu = new Scene(mainMenuRoot, 640, 480);
         myStage.setTitle("Desktop App");
         myStage.setScene(mainMenu);
+        myStage.setMinWidth(640.0);
+        myStage.setMinHeight(480.0);
         myStage.show();
     }
 }

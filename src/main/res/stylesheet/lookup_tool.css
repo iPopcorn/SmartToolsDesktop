@@ -8,6 +8,15 @@
     /*-fx-background: linear-gradient(white, #0168B3, white); !* Standard syntax *!*/
 }
 
+.searchBox {
+    -fx-font: 12pt "Arial", Gadget, sans-serif;
+    -fx-text-fill: #0168B3;
+    -fx-text-alignment: center;
+    -fx-border-color: #FC7500;
+    -fx-padding: 3 9;
+    -fx-background-color: white;
+}
+
 .smallButton {
     -fx-font: 12pt "Arial", Gadget, sans-serif;
     -fx-text-fill: #0168B3;
@@ -19,15 +28,6 @@
     -webkit-transition-duration: .4s;
     transition-duration: 0.4s;
     -fx-cursor: hand;
-}
-
-.searchBox {
-    -fx-font: 12pt "Arial", Gadget, sans-serif;
-    -fx-text-fill: #0168B3;
-    -fx-text-alignment: center;
-    -fx-border-color: #FC7500;
-    -fx-padding: 3 9;
-    -fx-background-color: white;
 }
 
 .smallButton:hover {
