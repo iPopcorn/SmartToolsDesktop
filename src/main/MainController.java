@@ -66,8 +66,8 @@ public class MainController {
         if(stage != null && root != null){
             Double width = stage.getWidth();
             Double height = stage.getHeight();
-            System.out.println(width + "  " + height);
-            Scene scene = new Scene(root, width, height);
+            System.out.println(width + "  " + height + " IN MAIN CONTROLLER");
+            Scene scene = new Scene(root, width, height - 22);
             stage.setScene(scene);
             stage.show();
         }else{

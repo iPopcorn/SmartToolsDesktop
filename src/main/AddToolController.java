@@ -206,7 +206,9 @@ public class AddToolController {
         if (stage != null && root != null) {
             Double width = stage.getWidth();
             Double height = stage.getHeight();
-            Scene scene = new Scene(root, width, height);
+            System.out.println(width + "  " + height + " IN add tool CONTROLLER");
+
+            Scene scene = new Scene(root, width, height - 22.0);
             stage.setScene(scene);
             stage.show();
         } else {

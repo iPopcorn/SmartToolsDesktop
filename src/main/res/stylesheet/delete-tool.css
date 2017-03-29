@@ -1,23 +1,9 @@
-.radio-button {
-
-    /*-fx-fill: #FC7500;*/
-}
-
-#backgroundGrad {
-    -fx-background: white; /* For browsers that do not support gradients */
+.background {
+    -fx-background-color: white; /* For browsers that do not support gradients */
     /*-fx-background: linear-gradient(white, #0168B3, white); !* Standard syntax *!*/
 }
 
-.searchBox {
-    -fx-font: 12pt "Arial", Gadget, sans-serif;
-    -fx-text-fill: #0168B3;
-    -fx-text-alignment: center;
-    -fx-border-color: #FC7500;
-    -fx-padding: 3 9;
-    -fx-background-color: white;
-}
-
-.smallButton {
+.button {
     -fx-font: 12pt "Arial", Gadget, sans-serif;
     -fx-text-fill: #0168B3;
     -fx-text-alignment: center;
@@ -30,17 +16,32 @@
     -fx-cursor: hand;
 }
 
-.smallButton:hover {
+.button:hover {
     -fx-text-fill: white;
     -fx-background-color: #0168B3;
 }
 
-.label {
+.delete-button:hover {
+    -fx-text-fill: white;
+    -fx-background-color: red;
+}
+.delete-button:pressed {
+    -fx-text-fill: white;
+    -fx-background-color: #bb0000;
+    -fx-border-color: black;
+
+}
+
+.text-field {
     -fx-font: 12pt "Arial", Gadget, sans-serif;
     -fx-text-fill: #0168B3;
     -fx-text-alignment: center;
+    -fx-border-color: #FC7500;
+    -fx-padding: 3 9;
+    -fx-background-color: white;
 }
 
-.list-view{
-    -fx-border-color: #FC7500;
+.label {
+    -fx-font: 20pt "Arial", Gadget, sans-serif;
+    -fx-text-fill: #0168B3;
 }

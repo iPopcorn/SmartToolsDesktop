@@ -60,6 +60,7 @@ public class LookupController {
 
         searchBox.getStyleClass().add("searchBox");
 
+
     }
 
     public void scannerConnectionError() {
@@ -210,6 +211,7 @@ public class LookupController {
     public void search(ActionEvent actionEvent) {
         toolListView.getItems().clear();
         toolListView.refresh();
+        toolListView.getStyleClass().add("list-view");
         toolListView.getItems().addAll(searchTools(searchBox.getText()));
     }
 
@@ -229,7 +231,8 @@ public class LookupController {
         if (stage != null && root != null) {
             Double width = stage.getWidth();
             Double height = stage.getHeight();
-            Scene scene = new Scene(root, width, height);
+            System.out.println(width + "  " + height + " IN LOOKUP CONTROLLER");
+            Scene scene = new Scene(root, width, height - 22);
             stage.setScene(scene);
             stage.show();
         } else {

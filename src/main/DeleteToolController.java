@@ -6,12 +6,14 @@
 package main;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -36,6 +38,13 @@ public class DeleteToolController {
     public Label lblDelToolMsg;
     private String hostname = "169.254.126.52";
     private Tool resultTool;
+    @FXML
+    public AnchorPane anchorPaneDelTool;
+    @FXML
+    private void initialize() {
+        anchorPaneDelTool.getStyleClass().add("background");
+        btnDelToolDelete.getStyleClass().add("delete-button");
+    }
 
     public void scannerConnectionError() {
         PopupWindow error = new PopupWindow("Error", "Reader failed to connect!");
@@ -59,7 +68,9 @@ public class DeleteToolController {
         if(stage != null && root != null){
             Double width = stage.getWidth();
             Double height = stage.getHeight();
-            Scene scene = new Scene(root, width, height);;
+            System.out.println(width + "  " + height + " IN LOOKUP CONTROLLER");
+
+            Scene scene = new Scene(root, width, height - 22.0);;
             stage.setScene(scene);
             stage.show();
         }else{

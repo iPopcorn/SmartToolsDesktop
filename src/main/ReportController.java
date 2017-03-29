@@ -72,7 +72,10 @@ public class ReportController {
         if(stage != null && root != null){
             Double width = stage.getWidth();
             Double height = stage.getHeight();
-            Scene scene = new Scene(root, width, height);            stage.setScene(scene);
+            System.out.println(width + "  " + height + " IN Report CONTROLLER");
+
+            Scene scene = new Scene(root, width, height);
+            stage.setScene(scene);
             stage.show();
         }else{
             System.out.println("Stage or root is null!");
