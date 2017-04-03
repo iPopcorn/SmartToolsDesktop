@@ -48,21 +48,6 @@ public class LoginController {
         }
     }
 
-    public void goBack(ActionEvent actionEvent) throws IOException {
-        Stage stage = null;
-        Parent root = null;
-
-        stage = (Stage) btnBack.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu_admin.fxml"));
-
-        if(stage != null && root != null){
-            Scene scene = new Scene(root, 640, 480);
-            stage.setScene(scene);
-            stage.show();
-        }else
-            System.out.println("Stage or Root null");
-    }
-
     public void openAdmin(ActionEvent actionEvent) throws IOException{
         Stage stage = null;
         Parent root = null;

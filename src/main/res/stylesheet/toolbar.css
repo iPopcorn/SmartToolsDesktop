@@ -1,0 +1,76 @@
+/*
+*  This CSS document primarily styles the Tab/Toolbar at the top of the main window
+*/
+
+/* Setup color variables */
+* {
+    -fx-uta-primary: #0168B3;
+    -fx-uta-secondary: #F16F3D;
+}
+
+/* Make the background color of the tab header uta blue */
+.tab-header-area .tab-header-background {
+    -fx-background-color: -fx-uta-primary;
+}
+
+/* Make the background color of each tab that is not selected uta blue*/
+ .tab-pane .tab {
+     -fx-background-color: -fx-uta-primary;
+ }
+
+ /* Make the text color for tabs that aren't selected white, it's easier to see against the uta blue */
+ .tab .tab-label {
+     -fx-text-fill: white;
+ }
+
+ /* Set the text color for a selected tab to black, it's easier to see against the light gray */
+ .tab:selected .tab-label {
+     -fx-text-fill: black;
+ }
+
+ /* Set the background color for a selected tab to a very light gray color */
+ .tab-pane .tab:selected {
+     -fx-background-color: #FAFAFA;
+ }
+
+/* Remove the border and space around the tabs so they blend into the toolbar */
+.tab{
+    -fx-background-insets: 0 1 0 1, 0, 0;
+}
+
+/* Make all of the buttons in the toolbar have a background color that blends into the rest of the toolbar.
+*  A gradient is used to give it the same color.
+*/
+.button {
+    -fx-background-color: linear-gradient(#FAFAFA, #E6E6E6E6);
+}
+
+/* Change the color of a toolbar button that is hovered to a dark gray */
+.button:hover {
+    -fx-background-color: #C5C5C5;
+}
+
+/* Class for all scan buttons that will be in the toolbar, gives the button an image to represent its function */
+.btnScan {
+    -fx-graphic: url("../../res/images/scan.png");
+}
+
+/* Class for all submit buttons that will be in the toolbar, gives the button an image to represent its function */
+.btnSubmit {
+    -fx-graphic: url("../../res/images/submit.png");
+}
+
+/* ID for report button that will be in the toolbar, gives the button an image to represent its function */
+#btnReport {
+    -fx-graphic: url("../../res/images/report.png");
+}
+
+/* ID for export button that will be in the toolbar, gives the button an image to represent its function */
+#btnExport {
+    -fx-graphic: url("../../res/images/export.png");
+}
+
+/* ID for email button that will be in the toolbar, gives the button an image to represent its function */
+#btnEmail {
+    -fx-graphic: url("../../res/images/email.png");
+}

@@ -2,11 +2,7 @@ package main;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,6 +12,7 @@ import java.util.HashMap;
  * Created by mwhar on 1/13/2017.
  */
 public class LookupController {
+
     public Button btnScan;
     public Label lblError;
     @FXML
@@ -68,49 +65,6 @@ public class LookupController {
             }
 
         }
-    }
-
-//    ServerRequest serverRequest;
-//    JSONdecoder responseDecoder;
-//
-//    @Override
-//    public void start(Stage primaryStage) throws Exception{
-//        /*
-//         * TEST
-//         */
-//
-//        serverRequest = new ServerRequest();
-//        responseDecoder = new JSONdecoder();
-//        HashMap<String, String> POSTdata = new HashMap<>();
-//        POSTdata.put("searchField", "name");
-//        POSTdata.put("searchValue", "hammer");
-//
-//        String response = serverRequest.getResponseFromRequest("tool-handling/lookup-tool.php", POSTdata);
-//        responseDecoder.decodeJSONToolResponse(response);
-//
-//
-//        // set stage
-//        myStage = primaryStage;
-//
-//        // create root objects for scene, connecting them to fxml files
-//        Parent mainMenuRoot = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
-//        //Parent lookupToolRoot = FXMLLoader.load(getClass().getResource("lookup_tool.fxml"));
-//        mainMenu = new Scene(mainMenuRoot, 640, 480);
-//        myStage.setTitle("Desktop App");
-//        myStage.setScene(mainMenu);
-//        myStage.show();
-
-    // Searches for a tool by name, address, or id according to which radio button is selected, returning all tools
-    // that match the search criteria
-    private void getToolList() {
-        ServerRequest serverRequest = new ServerRequest();
-        JSONdecoder responseDecoder = new JSONdecoder();
-        HashMap<String, String> POSTdata = new HashMap<>();
-        POSTdata.put("searchField", "name");
-        POSTdata.put("searchValue", "hammer");
-
-        String response = serverRequest.getResponseFromRequest("tool-handling/lookup-tool.php", POSTdata);
-        responseDecoder.decodeJSONToolResponse(response);
     }
 
     public ArrayList<Tool> searchTools(String searchText) {
@@ -194,28 +148,6 @@ public class LookupController {
         toolListView.getItems().addAll(searchTools(searchBox.getText()));
     }
 
-    public void gotoMainMenu(ActionEvent actionEvent) throws IOException {
-        Stage stage = null;
-        Parent root = null;
-
-        if (actionEvent.getSource() == backButton) {
-            stage = (Stage) backButton.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu.fxml"));
-        } else {
-            stage = null;
-            root = null;
-        }
-
-        // create new scene with stage and root
-        if (stage != null && root != null) {
-            Scene scene = new Scene(root, 640, 480);
-            stage.setScene(scene);
-            stage.show();
-        } else {
-            System.out.println("Stage or root is null!");
-        }
-    }
-
     public void scanTool(ActionEvent actionEvent) throws IOException {
         if (this.radioByID.isSelected()) {
             ReaderThread myReaderThread = new ReaderThread(this.hostname, "lookup_tool", this);
@@ -245,8 +177,6 @@ public class LookupController {
         } else {
             PopupWindow error = new PopupWindow("Error", "Must Select ID to scan");
             error.popup();
-            /*System.out.println("Must Select ID to scan");
-            this.showError("Error: ID Not Selected!");*/
         }
     }
 }

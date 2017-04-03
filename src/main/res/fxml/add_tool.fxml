@@ -1,37 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102"
-            fx:controller="main.AddToolController">
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="564.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.AddToolController">
     <children>
-        <TextField fx:id="txtTagID" editable="false" layoutX="14.0" layoutY="15.0" prefHeight="26.0" prefWidth="444.0" />
-        <Label layoutX="473.0" layoutY="60.0" prefHeight="36.0" prefWidth="117.0" text="Tool Name">
-            <font>
-                <Font size="20.0" />
-            </font>
-        </Label>
-        <Label layoutX="473.0" layoutY="103.0" prefHeight="36.0" prefWidth="84.0" text="Address">
-            <font>
-                <Font size="20.0" />
-            </font>
-        </Label>
+        <TextField fx:id="txtTagID" editable="false" layoutX="12.0" layoutY="108.0" prefHeight="26.0" prefWidth="444.0" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="108.0" />
+        <Label fx:id="lblToolName" layoutX="471.0" layoutY="156.0" prefHeight="26.0" prefWidth="64.0" text="Tool Name" AnchorPane.leftAnchor="471.0" AnchorPane.rightAnchor="65.0" />
+        <Label fx:id="lblAddress" layoutX="471.0" layoutY="199.0" prefHeight="26.0" prefWidth="51.0" text="Address" AnchorPane.leftAnchor="471.0" AnchorPane.rightAnchor="65.0" />
 
-        <Button fx:id="btnBack" layoutX="14.0" layoutY="326.0" mnemonicParsing="false" onAction="#gotoMainMenu" prefHeight="60.0" prefWidth="170.0" text="Back" />
-
-        <Button fx:id="btnSubmit" layoutX="414.0" layoutY="325.0" mnemonicParsing="false" onAction="#submitTool" prefHeight="60.0" prefWidth="170.0" text="Submit" />
-
-        <Label layoutX="473.0" layoutY="12.0" prefHeight="36.0" prefWidth="68.0" text="Tag ID">
-            <font>
-                <Font size="20.0" />
-            </font>
-        </Label>
-        <Button fx:id="btnRefresh" layoutX="274.0" layoutY="343.0" mnemonicParsing="false" onAction="#scanTool" text="Refresh" />
-        <TextField fx:id="txtToolName" layoutX="14.0" layoutY="63.0" onKeyReleased="#searchOpenAddresses" prefHeight="26.0" prefWidth="444.0" promptText="Tool Name" />
-      <Label fx:id="lblError" layoutX="14.0" layoutY="293.0" prefHeight="17.0" prefWidth="567.0" textFill="RED" />
+        <Label fx:id="lblTagID" layoutX="471.0" layoutY="108.0" prefHeight="26.0" prefWidth="17.0" text="ID" AnchorPane.leftAnchor="471.0" AnchorPane.rightAnchor="65.0" />
+        <TextField fx:id="txtToolName" layoutX="12.0" layoutY="156.0" onKeyReleased="#searchOpenAddresses" prefHeight="26.0" prefWidth="444.0" promptText="Tool Name" AnchorPane.leftAnchor="12.0" />
+      <Label fx:id="lblError" layoutX="17.0" layoutY="433.0" prefHeight="17.0" prefWidth="567.0" textFill="RED" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" />
       <Label fx:id="lblMsg" layoutX="14.0" layoutY="276.0" prefHeight="17.0" prefWidth="567.0" textFill="#19da0b" />
-        <ComboBox fx:id="btnToolAddress" layoutX="14.0" layoutY="106.0" prefHeight="31.0" prefWidth="444.0"/>
+        <ComboBox fx:id="btnAddress" layoutX="12.0" layoutY="199.0" prefHeight="26.0" prefWidth="444.0" AnchorPane.leftAnchor="12.0" />
+      <ToolBar prefHeight="64.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <items>
+          <Button fx:id="btnScan" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#scanTool" prefHeight="64.0" prefWidth="64.0" styleClass="btnScan" stylesheets="@../stylesheet/toolbar.css" text="Scan" />
+            <Separator orientation="VERTICAL" prefHeight="64.0" />
+            <Button fx:id="btnSubmit" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#submitTool" prefHeight="64.0" prefWidth="64.0" styleClass="btnSubmit" stylesheets="@../stylesheet/toolbar.css" text="Submit" textOverrun="CLIP" />
+        </items>
+      </ToolBar>
     </children>
 </AnchorPane>

@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="paneGenReport" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ReportController">
+<AnchorPane fx:id="paneGenReport" minHeight="0.0" minWidth="0.0" prefHeight="564.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ReportController">
     <children>
-        <Button fx:id="btnGenReportBack" layoutX="14.0" layoutY="369.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="25.0" prefWidth="95.0" text="Go Back" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="14.0" />
         <ToolBar prefHeight="35.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <items>
-                <Button fx:id="btnGenReportPull" onAction="#genReportDisplay" text="Pull Report" />
-                <Button fx:id="btnGenReportCSV" mnemonicParsing="false" onAction="#genReportCSV" text="Export to CSV" />
-                <Button fx:id="btnGenReportEmail" mnemonicParsing="false" onAction="#genReportEmail" text="Email" />
-                <Button fx:id="btnGenReportStart" mnemonicParsing="false" onAction="#scan" styleClass="startScanning" stylesheets="@../stylesheet/generate_report.css" text="Start Scanning" />
-            <MenuButton mnemonicParsing="false" text="View">
+                <Button id="btnReport" fx:id="btnGenReportPull" alignment="BOTTOM_CENTER" contentDisplay="TOP" onAction="#genReportDisplay" prefHeight="64.0" prefWidth="64.0" styleClass="toolBarBtn" stylesheets="@../stylesheet/toolbar.css" text="Report" textAlignment="CENTER" wrapText="true" />
+            <Separator orientation="VERTICAL" prefHeight="64.0" />
+                <Button id="btnExport" fx:id="btnGenReportCSV" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#genReportCSV" prefHeight="64.0" prefWidth="64.0" styleClass="toolBarBtn" stylesheets="@../stylesheet/toolbar.css" text="Export" textAlignment="CENTER" wrapText="true" />
+            <Separator orientation="VERTICAL" prefHeight="64.0" />
+                <Button id="btnEmail" fx:id="btnGenReportEmail" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#genReportEmail" prefHeight="64.0" prefWidth="64.0" styleClass="toolBarBtn" stylesheets="@../stylesheet/toolbar.css" text="Email" textAlignment="CENTER" wrapText="true" />
+            <Separator layoutX="156.0" layoutY="10.0" orientation="VERTICAL" prefHeight="64.0" />
+                <Button fx:id="btnGenReportStart" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#scan" prefHeight="64.0" prefWidth="64.0" stylesheets="@../stylesheet/toolbar.css" text="Scan" textAlignment="CENTER" wrapText="true">
+               <styleClass>
+                  <String fx:value="btnScan" />
+                  <String fx:value="toolBarBtn" />
+               </styleClass></Button>
+            <Separator layoutX="234.0" layoutY="10.0" orientation="VERTICAL" prefHeight="64.0" />
+            <MenuButton alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="View" textAlignment="CENTER" wrapText="true">
               <items>
                   <RadioMenuItem fx:id="radioMissing" mnemonicParsing="false" selected="true" text="Missing Tools">
                      <toggleGroup>
@@ -35,29 +43,15 @@
             <Label fx:id="labelError" prefHeight="17.0" prefWidth="193.0" textFill="#f80202" />
             </items>
         </ToolBar>
-        <ListView fx:id="genReportList" layoutX="14.0" layoutY="38.0" prefHeight="323.0" prefWidth="570.0" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="38.0" />
-        <TextField fx:id="txtToolboxNum" layoutX="549.0" layoutY="369.0" prefHeight="26.0" prefWidth="35.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="16.0" />
-        <Label layoutX="428.0" layoutY="368.0" prefHeight="27.0" prefWidth="121.0" text="Toolbox Number:" AnchorPane.bottomAnchor="5.0">
-         <font>
-            <Font size="15.0" />
-         </font></Label>
-      <RadioButton fx:id="radioAddress" layoutX="212.0" layoutY="368.0" mnemonicParsing="false" selected="true" text="Address" AnchorPane.bottomAnchor="5.0">
-         <font>
-            <Font size="18.0" />
-         </font>
+        <ListView fx:id="genReportList" layoutX="15.0" layoutY="116.0" prefHeight="434.0" prefWidth="610.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="116.0" />
+        <TextField fx:id="txtToolboxNum" layoutX="590.0" layoutY="86.0" prefHeight="17.0" prefWidth="35.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="86.0" />
+        <Label layoutX="320.0" layoutY="90.0" prefHeight="17.0" prefWidth="143.0" text="Toolbox Number:" AnchorPane.topAnchor="90.0" />
+      <RadioButton fx:id="radioAddress" layoutX="101.0" layoutY="90.0" mnemonicParsing="false" selected="true" text="Address" AnchorPane.topAnchor="90.0">
          <toggleGroup>
             <ToggleGroup fx:id="orderOptions" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="radioName" layoutX="329.0" layoutY="368.0" mnemonicParsing="false" text="Name" toggleGroup="$orderOptions" AnchorPane.bottomAnchor="5.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </RadioButton>
-      <Label layoutX="117.0" layoutY="368.0" prefHeight="17.0" prefWidth="75.0" text="Order By:" AnchorPane.bottomAnchor="5.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
+      <RadioButton fx:id="radioName" layoutX="202.0" layoutY="90.0" mnemonicParsing="false" text="Name" toggleGroup="$orderOptions" AnchorPane.topAnchor="90.0" />
+      <Label layoutX="15.0" layoutY="90.0" prefHeight="17.0" prefWidth="75.0" text="Order By:" AnchorPane.topAnchor="90.0" />
     </children>
 </AnchorPane>

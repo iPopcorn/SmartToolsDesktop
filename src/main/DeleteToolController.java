@@ -5,18 +5,12 @@
  */
 package main;
 
-import java.io.IOException;
-import java.net.URL;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -40,29 +34,6 @@ public class DeleteToolController {
     public void scannerConnectionError() {
         PopupWindow error = new PopupWindow("Error", "Reader failed to connect!");
         error.popup();
-    }
-    
-    public void openMainMenu(ActionEvent actionEvent) throws IOException
-    {
-        Stage stage = null;
-        Parent root = null;
-
-        if(actionEvent.getSource() == btnDelToolBack){
-            stage = (Stage) btnDelToolBack.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu.fxml"));
-        }else{
-            stage = null;
-            root = null;
-        }
-
-        // create new scene with stage and root
-        if(stage != null && root != null){
-            Scene scene = new Scene(root, 640, 480);
-            stage.setScene(scene);
-            stage.show();
-        }else{
-            System.out.println("Stage or root is null!");
-        }
     }
     
     public void scanTool()

@@ -3,15 +3,10 @@ package main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import jdk.management.resource.internal.inst.FileChannelImplRMHooks;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
@@ -56,28 +51,6 @@ public class ReportController {
     public void initialize(){
         this.toolList = new ArrayList<>();
         this.genReportList.setCellFactory(new ToolCellFactory());
-    }
-
-    public void openMainMenu(ActionEvent actionEvent) throws IOException{
-        Stage stage = null;
-        Parent root = null;
-
-        if(actionEvent.getSource() == btnGenReportBack){
-            stage = (Stage) btnGenReportBack.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("res/fxml/main_menu.fxml"));
-        }else{
-            stage = null;
-            root = null;
-        }
-
-        // create new scene with stage and root
-        if(stage != null && root != null){
-            Scene scene = new Scene(root, 640, 480);
-            stage.setScene(scene);
-            stage.show();
-        }else{
-            System.out.println("Stage or root is null!");
-        }
     }
 
     public void genReportDisplay(ActionEvent actionEvent) {
@@ -423,7 +396,7 @@ public class ReportController {
     }
 
     /**
-     *  configureFileChooser confifures the file chooser to start at the default
+     *  configureFileChooser configures the file chooser to start at the default
      *  user.home directory and also limits the output file to .csv
      **/
 
