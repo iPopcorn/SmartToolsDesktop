@@ -22,32 +22,31 @@ public class ReaderThread extends Thread {
     private AddToolController addToolParent;
     private DeleteToolController deleteParent;
 
-    public ReaderThread(String hostname, String task, Object creator){
+    public ReaderThread(String hostname, String task, Object creator) {
         this.hostname = hostname;
         this.reader = new ImpinjReader();
 
         String parentName = creator.getClass().getSimpleName();
-        if(parentName.equalsIgnoreCase("ReportController"))
+        if (parentName.equalsIgnoreCase("ReportController"))
             this.reportParent = (ReportController) creator;
-        else if(parentName.equalsIgnoreCase("AddToolController"))
+        else if (parentName.equalsIgnoreCase("AddToolController"))
             this.addToolParent = (AddToolController) creator;
-        else if(parentName.equalsIgnoreCase("LookupController"))
+        else if (parentName.equalsIgnoreCase("LookupController"))
             this.lookupParent = (LookupController) creator;
-        else if(parentName.equalsIgnoreCase("DeleteToolController"))
+        else if (parentName.equalsIgnoreCase("DeleteToolController"))
             this.deleteParent = (DeleteToolController) creator;
 
-        if(task.equalsIgnoreCase("generate_report")){
+        if (task.equalsIgnoreCase("generate_report")) {
             this.runCondition = 1;
-        } else if(task.equalsIgnoreCase("add_tool")){
+        } else if (task.equalsIgnoreCase("add_tool")) {
             this.runCondition = 2;
-        } else if(task.equalsIgnoreCase("lookup_tool")){
+        } else if (task.equalsIgnoreCase("lookup_tool")) {
             this.runCondition = 3;
-        } else if(task.equalsIgnoreCase("test_case")) {
+        } else if (task.equalsIgnoreCase("test_case")) {
             this.runCondition = 4;
-        } else if(task.equalsIgnoreCase("delete_tool")){
+        } else if (task.equalsIgnoreCase("delete_tool")) {
             this.runCondition = 5;
-        }
-        else{
+        } else {
             this.runCondition = 0;
         }
     }
@@ -56,40 +55,42 @@ public class ReaderThread extends Thread {
      * stopReader() is the function that is called by MainController to manually stop and disconnect from
      * the reader. This is where the data structures from the listener objects get placed into the ReaderThread object,
      * so that they can be accessed by MainController.
-     * **/
-    public void stopReader(){
+     **/
+    public void stopReader() {
         System.out.printf("stopReader()\n");
-        try{
-            if(this.reader.isConnected()){
+        try {
+            if (this.reader.isConnected()) {
                 this.reader.stop();
                 this.reader.disconnect();
             }
-        }catch(Exception e){e.printStackTrace();}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         System.out.printf("Reader Stopped.\n");
-        switch(runCondition){
-            case 0:{ // default case
+        switch (runCondition) {
+            case 0: { // default case
                 System.out.println("This should never be reached");
                 break;
             }
-            case 1:{ // generate report
+            case 1: { // generate report
                 System.out.println("generate_report processing...");
                 ReportListener myListener = (ReportListener) this.reader.getTagReportListener();
                 this.setGenReportTagValues(myListener.getReportList());
                 break;
             }
-            case 2:{ // add tool
+            case 2: { // add tool
                 System.out.println("add tool processing...");
                 break;
             }
-            case 3:{ // lookup tool
+            case 3: { // lookup tool
                 System.out.println("lookup tool processing...");
                 break;
             }
-            case 4:{
+            case 4: {
                 System.out.println("test case processing...");
                 break;
             }
-            case 5:{ // delete tool
+            case 5: { // delete tool
                 System.out.println("delete tool processing...");
                 break;
             }
@@ -100,46 +101,51 @@ public class ReaderThread extends Thread {
 
     /**
      * This is the main function of the ReaderThread class.
-     *
+     * <p>
      * run() configures the settings for the reader, and starts it.
      * TODO: figure out how to stop the reader.
      * TODO: figure out how to control when reader starts and stops.
-     * **/
-    public void run(){
+     **/
+    public void run() {
         this.running = true;
 
         System.out.println("Starting ReaderThread...");
         System.out.println("Connecting to: " + this.hostname);
 
-        try{
-                // connect to the reader
-                this.reader.connect(this.hostname);
+        try {
+            // connect to the reader
+            this.reader.connect(this.hostname);
 
-                // configure settings
-                // TODO: Learn about settings and figure out which settings we need.
-                Settings mySettings = reader.queryDefaultSettings();
-                this.reader.applySettings(mySettings);
-            } catch(Exception e){
-                e.printStackTrace();
-                switch(runCondition){
-                    case 1:{ // generate report
-                        this.reportParent.scannerConnectionError();
-                    }case 2:{ // add tool
-                        this.addToolParent.scannerConnectionError();
-                    }case 3:{ // lookup tool
-                        this.lookupParent.scannerConnectionError();
-                    }case 5:{ // delete tool
-                        this.deleteParent.scannerConnectionError();
-                    }
+            // configure settings
+            // TODO: Learn about settings and figure out which settings we need.
+            Settings mySettings = reader.queryDefaultSettings();
+            this.reader.applySettings(mySettings);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            switch (runCondition) {
+                case 1: { // generate report
+                    this.reportParent.scannerConnectionError();
+                }
+                case 2: { // add tool
+                    this.addToolParent.scannerConnectionError();
+                }
+                case 3: { // lookup tool
+                    this.lookupParent.scannerConnectionError();
+                }
+                case 5: { // delete tool
+                    this.deleteParent.scannerConnectionError();
                 }
             }
-        try{
+        }
+        try {
             System.out.printf("ReaderThread.runCondition = %d\n", runCondition);
-            switch(runCondition){
-                case 0:{ // default case
+            switch (runCondition) {
+                case 0: { // default case
                     System.out.printf("incorrect task string used.");
                     break;
-                }case 1:{ // generate report
+                }
+                case 1: { // generate report
 
                     // connect a listener
                     this.reader.setTagReportListener(new ReportListener());
@@ -149,7 +155,8 @@ public class ReaderThread extends Thread {
                     System.out.println("generate_report reader started!");
 
                     break;
-                }case 2:{ // add tool
+                }
+                case 2: { // add tool
                     // connect a listener
                     this.reader.setTagReportListener(new ReaderListener());
 
@@ -160,8 +167,7 @@ public class ReaderThread extends Thread {
                     long start = System.currentTimeMillis();
                     // fail safe timer set to 5 minutes
                     long end = start + (1000 * 1); // 60 seconds * 1000 ms/sec
-                    while (System.currentTimeMillis() < end)
-                    {
+                    while (System.currentTimeMillis() < end) {
                         // run
                     }
                     this.reader.stop();
@@ -170,9 +176,11 @@ public class ReaderThread extends Thread {
 
                     this.setTagValues(myListener.getTagValues());
                     break;
-                }case 3:{ // lookup tool
+                }
+                case 3: { // lookup tool
                     break;
-                }case 4:{ // test case
+                }
+                case 4: { // test case
                     // connect a listener
                     this.reader.setTagReportListener(new ReaderListener());
 
@@ -183,8 +191,7 @@ public class ReaderThread extends Thread {
                     long start = System.currentTimeMillis();
                     // fail safe timer set to 5 minutes
                     long end = start + (1000 * 1); // 60 seconds * 1000 ms/sec
-                    while (System.currentTimeMillis() < end)
-                    {
+                    while (System.currentTimeMillis() < end) {
                         // run
                     }
                     this.reader.stop();
@@ -193,7 +200,8 @@ public class ReaderThread extends Thread {
 
                     this.setTagValues(myListener.getTagValues());
                     break;
-                }case 5:{ // delete tool
+                }
+                case 5: { // delete tool
                     // connect a listener
                     this.reader.setTagReportListener(new ReaderListener());
 
@@ -204,8 +212,7 @@ public class ReaderThread extends Thread {
                     long start = System.currentTimeMillis();
                     // run for half a second
                     long end = start + (500);
-                    while (System.currentTimeMillis() < end)
-                    {
+                    while (System.currentTimeMillis() < end) {
                         // run
                     }
                     this.reader.stop();
@@ -217,13 +224,14 @@ public class ReaderThread extends Thread {
                 }
             }
 
-        }catch(OctaneSdkException e){
+        } catch (OctaneSdkException e) {
             System.out.println(e.getMessage());
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }
+
     public HashMap<String, Integer> getTagValues() {
         return tagValues;
     }

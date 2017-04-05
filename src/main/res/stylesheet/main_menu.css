@@ -1,7 +1,20 @@
 .root {
-    -fx-background-color: gold;
+    -fx-background-color: white;
+    -fx-text-alignment: center;
+    -fx-border-color: #FC7500;
 }
 
-.label {
-    -fx-font-size: 20;
+.button {
+    -fx-font: 12pt "Arial", Gadget, sans-serif;
+    -fx-text-fill: #0168B3;
+    -fx-border-color: #FC7500;
+    -fx-padding: 3 9;
+    -fx-background-color: white;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-text-fill: white;
+    -fx-border-color: #FC7500;
+    -fx-background-color: #0168B3;
 }

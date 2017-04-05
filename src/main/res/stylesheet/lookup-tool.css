@@ -1,0 +1,105 @@
+.radio-button {
+
+    /*-fx-fill: #FC7500;*/
+}
+
+#backgroundGrad {
+    -fx-background: white; /* For browsers that do not support gradients */
+    /*-fx-background: linear-gradient(white, #0168B3, white); !* Standard syntax *!*/
+}
+
+/* Style elements pertaining to the main list view. */
+
+.list-view{
+    -fx-border-color: #FC7500;
+}
+
+.list-view .scroll-bar:vertical, .scroll-bar:horizontal{
+    -fx-border-color: #FC7500;
+    -fx-background-color: white;
+}
+
+.list-view .increment-button, .decrement-button {
+    -fx-border-color: #FC7500;
+}
+
+.list-view .increment-button .increment-arrow,
+    .decrement-button .decrement-arrow{
+    -fx-border-color: #0168B3;
+}
+
+.list-view .scroll-bar:vertical .thumb, .scroll-bar:horizontal .thumb {
+    -fx-background-color: #0168B3;
+}
+
+/* Style elements based on events pertaining to the main list view. */
+.list-view .increment-button:hover, .decrement-button:hover {
+    -fx-background-color: #0187d3;
+}
+
+.list-view .increment-button:pressed, .decrement-button:pressed {
+    -fx-background-color: #0187d3;
+}
+
+.list-view .scroll-bar:vertical .thumb:hover, .scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: #0187d3;
+}
+
+.list-view .scroll-bar:vertical .thumb:pressed, .scroll-bar:horizontal .thumb:pressed {
+    -fx-background-color: #0187d3;
+}
+
+/* Style elements pertaining to the main list cells. */
+
+.list-cell {
+    -fx-font: 10pt "Arial", Gadget, sans-serif;
+    -fx-text-fill: #0168B3;
+    -fx-text-alignment: left;
+
+}
+
+.list-cell:even {
+    -fx-background-color: white;
+}
+
+.list-cell:odd {
+    -fx-background-color: aliceblue;
+}
+
+.list-cell:filled:selected:focused {
+    -fx-text-fill: white;
+    -fx-background-color: #0168B3;
+}
+
+.searchBox {
+    -fx-font: 12pt "Arial", Gadget, sans-serif;
+    -fx-text-fill: #0168B3;
+    -fx-text-alignment: center;
+    -fx-border-color: #FC7500;
+    -fx-padding: 3 9;
+    -fx-background-color: white;
+}
+
+.smallButton {
+    -fx-font: 12pt "Arial", Gadget, sans-serif;
+    -fx-text-fill: #0168B3;
+    -fx-text-alignment: center;
+    -fx-border-color: #FC7500;
+    -fx-padding: 3 9;
+    -fx-background-color: white;
+
+    -webkit-transition-duration: .4s;
+    transition-duration: 0.4s;
+    -fx-cursor: hand;
+}
+
+.smallButton:hover {
+    -fx-text-fill: white;
+    -fx-background-color: #0168B3;
+}
+
+.label {
+    -fx-font: 12pt "Arial", Gadget, sans-serif;
+    -fx-text-fill: #0168B3;
+    -fx-text-alignment: center;
+}
