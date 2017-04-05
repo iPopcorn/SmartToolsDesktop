@@ -4,14 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/AddressComparator.java" line="5" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="938ec455-41d4-49a5-8d23-945b85e994b7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SmartToolsDesktop/main/MainController.class" afterPath="$PROJECT_DIR$/out/production/SmartToolsDesktop/main/MainController.class" />
+    <list default="true" id="938ec455-41d4-49a5-8d23-945b85e994b7" name="Default" comment="Complete GUI Redesign.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartToolsDesktop.iml" afterPath="$PROJECT_DIR$/SmartToolsDesktop.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/fxml/add_tool.fxml" afterPath="$PROJECT_DIR$/src/main/res/fxml/add_tool.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/fxml/generate_report.fxml" afterPath="$PROJECT_DIR$/src/main/res/fxml/generate_report.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/fxml/lookup_tool.fxml" afterPath="$PROJECT_DIR$/src/main/res/fxml/lookup_tool.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/fxml/main.fxml" afterPath="$PROJECT_DIR$/src/main/res/fxml/main.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,7 +25,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -38,6 +33,16 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="267">
+              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -97,6 +102,7 @@
         <option value="$PROJECT_DIR$/src/main/LookupController.java" />
         <option value="$PROJECT_DIR$/src/main/AddToolController.java" />
         <option value="$PROJECT_DIR$/src/main/MainController.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -792,7 +798,7 @@
       <workItem from="1491064545754" duration="12462000" />
       <workItem from="1491153177500" duration="17929000" />
       <workItem from="1491303030344" duration="6038000" />
-      <workItem from="1491422009096" duration="712000" />
+      <workItem from="1491422009096" duration="1975000" />
     </task>
     <task id="LOCAL-00001" summary="Removed callbacks for moving to the Main Menu screen. Made the program have a main BorderPane based screen that navigates through the other screens using tabs.">
       <created>1491241537160</created>
@@ -808,11 +814,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491241598911</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Complete GUI Redesign.">
+      <created>1491422763497</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1491422763498</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83607000" />
+    <option name="totallyTimeSpent" value="84870000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -860,7 +873,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Removed callbacks for moving to the Main Menu screen. Made the program have a main BorderPane based screen that navigates through the other screens using tabs." />
     <MESSAGE value="Added GUI images." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added GUI images." />
+    <MESSAGE value="Complete GUI Redesign." />
+    <option name="LAST_COMMIT_MESSAGE" value="Complete GUI Redesign." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -933,13 +947,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1240,6 +1247,14 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
