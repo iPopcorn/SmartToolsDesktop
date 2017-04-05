@@ -12,24 +12,37 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="paneGenReport" minHeight="0.0" minWidth="0.0" prefHeight="564.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ReportController">
+<AnchorPane fx:id="paneGenReport" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ReportController">
     <children>
         <ToolBar prefHeight="35.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <items>
-                <Button id="btnReport" fx:id="btnGenReportPull" alignment="BOTTOM_CENTER" contentDisplay="TOP" onAction="#genReportDisplay" prefHeight="64.0" prefWidth="64.0" styleClass="toolBarBtn" stylesheets="@../stylesheet/toolbar.css" text="Report" textAlignment="CENTER" wrapText="true" />
+                <Button id="btnReport" fx:id="btnGenReportPull" alignment="BOTTOM_CENTER" contentDisplay="TOP" onAction="#genReportDisplay" prefHeight="64.0" prefWidth="64.0" styleClass="toolBarBtn" stylesheets="@../stylesheet/toolbar.css" text="Report" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
             <Separator orientation="VERTICAL" prefHeight="64.0" />
-                <Button id="btnExport" fx:id="btnGenReportCSV" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#genReportCSV" prefHeight="64.0" prefWidth="64.0" styleClass="toolBarBtn" stylesheets="@../stylesheet/toolbar.css" text="Export" textAlignment="CENTER" wrapText="true" />
+                <Button id="btnExport" fx:id="btnGenReportCSV" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#genReportCSV" prefHeight="64.0" prefWidth="64.0" styleClass="toolBarBtn" stylesheets="@../stylesheet/toolbar.css" text="Export" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
             <Separator orientation="VERTICAL" prefHeight="64.0" />
-                <Button id="btnEmail" fx:id="btnGenReportEmail" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#genReportEmail" prefHeight="64.0" prefWidth="64.0" styleClass="toolBarBtn" stylesheets="@../stylesheet/toolbar.css" text="Email" textAlignment="CENTER" wrapText="true" />
+                <Button id="btnEmail" fx:id="btnGenReportEmail" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#genReportEmail" prefHeight="64.0" prefWidth="64.0" styleClass="toolBarBtn" stylesheets="@../stylesheet/toolbar.css" text="Email" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
             <Separator layoutX="156.0" layoutY="10.0" orientation="VERTICAL" prefHeight="64.0" />
                 <Button fx:id="btnGenReportStart" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#scan" prefHeight="64.0" prefWidth="64.0" stylesheets="@../stylesheet/toolbar.css" text="Scan" textAlignment="CENTER" wrapText="true">
                <styleClass>
                   <String fx:value="btnScan" />
                   <String fx:value="toolBarBtn" />
-               </styleClass></Button>
+               </styleClass>
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
             <Separator layoutX="234.0" layoutY="10.0" orientation="VERTICAL" prefHeight="64.0" />
-            <MenuButton alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="View" textAlignment="CENTER" wrapText="true">
+            <MenuButton alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="30.0" prefWidth="81.0" text="View" textAlignment="CENTER" wrapText="true">
               <items>
                   <RadioMenuItem fx:id="radioMissing" mnemonicParsing="false" selected="true" text="Missing Tools">
                      <toggleGroup>
@@ -39,6 +52,9 @@
                   <RadioMenuItem fx:id="radioHome" mnemonicParsing="false" text="Home Tools" toggleGroup="$viewOptions" />
                   <RadioMenuItem fx:id="radioAll" mnemonicParsing="false" text="All Tools" toggleGroup="$viewOptions" />
               </items>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </MenuButton>
             <Label fx:id="labelError" prefHeight="17.0" prefWidth="193.0" textFill="#f80202" />
             </items>
