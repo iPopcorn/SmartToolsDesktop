@@ -102,11 +102,9 @@ public class DeleteToolController {
         String response = serverRequest.getResponseFromRequest("tool-handling/delete-tool.php", POSTdata);
 
         if(response.equalsIgnoreCase("success")){
-            // this.lblDelToolMsg.setText("Delete Success");
             PopupWindow successPopup = new PopupWindow("Success", "Tool Successfully Deleted!");
             successPopup.popup();
         }else{
-            // this.lblDelToolError.setText("Delete Fail");
             PopupWindow failPopup = new PopupWindow("Fail", "Tool Deletion Failed!");
             failPopup.popup();
         }

@@ -3,37 +3,39 @@ package main;
 import com.impinj.octane.OctaneSdkException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * AddToolController - Controller for the AddTool FXML view, implements the function of the view.
+ * AddToolController - Controller for the AddTool FXML view, implements the functionality of the view.
  */
 public class AddToolController {
 
-    /** ComboBox - Used to select the address to assign a tool that is being added. */
+    /** Used to select the address to assign a tool that is being added. */
     public ComboBox btnAddress;
 
-    /** Button - Used to begin the scanning of a tool. */
+    /** Used to begin the scanning of a tool. */
     public Button btnScan;
 
-    /** Button - Used to submit the assignment of a tool to a selected address. */
+    /** Used to submit the assignment of a tool to a selected address. */
     public Button btnSubmit;
 
-    /** TextField - Used to enter the tool name where open toolbox spots are available. */
+    /** Used to enter the tool name where open toolbox spots are available. */
     public TextField txtToolName;
 
-    /** TextField - Used to show the RFID tag EPC for the tool that has been scanned. */
+    /** Used to show the RFID tag EPC for the tool that has been scanned. */
     public TextField txtTagID;
 
-    /** Label used to show error/status messages to user. */
+    /** Used to show status messages to user. */
     public Label lblError;
 
-    /** Label used to show */
+    /** Used to show status messages to user. */
     public Label lblMsg;
 
     /** Hostname of the RFID reader that will be used to read tool tags. */
@@ -60,14 +62,6 @@ public class AddToolController {
     public void scannerConnectionError() {
         PopupWindow error = new PopupWindow("Error", "Reader failed to connect!");
         error.popup();
-    }
-
-    public void showError(String errorMsg) {
-        this.lblError.setText(errorMsg);
-    }
-
-    public void showMsg(String msg) {
-        this.lblMsg.setText(msg);
     }
 
     /** Compiles a list of open tool address spaces and then fills the btnAddress ComboBox with them.
@@ -106,8 +100,8 @@ public class AddToolController {
 
     /** Attempts to insert the a new tool into the SmartTools database.
      *
-     * void submitTool() - Grabs data the user has entered through the GUI and creates queries using a HashMap. Sends
-     * request to add a new tool to the SmartTools database.
+     *  void submitTool() - Grabs data the user has entered through the GUI and creates queries using a HashMap. Sends
+     *  request to add a new tool to the SmartTools database.
      *
      **/
     public void submitTool() {
@@ -182,11 +176,11 @@ public class AddToolController {
 
     /** Connects to a RFID reader and scans in the RFID tag of a tool
      *
-     * void scanTool() - Reads the RFID tag in front of the RFID reader and prints out its ID and the number of times it
-     * read the tag.
+     *  void scanTool() - Reads the RFID tag in front of the RFID reader and prints out its ID and the number of times
+     *  it read the tag.
      *
      **/
-    public void scanTool(ActionEvent actionEvent) throws IOException {
+    public void scanTool() throws IOException {
         try{
             // Attempt to connect to the RFID reader
             ReaderThread myReaderThread = this.connectToReader();
@@ -196,7 +190,6 @@ public class AddToolController {
             } catch (InterruptedException ie) {
                 System.err.println(ie.getMessage());
             }
-
             myReaderThread.stopReader();
 
             // Get the tool Tag ID and the number of times it was scanned from the RFID reader
