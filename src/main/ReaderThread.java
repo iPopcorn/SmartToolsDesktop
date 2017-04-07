@@ -119,6 +119,8 @@ public class ReaderThread extends Thread {
             // configure settings
             // TODO: Learn about settings and figure out which settings we need.
             Settings mySettings = reader.queryDefaultSettings();
+            short[] disable_ants = {2};
+            mySettings.getAntennas().disableById(disable_ants);
             this.reader.applySettings(mySettings);
         }
         catch (Exception e) {
