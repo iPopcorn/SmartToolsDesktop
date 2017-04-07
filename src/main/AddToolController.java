@@ -176,8 +176,7 @@ public class AddToolController {
 
     /** Connects to a RFID reader and scans in the RFID tag of a tool
      *
-     *  void scanTool() - Reads the RFID tag in front of the RFID reader and prints out its ID and the number of times
-     *  it read the tag.
+     *  void scanTool() - Reads the RFID tag in front of the RFID reader and displays its ID in the GUI.
      *
      **/
     public void scanTool() throws IOException {
