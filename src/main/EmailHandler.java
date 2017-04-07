@@ -26,15 +26,35 @@ import javax.mail.internet.MimeMultipart;
  *
  * Code borrowed from:
  * https://www.tutorialspoint.com/javamail_api/javamail_api_send_email_with_attachment.htm
+ *
+ * EmailHandler - This class sends an email with a CSV attachment from a gmail account.
  */
 public class EmailHandler {
+
+    /** The email address that sends out the email from the system. Used in sendEmail()*/
     private String from = "uta.smart.tools@gmail.com";
+
+    /** The username of the email account that sends emails from the system. Used in sendEmail()*/
     private String username = "uta.smart.tools@gmail.com";
+
+    /** The password of the email account that sends emails from the system. Used in sendEmail()*/
     private String password = "spring17";
+
+    /** The mail server to be used to send emails from the system. Used in sendEmail()*/
     private String host = "smtp.gmail.com";
 
+    /** Empty constructor
+     *
+     *  EmailHandler() - constructs a new EmailHandler object, takes no parameters.
+     *  @return Returns an instance of the EmailHandler class
+     */
     public EmailHandler(){}
 
+    /** Debugging method that Prints out the file attachment line by line.
+     *
+     *  void printFile() - Prints the given file line by line. Used as a debugging method by the sendEmail() method.
+     *  @Param File object
+     */
     public void printFile(File file){
         System.out.println("Begin EmailHandler.printFile()");
         try{
@@ -56,7 +76,15 @@ public class EmailHandler {
     }
 
 
-
+    /** Sends an email with a file attachment to the given email address.
+     *
+     *  void sendEmail() - Sends the credentials to the Gmail server to be authenticated. Then compiles an email and
+     *  attaches the file to it. Finally it sends the email. Used by the ReportController.genReportEmail() method.
+     *
+     *  @param inventoryReport The file that is attached is assumed to be an inventory report from the ReportController
+     *                         class.
+*       @param toAddress The email address to send the email to.
+     */
     public void sendEmail(String toAddress, File inventoryReport){
         System.out.println("EmailHandler.sendEmail()");
         this.printFile(inventoryReport);

@@ -13,29 +13,56 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * FXML Controller class
- *
- * @author Sam
+ * DeleteToolController - Controller for the delete_tool.fxml, implements the functionality of the view.
  */
 public class DeleteToolController {
 
-
+    /** Used to start the scanner, calls scanTool() when pressed*/
     public Button btnDelToolScan;
+
+    /** DEPRECATED - Used to navigate back to the main menu, calls openMainMenu() when pressed*/
     public Button btnDelToolBack;
+
+    /** Used to delete the selected tool, calls deleteTool() when pressed*/
     public Button btnDelToolDelete;
+
+    /** DEPRECATED - Used to display error messages in the GUI*/
     public Label lblDelToolError;
+
+    /** Used in scanTool() displays the ID of the tool that was scanned*/
     public TextField txtDelToolID;
+
+    /** Used in scanTool() displays the name of the tool that was scanned*/
     public TextField txtDelToolName;
+
+    /** Used in scanTool() displays the address of the tool that was scanned*/
     public TextField txtDelToolAddress;
+
+    /** DEPRECATED - Used to display messages in the GUI*/
     public Label lblDelToolMsg;
+
+    /** ip address of the reader, used in scanTool()*/
     private String hostname = "169.254.126.52";
+
+    /** Holds the information of the tool that was scanned. Used in scanTool() and deleteTool()*/
     private Tool resultTool;
 
+    /** Displays a popup error message when reader fails to connect
+     *
+     * void scannerConnectionError() - used to display a PopupWindow that the user must dismiss in the case that the
+     * system cannot connect to the reader
+     */
     public void scannerConnectionError() {
         PopupWindow error = new PopupWindow("Error", "Reader failed to connect!");
         error.popup();
     }
-    
+
+    /** Starts the reader and reads an RFID tag into the system
+     *
+     *  void scanTool() - This method connects to a reader and reads a tag ID into the system. It uses the tag ID to
+     *  query the database. If it can't find a tool associated with the ID in the database, then it will display a
+     *  popup error dialog. Otherwise it will display the information about the associated tool in the GUI.
+     */
     public void scanTool()
     {
         ReaderThread tempReader = new ReaderThread(this.hostname, "delete_tool", this);
@@ -91,7 +118,12 @@ public class DeleteToolController {
             }
         }
     }
-    
+
+    /** Deletes the selected tool from the database
+     *
+     *  void deleteTool() - uses the resultTool object to query the database and remove the associated object from the
+     *  'Tools' table of the database.
+     */
     public void deleteTool ()
     {
         System.out.println("DeleteToolController.deleteTool() begin");
