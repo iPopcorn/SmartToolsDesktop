@@ -11,7 +11,13 @@ import java.io.IOException;
  */
 public class MainController {
     /** Tab to switch to the Search Inventory screen. */
-    public Tab searchInventory;
+    public Tab searchTools;
+
+    /** Tab to switch to the Replace Tool screen. */
+    public Tab replaceTool;
+
+    /** Tab to switch to the Replace Tool screen. */
+    public Tab deleteTool;
 
     /** Tab to switch to the Modify Inventory screen. */
     public Tab modifyInventory;
@@ -22,7 +28,6 @@ public class MainController {
     /** BorderPane where the main elements of the application will be displayed. */
     public BorderPane borderPane;
 
-
     /** Changes the screen shown to the user based on the tab selected.
      *
      *  void changeScreen() - Changes the screen and tool bar buttons shown to the user based on the tab selected.
@@ -30,10 +35,13 @@ public class MainController {
      *  @throws IOException
      */
     public void changeScreen() throws IOException {
-        if(searchInventory.isSelected())
+        if(searchTools.isSelected())
             borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/lookup_tool.fxml")));
+        else if(replaceTool.isSelected())
+            borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/add_tool.fxml")));
+        else if(deleteTool.isSelected())
+            borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/delete_tool.fxml")));
         else if(modifyInventory.isSelected())
-            // borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/add_tool.fxml")));
             borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/modify_inventory.fxml")));
         else
             borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/generate_report.fxml")));

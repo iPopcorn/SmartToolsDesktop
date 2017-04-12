@@ -59,9 +59,9 @@
             <Label fx:id="labelError" prefHeight="17.0" prefWidth="193.0" textFill="#f80202" />
             </items>
         </ToolBar>
-        <ListView fx:id="genReportList" layoutX="15.0" layoutY="116.0" prefHeight="434.0" prefWidth="610.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="116.0" />
-        <TextField fx:id="txtToolboxNum" layoutX="428.0" layoutY="86.0" prefHeight="17.0" prefWidth="35.0" AnchorPane.leftAnchor="428.0" AnchorPane.topAnchor="86.0" />
-        <Label layoutX="320.0" layoutY="90.0" prefHeight="17.0" prefWidth="143.0" text="Toolbox Number:" AnchorPane.topAnchor="90.0" />
+        <ListView fx:id="genReportList" layoutX="15.0" layoutY="122.0" prefHeight="464.0" prefWidth="770.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="122.0" />
+        <TextField fx:id="txtToolboxNum" layoutX="448.0" layoutY="85.0" prefHeight="21.0" prefWidth="35.0" AnchorPane.leftAnchor="448.0" AnchorPane.topAnchor="85.0" />
+        <Label layoutX="305.0" layoutY="90.0" prefHeight="17.0" prefWidth="143.0" text="Toolbox Number:" AnchorPane.topAnchor="90.0" />
       <RadioButton fx:id="radioAddress" layoutX="101.0" layoutY="90.0" mnemonicParsing="false" selected="true" text="Address" AnchorPane.topAnchor="90.0">
          <toggleGroup>
             <ToggleGroup fx:id="orderOptions" />
