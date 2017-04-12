@@ -30,6 +30,8 @@ public class Main extends Application {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setMaximized(true);
+            primaryStage.setMinWidth(820.0);
+            primaryStage.setMinHeight(640.0);
             primaryStage.show();
         } else {
             System.err.println("The root node was null.");

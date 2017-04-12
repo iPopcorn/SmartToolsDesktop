@@ -60,7 +60,7 @@
             </items>
         </ToolBar>
         <ListView fx:id="genReportList" layoutX="15.0" layoutY="116.0" prefHeight="434.0" prefWidth="610.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="116.0" />
-        <TextField fx:id="txtToolboxNum" layoutX="590.0" layoutY="86.0" prefHeight="17.0" prefWidth="35.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="86.0" />
+        <TextField fx:id="txtToolboxNum" layoutX="428.0" layoutY="86.0" prefHeight="17.0" prefWidth="35.0" AnchorPane.leftAnchor="428.0" AnchorPane.topAnchor="86.0" />
         <Label layoutX="320.0" layoutY="90.0" prefHeight="17.0" prefWidth="143.0" text="Toolbox Number:" AnchorPane.topAnchor="90.0" />
       <RadioButton fx:id="radioAddress" layoutX="101.0" layoutY="90.0" mnemonicParsing="false" selected="true" text="Address" AnchorPane.topAnchor="90.0">
          <toggleGroup>
