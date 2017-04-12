@@ -20,9 +20,16 @@ public class ModifyInventoryController {
     @FXML
     private void initialize(){
         this.toolList = new ArrayList<>();
-        toolListView.setCellFactory(new ToolCellFactory());
+        toolListView.setCellFactory(new InventoryCellFactory());
         this.populateListView();
     }
+
+    private void newTool(){
+        System.out.println("ModifyInventoryController.newTool() Begin");
+        System.out.println("ModifyInventoryController.newTool() End");
+    }
+
+    private void deleteTool(){}
 
     private void populateListView(){
         System.out.println("ModifyInventoryController.populateListView() Begin");
@@ -32,7 +39,7 @@ public class ModifyInventoryController {
         ServerRequest serverRequest = new ServerRequest();
 
         HashMap<String, String> POSTdata = new HashMap<>();
-        ArrayList<Tool> foundTools = new ArrayList<>();
+        POSTdata.put("action","get-tool-list");
 
         String response = serverRequest.getResponseFromRequest("tool-handling/tool-list.php",POSTdata);
         this.toolList = handleResponse(response);
@@ -54,6 +61,7 @@ public class ModifyInventoryController {
      * put into the ArrayList and returned.
      */
     private ArrayList<Tool> handleResponse(String response) {
+        System.out.println("ModifyInventoryController.handleResponse() Begin");
         ArrayList<Tool> foundTools = new ArrayList<>(); // array list to be returned
         JSONdecoder responseDecoder; // JSON decoder, only initialized if the response is a JSON string
 
@@ -78,6 +86,7 @@ public class ModifyInventoryController {
             PopupWindow popupWindow = new PopupWindow("Lookup Tool", "Error processing the request");
             popupWindow.popup();
         }
+        System.out.println("ModifyInventoryController.handleResponse() End");
         return foundTools;
     }
 }
