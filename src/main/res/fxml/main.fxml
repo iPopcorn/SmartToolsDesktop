@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
    <top>
       <AnchorPane>
          <children>
@@ -16,6 +16,7 @@
                   <Tab fx:id="replaceTool" onSelectionChanged="#changeScreen" text="Replace Tool" />
                 <Tab fx:id="modifyInventory" closable="false" onSelectionChanged="#changeScreen" text="Modify Inventory" />
                   <Tab fx:id="reportInventory" closable="false" onSelectionChanged="#changeScreen" text="Report Inventory" />
+                  <Tab fx:id="tabSignIn" closable="false" onSelectionChanged="#changeScreen" text="Sign In" />
               </tabs>
             </TabPane>
          </children>
