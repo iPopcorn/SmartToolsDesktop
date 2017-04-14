@@ -9,8 +9,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/** Main - This is the main class that runs the application.*/
 public class Main extends Application {
 
+    /** Sets up the GUI that will be displayed when the application starts
+     *  void start(Stage) - This method will try to load the main.fxml file. It is called when the program starts.
+     *
+     *  @param primaryStage The first Stage that the application uses to hold the Scene that displays the GUI.
+     *
+     */
     @Override
     public void start(Stage primaryStage) {
 
@@ -40,6 +47,12 @@ public class Main extends Application {
         }
     }
 
+    /** The main method of the program, it calls the method launch()
+     *
+     *  void main(String[]) - Calls the launch() method, and passes in the given arguments.
+     *  @param args Arguments given to the program, currently doesn't explicitly handle any arguments other than
+     *              defaults
+     */
     public static void main(String[] args) {
         launch(args);
     }
