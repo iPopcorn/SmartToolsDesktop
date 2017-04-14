@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import main.res.fxml.NewToolController;
 
 import java.util.ArrayList;
 import java.util.HashMap;
