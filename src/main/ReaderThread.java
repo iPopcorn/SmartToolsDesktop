@@ -19,7 +19,7 @@ public class ReaderThread extends Thread {
     private boolean running;
     private ReportController reportParent;
     private LookupController lookupParent;
-    private AddToolController addToolParent;
+    private ReplaceToolController addToolParent;
     private DeleteToolController deleteParent;
 
     public ReaderThread(String hostname, String task, Object creator) {
@@ -29,8 +29,8 @@ public class ReaderThread extends Thread {
         String parentName = creator.getClass().getSimpleName();
         if (parentName.equalsIgnoreCase("ReportController"))
             this.reportParent = (ReportController) creator;
-        else if (parentName.equalsIgnoreCase("AddToolController"))
-            this.addToolParent = (AddToolController) creator;
+        else if (parentName.equalsIgnoreCase("ReplaceToolController"))
+            this.addToolParent = (ReplaceToolController) creator;
         else if (parentName.equalsIgnoreCase("LookupController"))
             this.lookupParent = (LookupController) creator;
         else if (parentName.equalsIgnoreCase("DeleteToolController"))

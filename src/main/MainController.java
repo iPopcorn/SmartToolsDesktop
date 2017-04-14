@@ -63,7 +63,7 @@ public class MainController {
         if (searchTools.isSelected())
             borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/lookup_tool.fxml")));
         else if (replaceTool.isSelected())
-            borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/add_tool.fxml")));
+            borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/replaceTool.fxml")));
         else if (deleteTool.isSelected())
             borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/delete_tool.fxml")));
         else if (modifyInventory.isSelected())
