@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER" focusTraversable="true" hgap="10.0" maxHeight="200.0" maxWidth="400.0" minHeight="240.0" minWidth="400.0" prefHeight="210.0" prefWidth="400.0" vgap="10.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.SignInController">
+<GridPane alignment="CENTER" focusTraversable="true" hgap="10.0" maxHeight="200.0" maxWidth="400.0" minHeight="240.0" minWidth="400.0" prefHeight="210.0" prefWidth="400.0" vgap="10.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.res.fxml.NewToolController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="499.0" minWidth="10.0" prefWidth="109.0" />
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="515.0" minWidth="10.0" prefWidth="281.0" />
@@ -24,35 +23,30 @@
         <RowConstraints maxHeight="88.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <Label text="User Name:">
+        <Label text="Tool Name:">
             <GridPane.margin>
                 <Insets left="30.0" top="10.0" />
             </GridPane.margin>
         </Label>
-        <Label text="Password:" GridPane.rowIndex="2">
+        <Label text="Drawer Letter:" GridPane.rowIndex="2">
             <GridPane.margin>
                 <Insets left="30.0" />
             </GridPane.margin>
         </Label>
-        <TextField fx:id="tfUserName" promptText="User Name" GridPane.columnIndex="1">
+        <TextField fx:id="tfToolName" promptText="Tool Name" GridPane.columnIndex="1">
             <GridPane.margin>
                 <Insets right="40.0" top="10.0" />
             </GridPane.margin>
         </TextField>
-        <PasswordField fx:id="tfPassword" minHeight="27" minWidth="200" prefHeight="27.0" prefWidth="200.0" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="2">
-            <GridPane.margin>
-                <Insets right="40.0" />
-            </GridPane.margin>
-        </PasswordField>
-        <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" onAction="#btnCancelPressed" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="4">
+        <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" onAction="#cancelCallback" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets bottom="30.0" />
          </GridPane.margin></Button>
-        <Button fx:id="btnSignIn" mnemonicParsing="false" onAction="#btnSignInPressed" text="Sign In" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+        <Button fx:id="btnSubmit" mnemonicParsing="false" onAction="#submitCallback" text="Submit" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets bottom="30.0" />
          </GridPane.margin></Button>
-      <ImageView fx:id="imgUNEmpty" fitHeight="20.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+      <ImageView fx:id="imgToolEmpty" fitHeight="20.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
          <GridPane.margin>
             <Insets right="10.0" top="10.0" />
          </GridPane.margin>
@@ -60,7 +54,7 @@
             <Image url="@../images/red_x.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgPWEmpty" fitHeight="20.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+      <ImageView fx:id="imgDrawerEmpty" fitHeight="20.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
          <image>
             <Image url="@../images/red_x.png" />
          </image>
@@ -68,11 +62,16 @@
             <Insets right="10.0" />
          </GridPane.margin>
       </ImageView>
-      <Label fx:id="lblUNEmpty" prefHeight="17.0" prefWidth="188.0" text="Please Enter User Name" textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Label fx:id="lblToolEmpty" prefHeight="17.0" prefWidth="188.0" text="Please Enter Tool Name" textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
       </Label>
-      <Label fx:id="lblPWEmpty" prefHeight="17.0" prefWidth="188.0" text="Please Enter Password" textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Label fx:id="lblDrawerEmpty" prefHeight="17.0" prefWidth="188.0" text="Please Enter Drawer Letter" textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <TextField fx:id="tfDrawerLetter" promptText="Capital Letter (A-G)" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets right="40.0" top="10.0" />
+         </GridPane.margin>
+      </TextField>
     </children>
 </GridPane>

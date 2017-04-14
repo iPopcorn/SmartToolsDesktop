@@ -1,14 +1,23 @@
 package main;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import main.res.fxml.NewToolController;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  * Created by Taylor on 4/5/2017.
+ *
+ * ModifyInventoryController - This is the controller class for modify_inventory.fxml It holds the logic for the Modify
+ * Inventory module.
  */
 public class ModifyInventoryController {
     public ListView toolListView;
@@ -16,6 +25,7 @@ public class ModifyInventoryController {
     public Button btnRemove;
     public Button btnAdd;
     private ArrayList<Tool> toolList;
+    private HashMap<String, String> toolData;
 
     @FXML
     private void initialize(){
@@ -24,12 +34,47 @@ public class ModifyInventoryController {
         this.populateListView();
     }
 
-    private void newTool(){
+    /** Opens a window that allows the user to add a new tool to the system.*/
+    public void newTool(){
         System.out.println("ModifyInventoryController.newTool() Begin");
+        try{
+            Parent root;
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("res/fxml/new_tool_window.fxml"));
+            root = fxmlLoader.load();
+            NewToolController newToolController = fxmlLoader.getController();
+
+            Stage newToolWindow = new Stage();
+            newToolWindow.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(root, 400, 200);
+
+            newToolWindow.setScene(scene);
+            newToolWindow.setResizable(false);
+            newToolWindow.showAndWait();
+
+            boolean success = newToolController.submitCallback();
+            if(success){
+                System.out.println("newToolController.submitCallback() returned true");
+                toolData = newToolController.getToolData();
+            }else
+                System.out.println("newToolController.submitCallback() returned false");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        String toolName = toolData.get("name");
+        String toolDrawer = toolData.get("drawer");
+        HashMap<String, String> POSTdata = new HashMap<>();
+        POSTdata.put("action","insert-to-inventory");
+        POSTdata.put("tool_name", toolName);
+        POSTdata.put("drawer", toolDrawer);
+        ServerRequest request = new ServerRequest();
+        String responseString = request.getResponseFromRequest("/tool-handling/modify-inventory.php", POSTdata);
+        System.out.println("responseString = " + responseString);
+
         System.out.println("ModifyInventoryController.newTool() End");
     }
 
-    private void deleteTool(){}
+    public void deleteTool(){}
 
     private void populateListView(){
         System.out.println("ModifyInventoryController.populateListView() Begin");
