@@ -55,3 +55,5 @@ out
 .idea/workspace.xml
 *.iml
 *.xml
+/src/main/res/fxml/main_menu.fxml
+/src/main/res/fxml/main_menu_admin.fxml

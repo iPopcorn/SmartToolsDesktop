@@ -1,5 +1,6 @@
 package main;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -25,6 +26,7 @@ public class MainController {
     /**
      * Tab to switch to the Replace Tool screen.
      */
+    @FXML
     public Tab replaceTool;
 
     /**
@@ -60,10 +62,11 @@ public class MainController {
      * @throws IOException
      */
     public void changeScreen() throws IOException {
+
         if (searchTools.isSelected())
             borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/lookup_tool.fxml")));
         else if (replaceTool.isSelected())
-            borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/replaceTool.fxml")));
+            borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/replace_tool.fxml")));
         else if (deleteTool.isSelected())
             borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/delete_tool.fxml")));
         else if (modifyInventory.isSelected())
