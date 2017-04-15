@@ -36,20 +36,20 @@ public class SignInController {
         // if either the password or username is empty we alert the user
         if (password.isEmpty() || username.isEmpty()) {
             if (password.isEmpty() && username.isEmpty()) {
-                imgPWEmpty.setVisible(true);
-                lblPWEmpty.setVisible(true);
-                imgUNEmpty.setVisible(true);
-                lblUNEmpty.setVisible(true);
-            } else if (password.isEmpty()) {
-                imgPWEmpty.setVisible(true);
-                lblPWEmpty.setVisible(true);
-            } else if (username.isEmpty()) {
-                imgUNEmpty.setVisible(true);
-                lblUNEmpty.setVisible(true);
-            }
-
-            return false;
+            imgPWEmpty.setVisible(true);
+            lblPWEmpty.setVisible(true);
+            imgUNEmpty.setVisible(true);
+            lblUNEmpty.setVisible(true);
+        } else if (password.isEmpty()) {
+            imgPWEmpty.setVisible(true);
+            lblPWEmpty.setVisible(true);
+        } else if (username.isEmpty()) {
+            imgUNEmpty.setVisible(true);
+            lblUNEmpty.setVisible(true);
         }
+
+        return false;
+    }
 
         ServerRequest request = new ServerRequest();
         HashMap<String, String> POSTdata = new HashMap<>();

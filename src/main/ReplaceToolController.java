@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * AddToolController - Controller for the AddTool FXML view, implements the functionality of the view.
+ * ReplaceToolController - Controller for the AddTool FXML view, implements the functionality of the view.
  */
-public class AddToolController {
+public class ReplaceToolController {
 
     /** Used to select the address to assign a tool that is being added. */
     public ComboBox btnAddress;
