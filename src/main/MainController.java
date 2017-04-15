@@ -1,5 +1,6 @@
 package main;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,36 +21,43 @@ public class MainController {
     /**
      * Tab to switch to the Search Inventory screen.
      */
+    @FXML
     public Tab searchTools;
 
     /**
      * Tab to switch to the Replace Tool screen.
      */
+    @FXML
     public Tab replaceTool;
 
     /**
      * Tab to switch to the Replace Tool screen.
      */
+    @FXML
     public Tab deleteTool;
 
     /**
      * Tab to switch to the Modify Inventory screen.
      */
+    @FXML
     public Tab modifyInventory;
 
     /**
      * Tab to switch to the Report Inventory screen.
      */
+    @FXML
     public Tab reportInventory;
 
     /**
      * Tab to popup the sign in screen.
      */
+    @FXML
     public Tab tabSignIn;
 
     /**
      * BorderPane where the main elements of the application will be displayed.
      */
+    @FXML
     public BorderPane borderPane;
 
     /**
@@ -60,41 +68,57 @@ public class MainController {
      * @throws IOException
      */
     public void changeScreen() throws IOException {
-        if (searchTools.isSelected())
-            borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/lookup_tool.fxml")));
-        else if (replaceTool.isSelected())
-            borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/add_tool.fxml")));
-        else if (deleteTool.isSelected())
-            borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/delete_tool.fxml")));
-        else if (modifyInventory.isSelected())
-            borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/modify_inventory.fxml")));
-        else if (reportInventory.isSelected())
-            borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/generate_report.fxml")));
-        else if (tabSignIn.isSelected()) {
-            if (signedIn == false) {
-
-                Parent root;
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("res/fxml/sign_in_window.fxml"));
-                root = fxmlLoader.load();
-                SignInController signInController = fxmlLoader.getController();
-
-
-                Stage signInWindow = new Stage();
-                signInWindow.initModality(Modality.APPLICATION_MODAL);
-                Scene scene = new Scene(root, 400, 200);
-
-                signInWindow.setScene(scene);
-                signInWindow.setResizable(false);
-                signInWindow.showAndWait();
-
-                signedIn = signInController.btnSignInPressed();
-
-                System.out.println(signedIn);
-            } else {
-                setSignedIn(false);
-
+        // if we are
+        if (signedIn) {
+            if (searchTools.isSelected())
+                borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/lookup_tool.fxml")));
+            else if (replaceTool.isSelected())
+                borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/add_tool.fxml")));
+            else if (deleteTool.isSelected())
+                borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/delete_tool.fxml")));
+            else if (modifyInventory.isSelected())
+                borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/modify_inventory.fxml")));
+            else if (reportInventory.isSelected())
+                borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/generate_report.fxml")));
+            else if (tabSignIn.isSelected()) {
+                System.out.printf("Already signed in!!!!!!");
+            }
+        } else {
+            if (searchTools.isSelected())
+                borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/lookup_tool.fxml")));
+            else if (replaceTool.isSelected())
+                launchSignIn();
+            else if (deleteTool.isSelected())
+                launchSignIn();
+            else if (modifyInventory.isSelected())
+                launchSignIn();
+            else if (reportInventory.isSelected())
+                launchSignIn();
+            else if (tabSignIn.isSelected()) {
+                launchSignIn();
             }
         }
+    }
+
+    // Launches signIn window and updates UI if needed
+    public void launchSignIn() throws IOException {
+        Parent root;
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("res/fxml/sign_in_window.fxml"));
+        root = fxmlLoader.load();
+        SignInController signInController = fxmlLoader.getController();
+
+
+        Stage signInWindow = new Stage();
+        signInWindow.initModality(Modality.APPLICATION_MODAL);
+        Scene scene = new Scene(root, 400, 200);
+
+        signInWindow.setScene(scene);
+        signInWindow.setResizable(false);
+        signInWindow.showAndWait();
+
+        setSignedIn(signInController.btnSignInPressed());
+
+        System.out.println(signedIn);
     }
 
     public void setSignedIn(boolean signedIn) {
@@ -109,18 +133,23 @@ public class MainController {
             }
 
         } else { // we are not switching signed in states so nothing changes
-
+            // TODO: add logic if we are not switching states
         }
     }
+
+    /*
+     * updateSignedInState(boolean signedIn)
+     * Parameter(s): boolean signedIn
+     * Output(s): No return values
+     *
+     * Updates the main view to unlock/lock the administrative functionalities depending on if the user
+     * is signed in or not.
+     */
     public void updateSignedInState(boolean signedIn) {
         if (signedIn) {
 
         } else {
 
         }
-    }
-
-    public boolean isSignedIn() {
-        return this.signedIn;
     }
 }
