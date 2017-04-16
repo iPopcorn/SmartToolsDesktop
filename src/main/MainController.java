@@ -4,7 +4,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.SelectionModel;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -60,6 +62,12 @@ public class MainController {
     @FXML
     public BorderPane borderPane;
 
+    // reference to the tabPane, in order to set selected tabs
+    @FXML
+    private TabPane tabPane;
+    // selection model to set the tab selected when logging in to the search tools tab
+    private SelectionModel selectionModel;
+
     /**
      * Changes the screen shown to the user based on the tab selected.
      * <p>
@@ -68,12 +76,12 @@ public class MainController {
      * @throws IOException
      */
     public void changeScreen() throws IOException {
-        // if we are
+        // if we are signed in
         if (signedIn) {
             if (searchTools.isSelected())
                 borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/lookup_tool.fxml")));
             else if (replaceTool.isSelected())
-                borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/add_tool.fxml")));
+                borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/replace_tool.fxml")));
             else if (deleteTool.isSelected())
                 borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/delete_tool.fxml")));
             else if (modifyInventory.isSelected())
@@ -81,7 +89,7 @@ public class MainController {
             else if (reportInventory.isSelected())
                 borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/generate_report.fxml")));
             else if (tabSignIn.isSelected()) {
-                System.out.printf("Already signed in!!!!!!");
+                launchSignOut();
             }
         } else {
             if (searchTools.isSelected())
@@ -100,8 +108,8 @@ public class MainController {
         }
     }
 
-    // Launches signIn window and updates UI if needed
-    public void launchSignIn() throws IOException {
+    // Launches sign in window and updates UI if needed
+    private void launchSignIn() throws IOException {
         Parent root;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("res/fxml/sign_in_window.fxml"));
         root = fxmlLoader.load();
@@ -113,10 +121,33 @@ public class MainController {
         Scene scene = new Scene(root, 400, 200);
 
         signInWindow.setScene(scene);
+        signInWindow.setTitle("Sign In");
         signInWindow.setResizable(false);
         signInWindow.showAndWait();
 
         setSignedIn(signInController.btnSignInPressed());
+
+        System.out.println(signedIn);
+    }
+
+    // Launches sign out window and updates UI if needed
+    private void launchSignOut() throws IOException {
+        Parent root;
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("res/fxml/sign_out_window.fxml"));
+        root = fxmlLoader.load();
+        SignOutController signOutController = fxmlLoader.getController();
+
+
+        Stage signInWindow = new Stage();
+        signInWindow.initModality(Modality.APPLICATION_MODAL);
+        Scene scene = new Scene(root, 400, 200);
+
+        signInWindow.setScene(scene);
+        signInWindow.setTitle("Sign Out");
+        signInWindow.setResizable(false);
+        signInWindow.showAndWait();
+
+        setSignedIn(signOutController.getSSI());
 
         System.out.println(signedIn);
     }
@@ -133,7 +164,8 @@ public class MainController {
             }
 
         } else { // we are not switching signed in states so nothing changes
-            // TODO: add logic if we are not switching states
+            selectionModel = tabPane.getSelectionModel();
+            selectionModel.select(searchTools);
         }
     }
 
@@ -146,9 +178,24 @@ public class MainController {
      * is signed in or not.
      */
     public void updateSignedInState(boolean signedIn) {
+        selectionModel = tabPane.getSelectionModel();
+
         if (signedIn) {
+            replaceTool.setDisable(false);
+            deleteTool.setDisable(false);
+            modifyInventory.setDisable(false);
+            reportInventory.setDisable(false);
+            selectionModel.select(searchTools);
+            // updating the tab text to signed out, since we are signed in
+            tabSignIn.setText("Sign Out");
 
         } else {
+            replaceTool.setDisable(true);
+            deleteTool.setDisable(true);
+            modifyInventory.setDisable(true);
+            reportInventory.setDisable(true);
+            selectionModel.select(searchTools);
+            tabSignIn.setText("Sign In");
 
         }
     }

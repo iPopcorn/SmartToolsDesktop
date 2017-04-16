@@ -9,13 +9,13 @@
    <top>
       <AnchorPane>
          <children>
-            <TabPane prefHeight="32.0" prefWidth="600.0" stylesheets="@../stylesheet/toolbar.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <TabPane fx:id="tabPane" prefHeight="32.0" prefWidth="600.0" stylesheets="@../stylesheet/toolbar.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
               <tabs>
                 <Tab fx:id="searchTools" closable="false" onSelectionChanged="#changeScreen" text="Search Tools" />
-                  <Tab fx:id="deleteTool" onSelectionChanged="#changeScreen" text="Delete Tool" />
-                  <Tab fx:id="replaceTool" onSelectionChanged="#changeScreen" text="Replace Tool" />
-                <Tab fx:id="modifyInventory" closable="false" onSelectionChanged="#changeScreen" text="Modify Inventory" />
-                  <Tab fx:id="reportInventory" closable="false" onSelectionChanged="#changeScreen" text="Report Inventory" />
+                  <Tab fx:id="deleteTool" onSelectionChanged="#changeScreen" text="Delete Tool" disable="true"/>
+                  <Tab fx:id="replaceTool" onSelectionChanged="#changeScreen" text="Replace Tool" disable="true"/>
+                <Tab fx:id="modifyInventory" closable="false" onSelectionChanged="#changeScreen" text="Modify Inventory" disable="true"/>
+                  <Tab fx:id="reportInventory" closable="false" onSelectionChanged="#changeScreen" text="Report Inventory" disable="true"/>
                   <Tab fx:id="tabSignIn" closable="false" onSelectionChanged="#changeScreen" text="Sign In" />
               </tabs>
             </TabPane>
