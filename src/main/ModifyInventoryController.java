@@ -1,5 +1,6 @@
 package main;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -54,8 +55,10 @@ public class ModifyInventoryController {
             if(success){
                 System.out.println("newToolController.submitCallback() returned true");
                 toolData = newToolController.getToolData();
-            }else
+            }else{
                 System.out.println("newToolController.submitCallback() returned false");
+                return;
+            }
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -73,7 +76,55 @@ public class ModifyInventoryController {
         System.out.println("ModifyInventoryController.newTool() End");
     }
 
-    public void deleteTool(){}
+    /** Deletes the selected tool from the system entirely*/
+    public void deleteTool(){
+        System.out.println("ModifyInventoryController.deleteTool() Begin");
+
+        // Get the tool object from the selection in the list view.
+        ObservableList selection = toolListView.getSelectionModel().getSelectedItems();
+        Tool selectedTool = (Tool) selection.get(0);
+
+        // Set up strings for the query
+        StringBuilder drawerStringBuilder = new StringBuilder();
+        StringBuilder sectionStringBuilder = new StringBuilder();
+
+        // get the chars from the address
+        char drawer = selectedTool.getAddress().charAt(2);
+        char sectionChars[] = new char[2];
+        sectionChars[0] = selectedTool.getAddress().charAt(3);
+        sectionChars[1] = selectedTool.getAddress().charAt(4);
+
+        // add the chars to the strings
+        drawerStringBuilder.append(drawer);
+        sectionStringBuilder.append(sectionChars[0]);
+        sectionStringBuilder.append(sectionChars[1]);
+
+        // get all the strings ready to be put in the HashMap
+        String drawerString = drawerStringBuilder.toString();
+        String sectionString = sectionStringBuilder.toString();
+        String nameString = selectedTool.getName();
+
+        // prepare the data to be sent to the server
+        HashMap<String, String> POSTdata = new HashMap<>();
+        POSTdata.put("action", "delete-from-inventory");
+        POSTdata.put("tool_name", nameString);
+        POSTdata.put("drawer", drawerString);
+        POSTdata.put("section", sectionString);
+
+        // send the data to the server and store the response in a string
+        ServerRequest request = new ServerRequest();
+        String response = request.getResponseFromRequest("tool-handling/modify-inventory.php", POSTdata);
+
+        // handle the response based on the value of the string
+        if(response.equalsIgnoreCase("success")){
+            PopupWindow successPopup = new PopupWindow("Success", "Tool deleted successfully");
+            successPopup.popup();
+        }else{
+            PopupWindow failPopup = new PopupWindow("Fail", "Error Processing Request");
+            failPopup.popup();
+        }
+        System.out.println("ModifyInventoryController.deleteTool() End");
+    }
 
     private void populateListView(){
         System.out.println("ModifyInventoryController.populateListView() Begin");
