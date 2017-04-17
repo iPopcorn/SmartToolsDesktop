@@ -79,7 +79,7 @@ public class JSONdecoder {
             for (String string : jsonStrings) {
                 tempJSON = new JSONObject(string);
                 tempTool = new Tool(tempJSON.getString("tool_name"), "0",
-                        "0");
+                        tempJSON.getString("address"));
                 toolList.add(tempTool);
             }
             for (Tool tool : toolList) {
