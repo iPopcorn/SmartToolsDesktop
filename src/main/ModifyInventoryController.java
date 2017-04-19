@@ -55,23 +55,30 @@ public class ModifyInventoryController {
             if(success){
                 System.out.println("newToolController.submitCallback() returned true");
                 toolData = newToolController.getToolData();
+
+                String toolName = toolData.get("name");
+                String toolDrawer = toolData.get("drawer");
+                HashMap<String, String> POSTdata = new HashMap<>();
+                POSTdata.put("action","insert-to-inventory");
+                POSTdata.put("tool_name", toolName);
+                POSTdata.put("drawer", toolDrawer);
+                ServerRequest request = new ServerRequest();
+                String responseString = request.getResponseFromRequest("/tool-handling/modify-inventory.php", POSTdata);
+                if(responseString.equalsIgnoreCase("success")){
+                    PopupWindow successPopup = new PopupWindow("Success", "Tool successfully added to inventory.");
+                    successPopup.popup();
+                }else{ // todo: create more descriptive error messages
+                    PopupWindow failPopup = new PopupWindow("Fail", "Failed to add tool to inventory.");
+                    failPopup.popup();
+                }
             }else{
-                System.out.println("newToolController.submitCallback() returned false");
-                return;
+                //System.out.println("newToolController.submitCallback() returned false");
+                PopupWindow failPopup = new PopupWindow("Error", "Incorrect input");
+                failPopup.popup();
             }
         }catch(Exception e){
             e.printStackTrace();
         }
-
-        String toolName = toolData.get("name");
-        String toolDrawer = toolData.get("drawer");
-        HashMap<String, String> POSTdata = new HashMap<>();
-        POSTdata.put("action","insert-to-inventory");
-        POSTdata.put("tool_name", toolName);
-        POSTdata.put("drawer", toolDrawer);
-        ServerRequest request = new ServerRequest();
-        String responseString = request.getResponseFromRequest("/tool-handling/modify-inventory.php", POSTdata);
-        System.out.println("responseString = " + responseString);
 
         System.out.println("ModifyInventoryController.newTool() End");
     }
@@ -114,6 +121,7 @@ public class ModifyInventoryController {
         // send the data to the server and store the response in a string
         ServerRequest request = new ServerRequest();
         String response = request.getResponseFromRequest("tool-handling/modify-inventory.php", POSTdata);
+        System.out.println("response = " + response);
 
         // handle the response based on the value of the string
         if(response.equalsIgnoreCase("success")){

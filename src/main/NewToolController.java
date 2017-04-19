@@ -71,8 +71,12 @@ public class NewToolController {
             }
             success = false;
         }else if(drawerLetter.length() != 1){
+            Stage myStage = (Stage) btnCancel.getScene().getWindow();
+            myStage.close();
             success = false;
         }else if(drawerLetter.charAt(0) < 'A' || drawerLetter.charAt(0) > 'G'){
+            Stage myStage = (Stage) btnCancel.getScene().getWindow();
+            myStage.close();
             success = false;
         }else{
             Stage myStage = (Stage) btnCancel.getScene().getWindow();
