@@ -9,9 +9,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * Created by mwhar on 1/13/2017.
- */
 public class LookupController {
 
     @FXML

@@ -14,11 +14,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="paneGenReport" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ReportController">
+<AnchorPane fx:id="paneGenReport" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ReportController">
     <children>
         <ToolBar prefHeight="35.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <items>
-                <Button id="btnReport" fx:id="btnGenReportPull" alignment="BOTTOM_CENTER" contentDisplay="TOP" onAction="#genReportDisplay" prefHeight="64.0" prefWidth="64.0" styleClass="toolBarBtn" stylesheets="@../stylesheet/toolbar.css" text="Report" textAlignment="CENTER" wrapText="true">
+                <Button id="btnReport" fx:id="btnGenReportPull" alignment="BOTTOM_CENTER" contentDisplay="TOP" onAction="#displayReport" prefHeight="64.0" prefWidth="64.0" styleClass="toolBarBtn" stylesheets="@../stylesheet/toolbar.css" text="Report" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font></Button>
@@ -59,7 +59,7 @@
             <Label fx:id="labelError" prefHeight="17.0" prefWidth="193.0" textFill="#f80202" />
             </items>
         </ToolBar>
-        <ListView fx:id="genReportList" layoutX="15.0" layoutY="122.0" prefHeight="464.0" prefWidth="770.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="122.0" />
+        <ListView fx:id="genReportList" layoutX="15.0" layoutY="122.0" prefHeight="464.0" prefWidth="770.0" stylesheets="@../stylesheet/listview.css" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="122.0" />
         <TextField fx:id="txtToolboxNum" layoutX="448.0" layoutY="85.0" prefHeight="21.0" prefWidth="35.0" AnchorPane.leftAnchor="448.0" AnchorPane.topAnchor="85.0" />
         <Label layoutX="305.0" layoutY="90.0" prefHeight="17.0" prefWidth="143.0" text="Toolbox Number:" AnchorPane.topAnchor="90.0" />
       <RadioButton fx:id="radioAddress" layoutX="101.0" layoutY="90.0" mnemonicParsing="false" selected="true" text="Address" AnchorPane.topAnchor="90.0">

@@ -20,6 +20,14 @@ public class ToolCell extends ListCell<Tool> {
                     "ID: " + item.getId();
             this.setText(description);
             this.setGraphic(null);
+            if(item.getIsHome()) {
+                this.getStyleClass().removeAll();
+                this.getStyleClass().add("list-cell-found");
+            }
+            else {
+                this.getStyleClass().removeAll();
+                this.getStyleClass().add("list-cell-missing");
+            }
         }
         else {
             this.setGraphic(null);

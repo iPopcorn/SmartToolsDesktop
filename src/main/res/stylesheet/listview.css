@@ -1,0 +1,20 @@
+* {
+    -fx-tool-found: #7FFC87;/*#AFDAAA;*/ /*#64EE64;*/
+    -fx-tool-missing-even: #CDCDCD; /*#AF5333;*/
+    -fx-tool-missing-odd: #DEDEDE;
+}
+
+.list-cell-found { /* <=== changed to even */
+    -fx-background-color: -fx-tool-found;
+    -fx-text-fill: black;
+}
+
+.list-cell:even {
+    -fx-background-color: -fx-tool-missing-even;
+    -fx-text-fill: black;
+}
+
+.list-cell:odd {
+    -fx-background-color: -fx-tool-missing-odd;
+    -fx-text-fill: black;
+}

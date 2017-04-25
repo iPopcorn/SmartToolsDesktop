@@ -53,6 +53,29 @@ public class ReportController {
         this.genReportList.setCellFactory(new ToolCellFactory());
     }
 
+    public void displayReport() {
+
+        String toolboxNumber = txtToolboxNum.getText();
+
+        ServerRequest myRequest = new ServerRequest();
+        JSONdecoder requestDecoder = new JSONdecoder();
+        HashMap<String, String> postData = new HashMap<>();
+
+        postData.put("searchField","toolbox");
+        postData.put("searchValue", toolboxNumber);
+        String response = myRequest.getResponseFromRequest("tool-handling/lookup-tool.php", postData);
+        System.out.println(response);
+
+        toolList = requestDecoder.decodeJSONToolResponse(response);
+        ObservableList<Tool> sortedTools = this.sortTools(FXCollections.observableArrayList(toolList));
+
+        System.out.println(" - DISPLAY REPORT - ");
+        genReportList.setItems(null);
+        genReportList.refresh();
+        genReportList.setItems(sortedTools);
+        genReportList.setFixedCellSize(80);
+    }
+
     public void genReportDisplay(ActionEvent actionEvent) {
         System.out.println("Begin ReportController.genReportDisplay()");
 
