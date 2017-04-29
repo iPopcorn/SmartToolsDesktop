@@ -27,9 +27,11 @@ public class Main extends Application {
         try {
             root = FXMLLoader.load(getClass().getResource("res/fxml/main.fxml"));
         } catch (IOException ioe) {
-            System.err.println("Input/Output Exception: " + ioe.getMessage());
+            System.err.println("{Main Class}Input/Output Exception: " + ioe.getMessage());
+            ioe.printStackTrace();
         } catch (NullPointerException npe) {
-            System.err.println("Null Pointer Exception: " + npe.getMessage());
+            System.err.println("{Main Class} Null Pointer Exception: " + npe.getMessage());
+            npe.printStackTrace();
         }
 
         // If the root is not null we begin the application in a maximized screen otherwise close the application

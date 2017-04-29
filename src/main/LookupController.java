@@ -76,6 +76,7 @@ public class LookupController {
         return foundTools;
     }
 
+    @FXML
     /** Initializes the tool list view before the rest of the scene is loaded. */
     private void initialize() {
         toolList = new ArrayList<>();
@@ -137,6 +138,7 @@ public class LookupController {
         toolListView.getItems().clear();
         toolListView.refresh();
         toolListView.getItems().addAll(foundTools);
+        System.out.println("FOUND TOOL: " + foundTools.get(0).toString());
     }
 
     /** Connects to a RFID reader and scans in the RFID tag of a tool
@@ -146,7 +148,7 @@ public class LookupController {
      *
      *  @throws IOException
      */
-    public void scanTool() throws IOException {
+    public void scanTool() throws Exception {
         // If the user is searching by ID
         if (this.radioByID.isSelected()) {
             // Create and start a connection to the RFID reader
@@ -156,7 +158,7 @@ public class LookupController {
                 // Pause the main thread until the RFID reader is done scanning
                 myReaderThread.join();
             } catch (java.lang.InterruptedException ie) {
-                System.err.println(ie.getMessage());
+                ie.printStackTrace();
             }
 
             myReaderThread.stopReader();
@@ -178,7 +180,7 @@ public class LookupController {
                 // Set the text inside of the search box to the scanned Tag ID
                 this.searchBox.setText(resultEpc);
             } catch (NullPointerException npe) {
-                System.err.println(npe.getMessage());
+                npe.printStackTrace();
             }
         } else {
             PopupWindow error = new PopupWindow("Error", "Must Select ID to scan");

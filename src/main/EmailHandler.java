@@ -1,25 +1,15 @@
 package main;
 
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVPrinter;
-
-import java.io.*;
-import java.util.Properties;
-
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
-import javax.mail.BodyPart;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Multipart;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
+import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import java.io.*;
+import java.util.Properties;
 
 /**
  * Created by Taylor on 2/2/2017.
@@ -69,7 +59,7 @@ public class EmailHandler {
             }
             in.close();
         }catch(Exception e){
-
+            e.printStackTrace();
         }
         System.out.println("End EmailHandler.printFile()");
 
