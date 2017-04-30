@@ -71,7 +71,7 @@ public class DeleteToolController {
         try{
             tempReader.join();
         }catch(InterruptedException ie){
-            System.out.println(ie);
+            ie.printStackTrace();
         }
         tempReader.stopReader();
         HashMap<String, Integer> tagValues = tempReader.getTagValues();

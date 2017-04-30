@@ -5,18 +5,18 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-/*
+/**
  * Class that will decode the JSON retrieved from the database, and return an ArrayList of tools
  * decoded from the JSON.
  */
 public class JSONdecoder {
 
-    /*
-      decodeJSONToolResponse(String JSONstring)
-        PARAMETERS: JSONString, a string in the JSON format in the form of
-        "{"tool_name":"zzzzzz","tool_address":"xxxxx","tag_id":"yyyyy"}"
-        RETURN VALUES: Returns an arraylist of class Tool with each tool read-in from the JSON response.
-       */
+    /**
+     * decodeJSONToolResponse(String JSONstring)
+     * PARAMETERS: JSONString, a string in the JSON format in the form of
+     * "{"tool_name":"zzzzzz","tool_address":"xxxxx","tag_id":"yyyyy"}"
+     * RETURN VALUES: Returns an arraylist of class Tool with each tool read-in from the JSON response.
+     */
     public ArrayList<Tool> decodeJSONToolResponse(String JSONstring) {
         String[] jsonStrings = JSONstring.split("(?<=})"); // reading
         ArrayList<Tool> toolList = new ArrayList<>(); // the list of tools to be returned
@@ -25,6 +25,7 @@ public class JSONdecoder {
         JSONObject tempJSON; // temp JSON object from each tool read in
         try {
             for (String string: jsonStrings) {
+                System.out.println(string);
                 tempJSON = new JSONObject(string);
                 tempTool = new Tool(tempJSON.getString("tool_name"), tempJSON.getString("tag_id"),
                         tempJSON.getString("tool_address"));

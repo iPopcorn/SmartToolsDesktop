@@ -18,3 +18,8 @@
     -fx-background-color: -fx-tool-missing-odd;
     -fx-text-fill: black;
 }
+
+.list-cell:selected {
+    -fx-background-color: #0096C9;
+    -fx-text-fill: white;
+}

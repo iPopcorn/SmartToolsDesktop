@@ -21,13 +21,10 @@ import java.util.HashMap;
  */
 public class ReportController {
 
-
-    public Button btnGenReportBack;
     public Button btnGenReportPull;
     public Button btnGenReportCSV;
     public Button btnGenReportEmail;
     public Button btnGenReportStart;
-    public Button btnGenReportStop;
     public ListView genReportList;
     public TextField txtToolboxNum;
     public RadioButton radioName;
@@ -39,7 +36,6 @@ public class ReportController {
     public Label labelError;
     private ArrayList<String> genReportTagList;
     private HashMap<String, String> addressMap;
-    //private ArrayList<CompareTuple<String, String, Boolean>> comparisonMap;
     private ReaderThread currentReader;
     private String hostname = "169.254.126.52";
     private ArrayList<Tool> toolList;
@@ -73,7 +69,6 @@ public class ReportController {
         genReportList.setItems(null);
         genReportList.refresh();
         genReportList.setItems(sortedTools);
-        genReportList.setFixedCellSize(80);
     }
 
     public void genReportDisplay(ActionEvent actionEvent) {
@@ -92,7 +87,7 @@ public class ReportController {
         }else{// if we have a tool list
 
             //setup the CellFactory for the listview
-            this.genReportList.setCellFactory(new ToolCellFactory());
+            //this.genReportList.setCellFactory(new ToolCellFactory());
 
             // check view selection
             if(this.radioMissing.isSelected()){ // display missing tools
@@ -115,9 +110,12 @@ public class ReportController {
                 // Sort list of missing tools, then display it.
                 ObservableList<Tool> oMissingTools = FXCollections.observableArrayList(missingTools);
                 ObservableList<Tool> sortedTools = this.sortTools(oMissingTools);
-                this.genReportList.setItems(null);
+                /*this.genReportList.setItems(null);
                 this.genReportList.refresh();
-                this.genReportList.setItems(sortedTools);
+                this.genReportList.setItems(sortedTools);*/
+                genReportList.getItems().clear();
+                genReportList.refresh();
+                genReportList.getItems().addAll(oMissingTools);
                 this.currentList = missingTools;
             }else if(this.radioHome.isSelected()){ // display at home tools
                 System.out.println("ReportController.genReportDisplay() home tools case.");
@@ -137,9 +135,13 @@ public class ReportController {
                     ObservableList<Tool> oHomeTools = FXCollections.observableArrayList(homeTools);
                     ObservableList<Tool> oSortedHomeTools = this.sortTools(oHomeTools);
 
-                    this.genReportList.setItems(null);
+                    /*this.genReportList.setItems(null);
                     this.genReportList.refresh();
-                    this.genReportList.setItems(oSortedHomeTools);
+                    this.genReportList.setItems(oSortedHomeTools);*/
+                    genReportList.getItems().clear();
+                    genReportList.refresh();
+                    genReportList.getItems().addAll(oSortedHomeTools);
+
                 }
                 this.currentList = homeTools;
             }else{ // display all tools
@@ -149,11 +151,14 @@ public class ReportController {
                 ObservableList<Tool> oSortedToolList = this.sortTools(oToolList);
 
                 try{
-                    this.genReportList.setItems(null);
+                    /*this.genReportList.setItems(null);
                     this.genReportList.refresh();
-                    this.genReportList.setItems(oSortedToolList);
+                    this.genReportList.setItems(oSortedToolList);*/
+                    genReportList.getItems().clear();
+                    genReportList.refresh();
+                    genReportList.getItems().addAll(oSortedToolList);
                 }catch(Exception e){
-                    System.out.println(e);
+                    e.printStackTrace();
                 }
 
                 this.currentList = this.toolList;
@@ -230,15 +235,15 @@ public class ReportController {
                 myPrinter.close();
                 success = true;
             }
-        } catch(NumberFormatException n){
-            System.out.println(n);
+        } catch(NumberFormatException nfe){
+            nfe.printStackTrace();
             success = false;
             // this.showError("Error: Invalid Toolbox Number");
             PopupWindow errorPopup = new PopupWindow("Error", "Invalid Toolbox Number!");
             errorPopup.popup();
         }
         catch(Exception e){
-            System.out.println(e);
+            e.printStackTrace();
             success = false;
         }
         if(success){
@@ -269,8 +274,8 @@ public class ReportController {
             System.out.printf("myToolboxNum = %s\n", myToolboxNum);
             this.toolboxNum = Integer.valueOf(myToolboxNum);
             System.out.printf("The toolboxNum is: %d\n", this.toolboxNum);
-        }catch(NumberFormatException e){
-            System.out.println(e);
+        }catch(NumberFormatException nfe){
+            nfe.printStackTrace();
         }
         if(this.toolboxNum > 0 && this.toolboxNum < 6){
             System.out.println("Correct toolbox number!");
@@ -341,6 +346,7 @@ public class ReportController {
             errorPopup.popup();
         }
         System.out.println("ReportController.genReportStopScanning() end!");
+        //genReportDisplay(null);
     }
 
     public void scan() {
@@ -349,7 +355,7 @@ public class ReportController {
             genReportStopScanning();
             this.btnGenReportStart.getStyleClass().removeAll("stopScanning");
             this.btnGenReportStart.getStyleClass().add("startScanning");
-            this.btnGenReportStart.setText("Start Scanning");
+            this.btnGenReportStart.setText("Scan");
             scanning = false;
         }
         else
@@ -357,7 +363,7 @@ public class ReportController {
             genReportStartScanning();
             this.btnGenReportStart.getStyleClass().removeAll("startScanning");
             this.btnGenReportStart.getStyleClass().add("stopScanning");
-            this.btnGenReportStart.setText("Stop Scanning");
+            this.btnGenReportStart.setText("Stop");
             scanning = true;
         }
     }

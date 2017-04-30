@@ -16,7 +16,8 @@ public class InventoryCell extends ListCell<Tool> {
         if(item != null || !empty)
         {
             String description = "Name: " + item.getName() + "\n" +
-                    "Address: " + item.getAddress(); // todo: extract drawer letter from address
+                    "Address: " + item.getAddress() + "\n" +
+                    "Drawer: " + item.getAddress().substring(2,3);
             this.setText(description);
             this.setGraphic(null);
         }

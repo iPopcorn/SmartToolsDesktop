@@ -195,7 +195,7 @@ public class ReplaceToolController {
                 // Pause the main thread until the RFID reader is done scanning
                 myReaderThread.join();
             } catch (InterruptedException ie) {
-                System.err.println(ie.getMessage());
+                ie.printStackTrace();
             }
             myReaderThread.stopReader();
 
@@ -215,11 +215,11 @@ public class ReplaceToolController {
                 }
                 // Set the Tag textfield to the most read tag ID
                 this.txtTagID.setText(resultEpc);
-            } catch (NullPointerException e) {
-                System.err.println(e.getMessage());
+            } catch (NullPointerException npe) {
+                npe.printStackTrace();
             }
-        }catch(OctaneSdkException oe){
-            System.err.println(oe.getMessage());
+        }catch(OctaneSdkException ose){
+            ose.printStackTrace();
         }
     }
 

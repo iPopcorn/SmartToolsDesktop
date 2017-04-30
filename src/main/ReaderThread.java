@@ -61,6 +61,7 @@ public class ReaderThread extends Thread {
     public void stopReader() {
         System.out.printf("stopReader()\n");
         try {
+            System.out.println("Check if the reader is connected.");
             if (this.reader.isConnected()) {
                 this.reader.stop();
                 this.reader.disconnect();
@@ -184,6 +185,24 @@ public class ReaderThread extends Thread {
                     break;
                 }
                 case 3: { // lookup tool
+                    // connect a listener
+                    this.reader.setTagReportListener(new ReaderListener());
+
+                    // start reader
+                    this.reader.start();
+                    System.out.println("add_tool reader started!");
+
+                    long start = System.currentTimeMillis();
+                    // fail safe timer set to 5 minutes
+                    long end = start + (1000 * 1); // 60 seconds * 1000 ms/sec
+                    while (System.currentTimeMillis() < end) {
+                        // run
+                    }
+                    this.reader.stop();
+
+                    ReaderListener myListener = (ReaderListener) reader.getTagReportListener();
+
+                    this.setTagValues(myListener.getTagValues());
                     break;
                 }
                 case 4: { // test case
@@ -230,10 +249,9 @@ public class ReaderThread extends Thread {
                 }
             }
 
-        } catch (OctaneSdkException e) {
-            System.out.println(e.getMessage());
+        } catch (OctaneSdkException ose) {
+            ose.printStackTrace();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }
