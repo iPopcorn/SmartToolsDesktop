@@ -3,10 +3,12 @@ package main;
 import com.impinj.octane.OctaneSdkException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import org.controlsfx.control.textfield.TextFields;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,6 +45,12 @@ public class ReplaceToolController {
 
     /** List of strings containing open addresses for the entered tool name. */
     private ObservableList<String> addressList = FXCollections.observableArrayList();
+
+    @FXML
+    private void initialize(){
+        // set up autocomplete text field
+        TextFields.bindAutoCompletion(this.txtToolName, Main.inventoryList.getToolNames());
+    }
 
     /** Connects to and starts the RFID reader so the user can scan tools.
      *

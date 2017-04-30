@@ -24,7 +24,9 @@ public class ReaderThread extends Thread {
 
     public ReaderThread(String hostname, String task, Object creator) {
         this.hostname = hostname;
-        this.reader = new ImpinjReader();
+        //this.hostname = "197.168.1.3";
+        this.reader = new ImpinjReader(this.hostname, "MyReader", 500);
+        this.reader.setConnectTimeout(500);
 
         String parentName = creator.getClass().getSimpleName();
         if (parentName.equalsIgnoreCase("ReportController"))
@@ -114,17 +116,19 @@ public class ReaderThread extends Thread {
 
         try {
             // connect to the reader
-            this.reader.connect(this.hostname);
+            //this.reader.connect(this.hostname);
+            //this.reader.connect()
+            this.reader.connect();
 
             // configure settings
             // TODO: Learn about settings and figure out which settings we need.
             Settings mySettings = reader.queryDefaultSettings();
-            short[] disable_ants = {2};
-            mySettings.getAntennas().disableById(disable_ants);
+            //short[] disable_ants = {2};
+            //mySettings.getAntennas().disableById(disable_ants);
             this.reader.applySettings(mySettings);
         }
-        catch (Exception e) {
-            e.printStackTrace();
+        catch (OctaneSdkException e) {
+            System.out.println(e.getMessage());
             switch (runCondition) {
                 case 1: { // generate report
                     this.reportParent.scannerConnectionError();
