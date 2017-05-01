@@ -13,9 +13,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-/**
- * Created by mwhar on 3/25/2017.
- */
 public class MainController {
 
     private boolean signedIn = false; // boolean to check if the user is signed in
@@ -57,6 +54,12 @@ public class MainController {
     public Tab tabSignIn;
 
     /**
+     * Tab to popup the sign in screen.
+     */
+    @FXML
+    public Tab tabProfile;
+
+    /**
      * BorderPane where the main elements of the application will be displayed.
      */
     @FXML
@@ -91,6 +94,9 @@ public class MainController {
             else if (tabSignIn.isSelected()) {
                 launchSignOut();
             }
+            else if (tabProfile.isSelected()) {
+                borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/profile.fxml")));
+            }
         } else {
             if (searchTools.isSelected())
                 borderPane.setCenter(FXMLLoader.load(getClass().getResource("res/fxml/lookup_tool.fxml")));
@@ -104,6 +110,7 @@ public class MainController {
                 launchSignIn();
             else if (tabSignIn.isSelected()) {
                 launchSignIn();
+//                setSignedIn(true);
             }
         }
     }
@@ -131,7 +138,7 @@ public class MainController {
     }
 
     // Launches sign out window and updates UI if needed
-    private void launchSignOut() throws IOException {
+    public void launchSignOut() throws IOException {
         Parent root;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("res/fxml/sign_out_window.fxml"));
         root = fxmlLoader.load();
@@ -152,6 +159,7 @@ public class MainController {
         System.out.println(signedIn);
     }
 
+    // set the signed in state
     public void setSignedIn(boolean signedIn) {
 
         // if we're switching signed in states
@@ -185,6 +193,7 @@ public class MainController {
             deleteTool.setDisable(false);
             modifyInventory.setDisable(false);
             reportInventory.setDisable(false);
+            tabProfile.setDisable(false);
             selectionModel.select(searchTools);
             // updating the tab text to signed out, since we are signed in
             tabSignIn.setText("Sign Out");
@@ -194,6 +203,7 @@ public class MainController {
             deleteTool.setDisable(true);
             modifyInventory.setDisable(true);
             reportInventory.setDisable(true);
+            tabProfile.setDisable(true);
             selectionModel.select(searchTools);
             tabSignIn.setText("Sign In");
 
