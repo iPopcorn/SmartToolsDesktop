@@ -3,10 +3,12 @@ package main;
 import com.impinj.octane.OctaneSdkException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import org.controlsfx.control.textfield.TextFields;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,6 +45,12 @@ public class ReplaceToolController {
 
     /** List of strings containing open addresses for the entered tool name. */
     private ObservableList<String> addressList = FXCollections.observableArrayList();
+
+    @FXML
+    private void initialize(){
+        // set up autocomplete text field
+        TextFields.bindAutoCompletion(this.txtToolName, Main.inventoryList.getToolNames());
+    }
 
     /** Connects to and starts the RFID reader so the user can scan tools.
      *
@@ -187,7 +195,7 @@ public class ReplaceToolController {
                 // Pause the main thread until the RFID reader is done scanning
                 myReaderThread.join();
             } catch (InterruptedException ie) {
-                System.err.println(ie.getMessage());
+                ie.printStackTrace();
             }
             myReaderThread.stopReader();
 
@@ -207,11 +215,11 @@ public class ReplaceToolController {
                 }
                 // Set the Tag textfield to the most read tag ID
                 this.txtTagID.setText(resultEpc);
-            } catch (NullPointerException e) {
-                System.err.println(e.getMessage());
+            } catch (NullPointerException npe) {
+                npe.printStackTrace();
             }
-        }catch(OctaneSdkException oe){
-            System.err.println(oe.getMessage());
+        }catch(OctaneSdkException ose){
+            ose.printStackTrace();
         }
     }
 

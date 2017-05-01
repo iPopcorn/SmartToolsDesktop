@@ -24,7 +24,9 @@ public class ReaderThread extends Thread {
 
     public ReaderThread(String hostname, String task, Object creator) {
         this.hostname = hostname;
-        this.reader = new ImpinjReader();
+        //this.hostname = "197.168.1.3";
+        this.reader = new ImpinjReader(this.hostname, "MyReader", 500);
+        this.reader.setConnectTimeout(500);
 
         String parentName = creator.getClass().getSimpleName();
         if (parentName.equalsIgnoreCase("ReportController"))
@@ -59,6 +61,7 @@ public class ReaderThread extends Thread {
     public void stopReader() {
         System.out.printf("stopReader()\n");
         try {
+            System.out.println("Check if the reader is connected.");
             if (this.reader.isConnected()) {
                 this.reader.stop();
                 this.reader.disconnect();
@@ -114,17 +117,19 @@ public class ReaderThread extends Thread {
 
         try {
             // connect to the reader
-            this.reader.connect(this.hostname);
+            //this.reader.connect(this.hostname);
+            //this.reader.connect()
+            this.reader.connect();
 
             // configure settings
             // TODO: Learn about settings and figure out which settings we need.
             Settings mySettings = reader.queryDefaultSettings();
-            short[] disable_ants = {2};
-            mySettings.getAntennas().disableById(disable_ants);
+            //short[] disable_ants = {2};
+            //mySettings.getAntennas().disableById(disable_ants);
             this.reader.applySettings(mySettings);
         }
-        catch (Exception e) {
-            e.printStackTrace();
+        catch (OctaneSdkException e) {
+            System.out.println(e.getMessage());
             switch (runCondition) {
                 case 1: { // generate report
                     this.reportParent.scannerConnectionError();
@@ -180,6 +185,24 @@ public class ReaderThread extends Thread {
                     break;
                 }
                 case 3: { // lookup tool
+                    // connect a listener
+                    this.reader.setTagReportListener(new ReaderListener());
+
+                    // start reader
+                    this.reader.start();
+                    System.out.println("add_tool reader started!");
+
+                    long start = System.currentTimeMillis();
+                    // fail safe timer set to 5 minutes
+                    long end = start + (1000 * 1); // 60 seconds * 1000 ms/sec
+                    while (System.currentTimeMillis() < end) {
+                        // run
+                    }
+                    this.reader.stop();
+
+                    ReaderListener myListener = (ReaderListener) reader.getTagReportListener();
+
+                    this.setTagValues(myListener.getTagValues());
                     break;
                 }
                 case 4: { // test case
@@ -226,10 +249,9 @@ public class ReaderThread extends Thread {
                 }
             }
 
-        } catch (OctaneSdkException e) {
-            System.out.println(e.getMessage());
+        } catch (OctaneSdkException ose) {
+            ose.printStackTrace();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }

@@ -55,7 +55,7 @@ public class LoginController {
             try{
                 openAdmin(actionEvent);
             }catch(IOException e){
-                System.out.println(e);
+                e.printStackTrace();
             }
         }else{
             //todo: insert GUI error message
