@@ -138,7 +138,10 @@ public class LookupController {
         toolListView.getItems().clear();
         toolListView.refresh();
         toolListView.getItems().addAll(foundTools);
-        System.out.println("FOUND TOOL: " + foundTools.get(0).toString());
+        if (!foundTools.isEmpty()) {
+            System.out.println("FOUND TOOL: " + foundTools.get(0).toString());
+        }
+
     }
 
     /** Connects to a RFID reader and scans in the RFID tag of a tool

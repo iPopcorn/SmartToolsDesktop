@@ -49,12 +49,7 @@ public class PopupWindow {
         dialogVbox1.setAlignment(Pos.CENTER);
 
         Scene dialogScene = new Scene(dialogHbox, 450, 60);
-        dialogScene.getStylesheets().add("/main/res/stylesheet/popup_window.css");
-
-        dialogHbox.getStyleClass().add("background");
-//        labelDialog.getStyleClass().add("dialogWindow");
-        btnOk.getStyleClass().add("btnOk");
-        labelDialog.getStyleClass().add("dialogText");
+        dialogScene.getStylesheets().add("/main/res/stylesheet/general.css");
 
 
         dialogHbox.getChildren().add(labelDialog);

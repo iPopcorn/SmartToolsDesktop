@@ -7,10 +7,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPaneDelTool" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.DeleteToolController">
+<AnchorPane fx:id="anchorPaneDelTool" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.DeleteToolController">
     <children>
-        <TextField fx:id="txtDelToolID" editable="false" layoutX="14.0" layoutY="97.0" prefHeight="25.0" prefWidth="570.0" promptText="ID" AnchorPane.leftAnchor="14.0" />
-        <TextField fx:id="txtDelToolName" editable="false" layoutX="14.0" layoutY="138.0" prefHeight="25.0" prefWidth="570.0" promptText="Name" AnchorPane.leftAnchor="14.0" />
+        <TextField fx:id="txtDelToolID" editable="false" layoutX="14.0" layoutY="97.0" prefHeight="25.0" prefWidth="570.0" promptText="ID" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="216.0" />
+        <TextField fx:id="txtDelToolName" editable="false" layoutX="14.0" layoutY="138.0" prefHeight="25.0" prefWidth="570.0" promptText="Name" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="216.0" />
       <ToolBar prefHeight="78.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <items>
             <Button fx:id="btnDelToolScan" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#scanTool" prefHeight="64.0" prefWidth="64.0" styleClass="btnScan" stylesheets="@../stylesheet/toolbar.css" text="Scan">
@@ -26,6 +26,6 @@
             </Button>
          </items>
       </ToolBar>
-        <TextField fx:id="txtDelToolAddress" editable="false" layoutX="14.0" layoutY="180.0" prefHeight="25.0" prefWidth="570.0" promptText="Address" />
+        <TextField fx:id="txtDelToolAddress" editable="false" layoutX="14.0" layoutY="180.0" prefHeight="25.0" prefWidth="570.0" promptText="Address" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="216.0" />
     </children>
 </AnchorPane>

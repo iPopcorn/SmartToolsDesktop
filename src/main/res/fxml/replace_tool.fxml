@@ -9,17 +9,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ReplaceToolController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ReplaceToolController">
     <children>
-        <TextField fx:id="txtTagID" editable="false" layoutX="12.0" layoutY="108.0" prefHeight="31.0" prefWidth="592.0" promptText="Tool ID" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="108.0" />
-        <Label fx:id="lblToolName" layoutX="622.0" layoutY="159.0" prefHeight="26.0" prefWidth="88.0" text="Tool Name" AnchorPane.leftAnchor="622.0" AnchorPane.rightAnchor="90.0" />
-        <Label fx:id="lblAddress" layoutX="622.0" layoutY="202.0" prefHeight="26.0" prefWidth="64.0" text="Address" AnchorPane.leftAnchor="622.0" AnchorPane.rightAnchor="114.0" />
+        <TextField fx:id="txtTagID" editable="false" layoutX="12.0" layoutY="108.0" prefHeight="31.0" prefWidth="592.0" promptText="Tool ID" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="196.0" AnchorPane.topAnchor="108.0" />
+        <Label fx:id="lblToolName" layoutX="622.0" layoutY="159.0" prefHeight="26.0" prefWidth="88.0" text="Tool Name" AnchorPane.rightAnchor="90.0" />
+        <Label fx:id="lblAddress" layoutX="622.0" layoutY="202.0" prefHeight="26.0" prefWidth="64.0" text="Address" AnchorPane.rightAnchor="114.0" />
 
-        <Label fx:id="lblTagID" layoutX="622.0" layoutY="111.0" prefHeight="26.0" prefWidth="32.0" text="ID" AnchorPane.leftAnchor="622.0" AnchorPane.rightAnchor="146.0" />
-        <TextField fx:id="txtToolName" layoutX="12.0" layoutY="156.0" onKeyReleased="#searchOpenAddresses" prefHeight="31.0" prefWidth="592.0" promptText="Tool Name" AnchorPane.leftAnchor="12.0" />
+        <Label fx:id="lblTagID" layoutX="622.0" layoutY="111.0" prefHeight="26.0" prefWidth="32.0" text="ID" AnchorPane.rightAnchor="146.0" />
+        <TextField fx:id="txtToolName" layoutX="12.0" layoutY="156.0" onKeyReleased="#searchOpenAddresses" prefHeight="31.0" prefWidth="592.0" promptText="Tool Name" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="196.0" />
       <Label fx:id="lblError" layoutX="17.0" layoutY="433.0" prefHeight="17.0" prefWidth="567.0" textFill="RED" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" />
       <Label fx:id="lblMsg" layoutX="14.0" layoutY="276.0" prefHeight="17.0" prefWidth="567.0" textFill="#19da0b" />
-        <ComboBox fx:id="btnAddress" layoutX="12.0" layoutY="199.0" prefHeight="31.0" prefWidth="592.0" AnchorPane.leftAnchor="12.0" />
+        <ComboBox fx:id="btnAddress" layoutX="12.0" layoutY="199.0" prefHeight="31.0" prefWidth="592.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="196.0" />
       <ToolBar prefHeight="64.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <items>
           <Button fx:id="btnScan" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#scanTool" prefHeight="64.0" prefWidth="64.0" styleClass="btnScan" stylesheets="@../stylesheet/toolbar.css" text="Scan">

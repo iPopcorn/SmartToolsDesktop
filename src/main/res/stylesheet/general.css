@@ -1,6 +1,8 @@
 .root {
     -fx-uta-orange: #FC7500;
     -fx-uta-blue: #0168B3;
+    -fx-secondary-blue: #0187d3;
+    -fx-text-fill: -fx-uta-blue;
 }
 
 .background {
@@ -8,14 +10,20 @@
 }
 
 .button {
+    -fx-border-color: -fx-uta-blue;
     -fx-background-color: transparent;
     -fx-text-fill: -fx-uta-blue;
 }
 
 .button:hover {
+    -fx-border-color: black;
     -fx-text-fill: black;
+    -fx-cursor: hand;
 }
 
 .button:pressed {
-    -fx-text-fill: #0187d3;
+    -fx-border-color: -fx-secondary-blue;
+    -fx-text-fill: -fx-secondary-blue;
+    -fx-cursor: hand;
+
 }

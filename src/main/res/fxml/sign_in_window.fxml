@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER" focusTraversable="true" hgap="10.0" maxHeight="200.0" maxWidth="400.0" minHeight="240.0" minWidth="400.0" prefHeight="210.0" prefWidth="400.0" vgap="10.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.SignInController">
+<GridPane alignment="CENTER" focusTraversable="true" hgap="10.0" maxHeight="200.0" maxWidth="400.0" minHeight="240.0" minWidth="400.0" prefHeight="210.0" prefWidth="400.0" stylesheets="@../stylesheet/general.css" vgap="10.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.SignInController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="499.0" minWidth="10.0" prefWidth="109.0" />
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="515.0" minWidth="10.0" prefWidth="281.0" />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints maxHeight="56.66666793823242" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="49.33332824707031" minHeight="7.333332061767578" prefHeight="9.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="56.66666793823242" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="49.33332824707031" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="56.66666793823242" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="49.33332824707031" minHeight="7.333332061767578" prefHeight="9.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="88.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
@@ -34,12 +34,12 @@
                 <Insets left="30.0" />
             </GridPane.margin>
         </Label>
-        <TextField fx:id="tfUserName" promptText="User Name" GridPane.columnIndex="1">
+        <TextField fx:id="tfUserName" onAction="#onEnter" promptText="User Name" GridPane.columnIndex="1">
             <GridPane.margin>
                 <Insets right="40.0" top="10.0" />
             </GridPane.margin>
         </TextField>
-        <PasswordField fx:id="tfPassword" minHeight="27" minWidth="200" prefHeight="27.0" prefWidth="200.0" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <PasswordField fx:id="tfPassword" onAction="#onEnter" minHeight="27" minWidth="200" prefHeight="27.0" prefWidth="200.0" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <GridPane.margin>
                 <Insets right="40.0" />
             </GridPane.margin>
@@ -68,11 +68,11 @@
             <Insets right="10.0" />
          </GridPane.margin>
       </ImageView>
-      <Label fx:id="lblUNEmpty" prefHeight="17.0" prefWidth="188.0" text="Please Enter User Name" textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Label fx:id="lblUNEmpty" prefHeight="17.0" prefWidth="188.0" wrapText="true" text="Please Enter User Name" textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
       </Label>
-      <Label fx:id="lblPWEmpty" prefHeight="17.0" prefWidth="188.0" text="Please Enter Password" textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Label fx:id="lblPWEmpty" prefHeight="17.0" prefWidth="188.0" wrapText="true" text="Please Enter Password" textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
     </children>
 </GridPane>

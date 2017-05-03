@@ -8,6 +8,9 @@
     -fx-uta-secondary: #F16F3D;
 }
 
+.tab:disabled {
+    -fx-cursor: default;
+}
 /* Make the background color of the tab header uta blue */
 .tab-header-area .tab-header-background {
     -fx-background-color: -fx-uta-primary;
@@ -36,6 +39,7 @@
 /* Remove the border and space around the tabs so they blend into the toolbar */
 .tab{
     -fx-background-insets: 0 1 0 1, 0, 0;
+    -fx-cursor: hand;
 }
 
 /* Make all of the buttons in the toolbar have a background color that blends into the rest of the toolbar.

@@ -1,11 +1,13 @@
 package main;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.controlsfx.control.action.Action;
 
 import java.util.HashMap;
 
@@ -68,7 +70,8 @@ public class SignInController {
             myStage.close();
             return true;
         } else {
-            lblPWEmpty.setText("Wrong User Name or Password");
+            lblPWEmpty.setWrapText(true);
+            lblPWEmpty.setText("Wrong Credentials");
             lblPWEmpty.setVisible(true);
         }
 
@@ -79,5 +82,11 @@ public class SignInController {
     public void btnCancelPressed() {
         Stage myStage = (Stage) btnCancel.getScene().getWindow();
         myStage.close();
+    }
+
+    // if enter is pressed in either text field we attempt sign on
+    @FXML
+    private void onEnter(ActionEvent actionEvent) {
+        btnSignInPressed();
     }
 }

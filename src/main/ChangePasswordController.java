@@ -3,12 +3,12 @@ package main;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import java.awt.event.ActionEvent;
 import java.util.HashMap;
 
 /**
@@ -23,7 +23,7 @@ public class ChangePasswordController {
     @FXML
     TextField tfPIN, tfPassword, tfNewPassword;
     @FXML
-    Label lblNPW;
+    Label lblNPW, lblBadVer;
     @FXML
     ImageView imgBadPIN;
     @FXML
@@ -66,11 +66,15 @@ public class ChangePasswordController {
 
         // if the user passes both authenticaton methods
         if(userEnteredPIN.equals(String.valueOf(PIN)) && checkPassword(tfPassword.getText())) {
+            lblBadVer.setVisible(false);
             lblNPW.setVisible(true);
-
+            btnChangePassword.setVisible(true);
             tfNewPassword.setVisible(true);
         } else {
-            System.out.println("NO MATCH");
+            lblBadVer.setVisible(true);
+            lblNPW.setVisible(false);
+            btnChangePassword.setVisible(false);
+            tfNewPassword.setVisible(false);
         }
 
     }
@@ -101,7 +105,7 @@ public class ChangePasswordController {
         String newPassword = tfNewPassword.getText();
         // checking if the new password is valid
         if (!isValidPassword(newPassword)) {
-            // TODO: Add logic if the password isn't at least 6 charachters
+            // TODO: Add logic if the password isn't at least 6 characters
             return;
         }
 
@@ -118,7 +122,7 @@ public class ChangePasswordController {
         POSTdata.put("password", hashedPW);
 
 
-        String response = serverRequest.getResponseFromRequest("test/change-password.php", POSTdata);
+        String response = serverRequest.getResponseFromRequest("login/change-password.php", POSTdata);
 
         if (response.equalsIgnoreCase("success")) {
             Stage myStage = (Stage) btnChangePassword.getScene().getWindow();
@@ -134,10 +138,34 @@ public class ChangePasswordController {
 
     }
 
+    /*
+     * Function to check if the password is the right length
+     */
     private boolean isValidPassword(String password) {
         if (password.length() < 4)
             return false;
         return true;
     }
+
+    public void cancel() {
+        Stage myStage = (Stage) btnChangePassword.getScene().getWindow();
+        myStage.close();
+    }
+
+    // this onEnter listener will commence the verify process if pressed on either of
+    // the verification fields
+    @FXML
+    private void onEnter(javafx.event.ActionEvent actionEvent) {
+        verify();
+    }
+
+    // this onEnter listener will commence the verify process if pressed on either of
+    // the verification fields
+    @FXML
+    private void onEnterChangePW(javafx.event.ActionEvent actionEvent) {
+        changePassword();
+    }
+
+
 
 }

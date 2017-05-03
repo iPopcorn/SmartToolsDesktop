@@ -159,7 +159,7 @@ public class EmailHandler {
         props.put("mail.smtp.host", host);
         props.put("mail.smtp.port", "587");
 
-        String uName = this.username;
+        String uName = this.username    ;
         String pass = this.password;
 
         // Get the Session object.
