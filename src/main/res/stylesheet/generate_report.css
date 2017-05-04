@@ -1,4 +1,9 @@
+.startScanning {
+    -fx-graphic: url("../../res/images/scan.png");
+}
+
 .stopScanning {
+    -fx-graphic: url("../../res/images/cancel.png");
 }
 
 .stopScanning:hover {

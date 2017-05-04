@@ -78,3 +78,18 @@
 #btnEmail {
     -fx-graphic: url("../../res/images/email.png");
 }
+
+/* ID for report button that will be in the toolbar, gives the button an image to represent its function */
+#btnReport {
+    -fx-graphic: url("../../res/images/report.png");
+}
+
+/* ID for add button that will be in the toolbar, gives the button an image to represent its function */
+#btnAdd {
+    -fx-graphic: url("../../res/images/add.png");
+}
+
+/* ID for delete button that will be in the toolbar, gives the button an image to represent its function */
+#btnDelete {
+    -fx-graphic: url("../../res/images/delete.png");
+}

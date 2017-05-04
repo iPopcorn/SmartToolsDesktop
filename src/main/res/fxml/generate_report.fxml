@@ -18,7 +18,7 @@
     <children>
         <ToolBar prefHeight="35.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <items>
-                <Button id="btnReport" fx:id="btnGenReportPull" alignment="BOTTOM_CENTER" contentDisplay="TOP" onAction="#displayReport" prefHeight="64.0" prefWidth="64.0" styleClass="toolBarBtn" stylesheets="@../stylesheet/toolbar.css" text="Report" textAlignment="CENTER" wrapText="true">
+                <Button id="btnReport" fx:id="btnGenReportPull" alignment="BOTTOM_CENTER" contentDisplay="TOP" onAction="#genReportDisplay" prefHeight="64.0" prefWidth="64.0" styleClass="toolBarBtn" stylesheets="@../stylesheet/toolbar.css" text="Report" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font></Button>

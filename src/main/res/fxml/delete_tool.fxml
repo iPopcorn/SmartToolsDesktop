@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPaneDelTool" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.DeleteToolController">
+<AnchorPane fx:id="anchorPaneDelTool" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.DeleteToolController">
     <children>
         <TextField fx:id="txtDelToolID" editable="false" layoutX="14.0" layoutY="97.0" prefHeight="25.0" prefWidth="570.0" promptText="ID" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="216.0" />
         <TextField fx:id="txtDelToolName" editable="false" layoutX="14.0" layoutY="138.0" prefHeight="25.0" prefWidth="570.0" promptText="Name" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="216.0" />
@@ -19,7 +19,7 @@
                </font>
             </Button>
             <Separator orientation="VERTICAL" prefHeight="64.0" />
-            <Button fx:id="btnDelToolDelete" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#deleteTool" prefHeight="64.0" prefWidth="64.0" styleClass="btnSubmit" stylesheets="@../stylesheet/toolbar.css" text="Delete" textOverrun="CLIP">
+            <Button id="btnDelete" fx:id="btnDelToolDelete" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#deleteTool" prefHeight="64.0" prefWidth="64.0" styleClass="btnSubmit" stylesheets="@../stylesheet/toolbar.css" text="Delete" textOverrun="CLIP">
                <font>
                   <Font size="14.0" />
                </font>
