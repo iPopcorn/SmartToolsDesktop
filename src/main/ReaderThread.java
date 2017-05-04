@@ -116,7 +116,7 @@ public class ReaderThread extends Thread {
 
         System.out.println("Starting ReaderThread...");
         System.out.println("Connecting to: " + this.hostname);
-
+        Settings mySettings = null;
         try {
             // connect to the reader
             //this.reader.connect(this.hostname);
@@ -125,7 +125,7 @@ public class ReaderThread extends Thread {
 
             // configure settings
             // TODO: Learn about settings and figure out which settings we need.
-            Settings mySettings = reader.queryDefaultSettings();
+            mySettings = reader.queryDefaultSettings();
             //short[] disable_ants = {2};
             //mySettings.getAntennas().disableById(disable_ants);
             this.reader.applySettings(mySettings);
@@ -151,10 +151,21 @@ public class ReaderThread extends Thread {
             System.out.printf("ReaderThread.runCondition = %d\n", runCondition);
             switch (runCondition) {
                 case 0: { // default case
+
+                    mySettings.getAntennas().getAntenna(2).setEnabled(false);
+                    mySettings.getAntennas().getAntenna(3).setEnabled(false);
+
+//                    short[] disable_ants = {2,3};
+                    this.reader.applySettings(mySettings);
+
                     System.out.printf("incorrect task string used.");
                     break;
                 }
                 case 1: { // generate report
+
+                    short[] disable_ants = {1};
+                    mySettings.getAntennas().disableById(disable_ants);
+                    this.reader.applySettings(mySettings);
 
                     // connect a listener
                     this.reader.setTagReportListener(new ReportListener());
@@ -166,6 +177,15 @@ public class ReaderThread extends Thread {
                     break;
                 }
                 case 2: { // add tool
+
+                    System.out.println("HEREEEE");
+                    Settings mySettings2 = reader.queryDefaultSettings();
+                    mySettings2.getAntennas().getAntenna(2).setEnabled(false);
+                    mySettings2.getAntennas().getAntenna(3).setEnabled(false);
+
+//                    short[] disable_ants = {2,3};
+                    this.reader.applySettings(mySettings2);
+
                     // connect a listener
                     this.reader.setTagReportListener(new ReaderListener());
 
@@ -187,6 +207,11 @@ public class ReaderThread extends Thread {
                     break;
                 }
                 case 3: { // lookup tool
+
+                    short[] disable_ants = {2,3};
+                    mySettings.getAntennas().disableById(disable_ants);
+                    this.reader.applySettings(mySettings);
+
                     // connect a listener
                     this.reader.setTagReportListener(new ReaderListener());
 
@@ -208,6 +233,11 @@ public class ReaderThread extends Thread {
                     break;
                 }
                 case 4: { // test case
+
+                    short[] disable_ants = {2,3};
+                    mySettings.getAntennas().disableById(disable_ants);
+                    this.reader.applySettings(mySettings);
+
                     // connect a listener
                     this.reader.setTagReportListener(new ReaderListener());
 
@@ -229,6 +259,11 @@ public class ReaderThread extends Thread {
                     break;
                 }
                 case 5: { // delete tool
+
+                    short[] disable_ants = {2,3};
+                    mySettings.getAntennas().disableById(disable_ants);
+                    this.reader.applySettings(mySettings);
+
                     // connect a listener
                     this.reader.setTagReportListener(new ReaderListener());
 
