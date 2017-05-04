@@ -154,6 +154,8 @@ public class ReplaceToolController {
 
         // If the server response is success alert the user
         if (response.equalsIgnoreCase("success")) {
+            txtTagID.clear();
+            txtToolName.clear();
             PopupWindow popupWindow = new PopupWindow("ADD TOOL", "Successfully added tool");
             popupWindow.popup();
         } else if (response.equalsIgnoreCase("fail")) {

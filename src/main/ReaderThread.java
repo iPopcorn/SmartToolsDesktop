@@ -24,6 +24,8 @@ public class ReaderThread extends Thread {
 
     public ReaderThread(String hostname, String task, Object creator) {
         this.hostname = hostname;
+//        this.hostname = "192.168.1.3";
+        this.reader = new ImpinjReader();
         //this.hostname = "197.168.1.3";
         this.reader = new ImpinjReader(this.hostname, "MyReader", 500);
         this.reader.setConnectTimeout(500);

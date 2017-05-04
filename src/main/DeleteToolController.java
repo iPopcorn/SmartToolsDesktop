@@ -134,6 +134,9 @@ public class DeleteToolController {
         String response = serverRequest.getResponseFromRequest("tool-handling/delete-tool.php", POSTdata);
 
         if(response.equalsIgnoreCase("success")){
+            txtDelToolAddress.clear();
+            txtDelToolID.clear();
+            txtDelToolName.clear();
             PopupWindow successPopup = new PopupWindow("Success", "Tool Successfully Deleted!");
             successPopup.popup();
         }else{
