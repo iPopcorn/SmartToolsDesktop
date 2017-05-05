@@ -24,11 +24,11 @@ public class ToolCell extends ListCell<Tool> {
             this.setText(description);
             this.setGraphic(null);
             if(item.getIsHome()) {
-                this.getStyleClass().removeAll();
+                this.getStyleClass().removeAll("list-cell-missing");
                 this.getStyleClass().add("list-cell-found");
             }
             else {
-                this.getStyleClass().removeAll();
+                this.getStyleClass().removeAll("list-cell-found");
                 this.getStyleClass().add("list-cell-missing");
             }
         }

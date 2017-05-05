@@ -49,28 +49,6 @@ public class ReportController {
         this.genReportList.setCellFactory(new ToolCellFactory());
     }
 
-    public void displayReport() {
-
-        String toolboxNumber = txtToolboxNum.getText();
-
-        ServerRequest myRequest = new ServerRequest();
-        JSONdecoder requestDecoder = new JSONdecoder();
-        HashMap<String, String> postData = new HashMap<>();
-
-        postData.put("searchField","toolbox");
-        postData.put("searchValue", toolboxNumber);
-        String response = myRequest.getResponseFromRequest("tool-handling/lookup-tool.php", postData);
-        System.out.println(response);
-
-        toolList = requestDecoder.decodeJSONToolResponse(response);
-        ObservableList<Tool> sortedTools = this.sortTools(FXCollections.observableArrayList(toolList));
-
-        System.out.println(" - DISPLAY REPORT - ");
-        genReportList.setItems(null);
-        genReportList.refresh();
-        genReportList.setItems(sortedTools);
-    }
-
     public void genReportDisplay(ActionEvent actionEvent) {
         System.out.println("Begin ReportController.genReportDisplay()");
 
@@ -279,6 +257,7 @@ public class ReportController {
         }
         if(this.toolboxNum > 0 && this.toolboxNum < 6){
             System.out.println("Correct toolbox number!");
+
             ReaderThread tempReader = new ReaderThread(this.hostname, "generate_report", this);
             tempReader.run();
             this.currentReader = tempReader;
@@ -286,7 +265,11 @@ public class ReportController {
         } else {
             System.out.println("Invalid toolbox number!");
             // this.showError("Invalid Toolbox Number.");
+            this.btnGenReportStart.getStyleClass().removeAll("stopScanning");
+            this.btnGenReportStart.getStyleClass().add("startScanning");
+            this.btnGenReportStart.setText("Scan");
             PopupWindow errorPopup = new PopupWindow("Error", "Invalid toolbox number!");
+
             errorPopup.popup();
         }
     }
@@ -302,6 +285,7 @@ public class ReportController {
         if(!this.labelError.getText().equalsIgnoreCase("")) // if the label is not "" make it ""
             this.labelError.setText("");
         if(this.currentReader != null){
+
             this.currentReader.stopReader();
 
             // grab tag list from reader
@@ -342,6 +326,9 @@ public class ReportController {
         }else{
             System.out.println("Reader never started!");
             // this.showError("Reader never started!");
+            this.btnGenReportStart.getStyleClass().removeAll("stopScanning");
+            this.btnGenReportStart.getStyleClass().add("startScanning");
+            this.btnGenReportStart.setText("Scan");
             PopupWindow errorPopup = new PopupWindow("Error", "Reader never started!");
             errorPopup.popup();
         }
@@ -352,18 +339,18 @@ public class ReportController {
     public void scan() {
         if(scanning)
         {
-            genReportStopScanning();
             this.btnGenReportStart.getStyleClass().removeAll("stopScanning");
             this.btnGenReportStart.getStyleClass().add("startScanning");
             this.btnGenReportStart.setText("Scan");
+            genReportStopScanning();
             scanning = false;
         }
         else
         {
-            genReportStartScanning();
             this.btnGenReportStart.getStyleClass().removeAll("startScanning");
             this.btnGenReportStart.getStyleClass().add("stopScanning");
             this.btnGenReportStart.setText("Stop");
+            genReportStartScanning();
             scanning = true;
         }
     }
@@ -473,6 +460,9 @@ public class ReportController {
     }
 
     public void scannerConnectionError() {
+        this.btnGenReportStart.getStyleClass().removeAll("stopScanning");
+        this.btnGenReportStart.getStyleClass().add("startScanning");
+        this.btnGenReportStart.setText("Scan");
         PopupWindow error = new PopupWindow("Error", "Reader failed to connect!");
         error.popup();
     }

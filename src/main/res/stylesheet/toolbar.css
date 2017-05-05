@@ -59,6 +59,16 @@
     -fx-graphic: url("../../res/images/scan.png");
 }
 
+/* Class for when scanning has started in Report Inventory */
+.startScanning {
+    -fx-graphic: url("../../res/images/scan.png");
+}
+
+/* Class for when scanning has stopped in Report Inventory */
+.stopScanning {
+    -fx-graphic: url("../../res/images/cancel.png");
+}
+
 /* Class for all submit buttons that will be in the toolbar, gives the button an image to represent its function */
 .btnSubmit {
     -fx-graphic: url("../../res/images/submit.png");

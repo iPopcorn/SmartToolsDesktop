@@ -5,14 +5,3 @@
 .stopScanning {
     -fx-graphic: url("../../res/images/cancel.png");
 }
-
-.stopScanning:hover {
-    -fx-background-color: red;
-}
-
-.startScanning {
-}
-
-.startScanning:hover {
-    -fx-background-color: #64EE64;
-}

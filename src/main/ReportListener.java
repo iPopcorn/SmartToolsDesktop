@@ -6,7 +6,6 @@ import com.impinj.octane.TagReport;
 import com.impinj.octane.TagReportListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**

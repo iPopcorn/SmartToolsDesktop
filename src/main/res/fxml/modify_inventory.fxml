@@ -10,7 +10,7 @@
 
 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ModifyInventoryController">
    <children>
-      <ToolBar layoutX="10.0" layoutY="10.0" prefHeight="78.0" prefWidth="777.0">
+      <ToolBar layoutX="10.0" layoutY="5.0" prefHeight="83.0" prefWidth="777.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
             <Button id="btnAdd" fx:id="btnAdd" alignment="BOTTOM_CENTER" contentDisplay="TOP" onAction="#newTool" prefHeight="64.0" prefWidth="96.0" styleClass="toolBarBtn" stylesheets="@../stylesheet/toolbar.css" text="Add Tool" textAlignment="CENTER" wrapText="true">
                <font>
@@ -23,8 +23,6 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#deleteTool" text="Delete" />
-            <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#newTool" text="Add" />
             <Label fx:id="labelError" prefHeight="17.0" prefWidth="193.0" textFill="#f80202" />
          </items>
       </ToolBar>

@@ -16,8 +16,10 @@ public class InventoryCell extends ListCell<Tool> {
         if(item != null || !empty)
         {
             String description = "Name: " + item.getName() + "\n" +
-                    "Address: " + item.getAddress() + "\n" +
-                    "Drawer: " + item.getAddress().substring(2,3);
+                    "ID: " + item.getId() + "\n" +
+                    "Toolbox #: " + item.getAddress().substring(0,2) + "\n" +
+                    "Drawer: " + item.getAddress().substring(2,3) + "\n" +
+                    "Position #: " + item.getAddress().substring(3,5);
             this.setText(description);
             this.setGraphic(null);
         }
