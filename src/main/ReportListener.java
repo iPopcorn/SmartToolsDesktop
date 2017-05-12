@@ -14,10 +14,13 @@ import java.util.List;
  * The ReportListener is a TagReportListener implementation meant to be used with the Generate Report use case.
  */
 public class ReportListener implements TagReportListener {
+
     private ArrayList<String> reportList;
+
     public ReportListener(){
         this.reportList = new ArrayList<>();
     }
+
     // todo: optimize handling duplicates
     public void onTagReported(ImpinjReader reader, TagReport report){
         List tagList = report.getTags();

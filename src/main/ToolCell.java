@@ -3,26 +3,36 @@ package main;
 import javafx.scene.control.ListCell;
 
 /**
- * Created by mwhar on 1/11/2017.
+ * ToolCell - A cell (row) inside of a ListView object meant to display information about a Tool object.
  */
-
 public class ToolCell extends ListCell<Tool> {
 
-    // Populates a list cell with a tool's information only if it contains a tool item/isn't empty
+
     @Override
+    /** Updates the display of an ToolCell
+     *
+     */
     public void updateItem(Tool item, boolean empty)
     {
         super.updateItem(item, empty);
 
+        // If the ToolCell inside of the ListView is occupied by a Tool object then we display its information,
+        // otherwise we show nothing
         if(item != null || !empty)
         {
+            // Create a string containing all of the Tool object's information
             String description = "Name: " + item.getName() + "\n" +
                     "ID: " + item.getId() + "\n" +
                     "Toolbox #: " + item.getAddress().substring(0,2) + "\n" +
                     "Drawer: " + item.getAddress().substring(2,3) + "\n" +
                     "Position #: " + item.getAddress().substring(3,5);
+
+            // Display the Tool object's information
             this.setText(description);
             this.setGraphic(null);
+
+            // Non-Functioning - Supposed to change the style of a ToolCell so if it was found to be inside of its
+            // assigned toolbox then it had a green background and red otherwise
             if(item.getIsHome()) {
                 this.getStyleClass().removeAll("list-cell-missing");
                 this.getStyleClass().add("list-cell-found");
@@ -33,6 +43,7 @@ public class ToolCell extends ListCell<Tool> {
             }
         }
         else {
+            // Display a blank ToolCell
             this.setGraphic(null);
             this.setText(null);
         }
