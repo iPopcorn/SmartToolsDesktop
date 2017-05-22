@@ -1,5 +1,5 @@
 # Smart Tools Website
-https://github.com/iPopcorn/SmartToolsDesktop.git
+https://ipopcorn.github.io/SmartToolsDesktop/
 
 ## Responsive HTML5 website template for developers
 
